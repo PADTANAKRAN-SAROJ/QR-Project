@@ -1,4 +1,4 @@
-<?php include "connect.php" ?>
+<?php include "../connect.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,17 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>employee</title>
-    <link rel="stylesheet" type="text/css" href="./css/employee.css">
     <script src="./js/employee.js"></script>
-    <script>
-        //กดเสริฟ
-        function served() {
-            document.location = "../served?order_id="; 
-        }
-    </script>
+    <script src="./js/Switch_menu.js"></script>
+    <script src="./js/order_page.js"></script>
 </head>
 <body>
-        <div class="employeePage">
+    <div class="employeePage">
         <div class="topBar">
             <button onclick="showOrder()">Order</button>
             <button onclick="showQRCode()">QR Code</button>
@@ -79,6 +74,7 @@
                 <ul id="tableListContainer"></ul>
             </div>
         </div>
+
     </div>
 </body>
 </html>
