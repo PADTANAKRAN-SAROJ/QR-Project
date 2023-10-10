@@ -1,3 +1,13 @@
+<?php
+session_start(); // เริ่มเซสชันหรือใช้เซสชันที่มีอยู่
+
+if (!isset($_SESSION['username'])) {
+    // ถ้าไม่มีเซสชันชื่อผู้ใช้งาน หมายความว่ายังไม่เข้าสู่ระบบ
+    header("Location: login.php"); // เด้งไปยังหน้า login.php
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

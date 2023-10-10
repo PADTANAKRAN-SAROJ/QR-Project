@@ -1,12 +1,4 @@
-//---------------------------------------- สลับหน้า
-function showQRCode() {
-    document.getElementById("qrCodePage").style.display = "block";
-    document.getElementById("orderPage").style.display = "none";
-}
-function showOrder() {
-    document.getElementById("qrCodePage").style.display = "none";
-    document.getElementById("orderPage").style.display = "block";
-}
+
 
 // ฟังก์ชันสร้างรายการโต๊ะ
 function createTableList(tableCount) {
