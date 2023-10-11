@@ -6,8 +6,15 @@
 </head>
 
 <body>
+<?php
+	if(!isset($_SESSION['cart'])){
+		$_SESSION['cart']=array();
+	}	
+	?>
+
     <header>
         <h1>ประเภทอาหาร</h1>
+        <a class="cart" href="cart.php?action=">สินค้าในตะกร้า (<?=sizeof($_SESSION['cart'])?>)</a>
     </header>
     
     <div class="flex-container">
