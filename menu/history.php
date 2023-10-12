@@ -11,8 +11,10 @@
 	</header>
 
 	<div class="topnav">
-		<a href="order.php">ตะกร้าอาหาร</a>
+		<a href="order.php?action=">ตะกร้าอาหาร</a>
 		<a class="now" href="#his">ประวัติการสั่งซื้อ</a>
 	</div>
+
+	
 </body>
 </html>

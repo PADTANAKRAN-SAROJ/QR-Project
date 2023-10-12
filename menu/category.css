@@ -35,6 +35,6 @@ h1 {
     text-align: center;
 }
 
-.cart {
-    text-align: right;
+.cart i.fa-shopping-cart {
+    font-size: 80px; /* ปรับขนาดตามที่คุณต้องการ */
 }

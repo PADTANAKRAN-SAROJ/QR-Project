@@ -68,7 +68,6 @@
 			unset($_SESSION['cart'][$menu_id]);
 		}
 
-		//$menu_name = $_GET['menu_name'];
 		?>
 
 		<div class="cart-container">
