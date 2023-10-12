@@ -36,10 +36,22 @@
         <div class="menu-item">
             <img src='food/<?= $row["menu_name"] ?>.jpg'>
             <br>
-            <?php
-            echo $row["menu_name"];
-            ?>
-            <form method="post" action="cart.php?action=add&menu_id=<?=$row["menu_id"]?>&menu_name=<?=$row["menu_name"]?>&price=<?=$row["price"]?>">
+
+            <div>
+                <?php
+                echo $row["menu_name"];
+                ?>   
+            </div>
+
+            <div>
+                <?php
+                echo "ราคา:" . $row["price"];
+                ?>   
+            </div>
+
+            <br>
+            
+            <form method="post" action="order.php?action=add&menu_id=<?=$row["menu_id"]?>&menu_name=<?=$row["menu_name"]?>&price=<?=$row["price"]?>">
 				<input type="number" name="qty" value="1" min="1" max="9">
 				<input type="submit" value="ใส่ตะกร้า">	   
 			</form>

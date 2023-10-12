@@ -1,0 +1,94 @@
+header {
+    background-color: blanchedalmond;
+    padding: 10px;
+    margin: -10px;
+    margin-bottom: 15px;
+    display: flex; /* เพื่อให้ <h1> และ <a> อยู่ในหนึ่งแถว */
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    flex: 1;
+    text-align: center;
+}
+
+.back {
+    text-align: left;
+}
+
+body {
+    margin: 0;
+}
+  
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    margin-top: -15px;
+
+    display: flex;
+}
+  
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.topnav a:hover {
+    background-color: palevioletred;
+    color: white;
+}
+  
+.topnav a.now {
+    background-color: pink;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+}
+
+.cart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 30vh;*/
+    position: relative;
+}
+
+.item, .item th, .item td {
+    border: 1px solid black;
+}
+
+.item th {
+    padding: 10px;
+    background-color: #c8bc92;
+}
+
+.item td {
+    padding: 8px;
+    background-color: beige;
+}
+
+.item {
+    width: 90%;
+    /*border-radius: 1rem; */
+    border-collapse: collapse;
+    border-spacing: 0;
+    position: absolute; /* เพิ่มคุณสมบัติ position: absolute; */
+    left: 50%; /* จัดตำแหน่งให้อยู่ตรงกลางด้านซ้าย */
+    transform: translateX(-50%); /* ขยับย้ายตารางกลับไปที่ตรงกลาง */
+}
+
+.center{
+    text-align: center;
+}

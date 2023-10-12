@@ -14,7 +14,7 @@
 
     <header>
         <h1>ประเภทอาหาร</h1>
-        <a class="cart" href="cart.php?action=">สินค้าในตะกร้า (<?=sizeof($_SESSION['cart'])?>)</a>
+        <a class="cart" href="order.php?action=">สินค้าในตะกร้า (<?=sizeof($_SESSION['cart'])?>)</a>
     </header>
     
     <div class="flex-container">
