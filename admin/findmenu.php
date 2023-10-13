@@ -27,7 +27,7 @@
     table{
         margin: auto;
         text-align: center;
-
+        margin-top: 50px;
         box-shadow: 0 10px 10px 10px rgba(0, 0, 0,0.05);
         border-collapse: collapse;
         border-radius: 1rem;
@@ -112,6 +112,7 @@
     #popup-image {
         width: 300px;
         height: 300px;
+        border-radius: 10px;
     }
     </style>
 

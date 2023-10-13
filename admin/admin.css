@@ -59,13 +59,12 @@ td.center{
     
 }
 
-.aa{
+.aa {
     display: flex;
-    width: auto;
-    justify-content: flex-end;
-    gap: 1rem;
+    gap: 1rem; /* เพิ่มระยะห่างระหว่างองค์ประกอบ */
+    width: 100%;
+    align-items: center; /* จัดองค์ประกอบให้แนวตรงกัน */
 }
-
 
 input.withicon{
     width: 100%;
@@ -104,10 +103,10 @@ input.withicon{
 .nextButton{
     color: white;
     border: none;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 5px 25px 5px 25px;
     display: inline-block;
-    border-radius: 2rem;
-    background-color: #609966; /* #cbe2c5 */
+    border-radius: 10px;
+    background-color: palevioletred; /* #cbe2c5 */
     transition: 0.2s;
     text-align: center;
 }
@@ -155,5 +154,29 @@ input.withicon{
 #popup-image {
     width: 300px;
     height: 300px;
+    border-radius: 10px;
 }
 
+.confirmButton{
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+    border-radius: 0.5rem;
+    background-color: #609966; /* #cbe2c5 */
+    transition: 0.2s;
+
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+.confirmButton:hover{
+    background-color: #25814c;
+}
+
+.add{
+    text-align: right;
+}

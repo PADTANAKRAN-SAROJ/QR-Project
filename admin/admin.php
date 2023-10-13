@@ -43,11 +43,14 @@
             <div class="warpborder tt1">
                 <img src="icon\search.png">
                 <input class="withicon" name="menu_name" placeholder="ค้นหาชื่อเมนู" />
-            </div>
-            <div class="aa">
                 <input class="nextButton" type="submit" value="ค้นหา">
             </div>
+            
         </form>
+
+        <div class="tt1 add">
+            <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
+        </div>
     </div>
 
     <table class="t8">
