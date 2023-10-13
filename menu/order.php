@@ -16,7 +16,9 @@
 <body>
 
 	<header>
-		<a class="back" href="category.php">< กลับไปหน้าหลัก</a>
+		<div class="back">
+            <a href="category.php"><img src="icon\back.png" width="30rem"></a>
+        </div>
 		<h1>รวมรายการที่สั่ง</h1>
 	</header>
 
@@ -71,11 +73,13 @@
 		?>
 
 		<div class="cart-container">
-			<form>
+			<form action="./addorder.php" method="post" enctype="multipart/form-data">
 			<table class="item">
 			<th>ชื่อเมนู</th><th>ราคา</th><th>จำนวน</th>
-				<?php 
-				$sum = 0;
+			<?php 
+			$sum = 0;
+
+			if(!empty($_SESSION["cart"])){
 				foreach ($_SESSION["cart"] as $item) {
 					$sum += $item["price"] * $item["qty"];
 				?>
@@ -96,13 +100,25 @@
 						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>">ลบ</a>
 					</td>
 				</tr>
+				<?php
+				}
+			}
+			?>
 
-				<?php } ?>
 				<div>
 					<tr><td colspan="3" align="center">ราคารวม <?=$sum?> บาท</td></tr>
 				</div>
 				
 			</table>
+
+			<div class="c6" align="right" >
+				<a href="order.php">
+				<input class="orderConfirmButton" type="submit" name="Submit" value="ยืนยันคำสั่งซื้อ" /></input>
+				</a>
+			</div>
+
+			<input type="submit" value="เพิ่มสมาชิก">
+
 			</form>
 		</div>
 	</div>
