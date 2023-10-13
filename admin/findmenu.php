@@ -135,7 +135,7 @@
 
     <header>
         <div class="back">
-            <a href="category.php"><img src="..\menu\icon\back.png" width="30rem"></a>
+            <a href="admin.php"><img src="..\menu\icon\back.png" width="30rem"></a>
         </div>
 		<h1>เมนูอาหารที่ค้นหา</h1>
 	</header>
