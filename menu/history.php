@@ -6,7 +6,9 @@
 
 <body>
 	<header>
-		<a class="back" href="category.php">< กลับไปหน้าหลัก</a>
+		<div class="back">
+            <a href="category.php"><img src="icon\back.png" width="30rem"></a>
+        </div>
 		<h1>รวมรายการที่สั่ง</h1>
 	</header>
 

@@ -14,7 +14,9 @@
 
     <header>
         <h1>ประเภทอาหาร</h1>
-        <a class="cart" href="order.php?action=">สินค้าในตะกร้า (<?=sizeof($_SESSION['cart'])?>)</a>
+        <div class="icon">
+            <a href="order.php?action="><img src="icon\shopping-cart.png" width="30rem"></a>
+        </div>
     </header>
     
     <div class="flex-container">

@@ -38,3 +38,12 @@ h1 {
 .cart i.fa-shopping-cart {
     font-size: 80px; /* ปรับขนาดตามที่คุณต้องการ */
 }
+
+.icon{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 10%;
+
+    margin-right: 15px;
+}

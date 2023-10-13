@@ -39,3 +39,12 @@ h1 {
 .back {
     text-align: left;
 }
+
+.icon{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 10%;
+
+    margin-right: 15px;
+}
