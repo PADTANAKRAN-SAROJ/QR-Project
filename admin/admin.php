@@ -67,7 +67,7 @@
                 echo "<td>" . $row["menu_name"] . "</td>";
                 echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_name'] . '.jpg\')">ดูรูป</button></td>';
                 echo "<td>" . $row["category"] . "</td>";
-                echo "<td>" . $row["price"] . " บาท" . "</td>";
+                echo "<td>" . $row["price"] . "</td>";
             echo "</tr>";
         }
         ?>
