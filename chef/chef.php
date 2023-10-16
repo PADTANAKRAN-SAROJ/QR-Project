@@ -9,8 +9,9 @@
     <h1>รายการอาหารที่สั่ง</h1>
 
     <?php
-    // สร้างคำสั่ง SQL สำหรับดึงข้อมูลจากตาราง orders
-    $sql = "SELECT * FROM orders";
+    // สร้างคำสั่ง SQL เพื่อดึงข้อมูลเฉพาะรหัสรายการ (order_id), ชื่อเมนู (menu_name), จำนวน (quantity), และรายละเอียด (detail)
+    $sql = "SELECT orders.order_id, menu.menu_name, orders.quantity, orders.detail FROM orders
+            INNER JOIN menu ON orders.menu_id = menu.menu_id";
 
     // ทำการ query ข้อมูลโดยใช้ PDO
     $stmt = $pdo->query($sql);
@@ -18,10 +19,10 @@
     // ตรวจสอบว่ามีข้อมูลหรือไม่
     if ($stmt->rowCount() > 0) {
         echo "<table>";
-        echo "<tr><th>รหัสรายการ</th><th>รหัสลูกค้า</th><th>รหัสรายการอาหาร</th><th>จำนวน</th><th>สถานะ</th><th>รายละเอียด</th><th>เวลาที่สั่ง</th></tr>";
+        echo "<tr><th>รหัสรายการ</th><th>ชื่อเมนู</th><th>จำนวน</th><th>รายละเอียด</th></tr>";
 
         while ($row = $stmt->fetch()) {
-            echo "<tr><td>".$row["order_id"]."</td><td>".$row["cus_id"]."</td><td>".$row["menu_id"]."</td><td>".$row["quantity"]."</td><td>".$row["process"]."</td><td>".$row["detail"]."</td><td>".$row["order_timestamp"]."</td></tr>";
+            echo "<tr><td>".$row["order_id"]."</td><td>".$row["menu_name"]."</td><td>".$row["quantity"]."</td><td>".$row["detail"]."</td></tr>";
         }
 
         echo "</table>";
