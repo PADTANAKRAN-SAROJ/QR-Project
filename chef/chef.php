@@ -14,8 +14,8 @@
         $order_id = $_POST['order_id'];
         $action = $_POST['action'];
 
-        // You can add code here to handle the "Cancel" and "Complete" actions in the database.
-        // For now, let's just display a confirmation message and remove the row from the display.
+        //"Cancel" and "Complete" actions in the database.
+        
         if ($action == 'cancel') {
             echo "Order $order_id has been canceled.";
         } elseif ($action == 'complete') {
