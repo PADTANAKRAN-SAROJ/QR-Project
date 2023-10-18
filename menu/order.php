@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel="stylesheet" href="order.css">
+	<link rel="stylesheet" href="css/order.css">
 
 	<script>
 		// ใช้สำหรับปรับปรุงจำนวนสินค้า
@@ -26,9 +26,6 @@
 		<a class="now" href="#list">ตะกร้าอาหาร</a>
 		<a href="history.php">ประวัติการสั่งซื้อ</a>
 	</div>
-
-	<div id="list">
-		<h2>ตะกร้าสินค้า</h2>
 
 		<?php
 		session_start();
@@ -73,9 +70,15 @@
 		?>
 
 		<div class="cart-container">
-			<form action="./addorder.php" method="post" enctype="multipart/form-data">
+			<h2>ตะกร้าอาหาร</h2>
+			<form action="addorder.php" method="post" enctype="multipart/form-data">
 			<table class="item">
-			<th>ชื่อเมนู</th><th>ราคา</th><th>จำนวน</th>
+				<tr>
+					<th>ชื่อเมนู</th>
+					<th>ราคา</th>
+					<th>จำนวน</th>
+				</tr>
+			
 			<?php 
 			$sum = 0;
 
@@ -87,7 +90,7 @@
 					<td>
 						<?php
 						if (isset($item["menu_name"])) {
-							echo $item["menu_name"];
+							echo $item["menu_name"]; 
 						} else {
 							echo "ไม่พบชื่อสินค้า";
 						}
@@ -104,10 +107,9 @@
 				}
 			}
 			?>
-
-				<div>
-					<tr><td colspan="3" align="center">ราคารวม <?=$sum?> บาท</td></tr>
-				</div>
+				<tr>
+					<td colspan="3" align="center">ราคารวม <?=$sum?> บาท</td>
+				</tr>
 				
 			</table>
 
@@ -117,11 +119,8 @@
 				</a>
 			</div>
 
-			<input type="submit" value="เพิ่มสมาชิก">
-
 			</form>
 		</div>
-	</div>
 
 </body>
 </html>

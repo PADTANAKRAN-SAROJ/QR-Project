@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel="stylesheet" href="history.css">
+	<link rel="stylesheet" href="css/history.css">
 
 </head>
 

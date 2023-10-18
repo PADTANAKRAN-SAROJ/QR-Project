@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="category.css">
+    <link rel="stylesheet" href="css/category.css">
 </head>
 
 <body>
