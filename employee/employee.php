@@ -6,9 +6,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>employee</title>
-    <script src="./js/employee.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/employee.css">
+
     <script src="./js/Switch_menu.js"></script>
-    <script src="./js/order_page.js"></script>
+    <script type="text/javascript">
+            //qr - page
+            // ประกาศฟังก์ชันเพื่อเปลี่ยน URL สำหรับแสดงรายละเอียด
+            function showDetail(cus_id) {
+                var url = "./detailQr.php?cus_id=" + cus_id;
+                window.location.href = url;
+            }
+
+            // ประกาศฟังก์ชันสำหรับเปลี่ยน URL สำหรับสร้างรหัส QR
+            function createQR(tableNumber) {
+                var url = "./createQr.php?table_number=" + tableNumber;
+                window.location.href = url;
+            }
+
+            //order page
+            function served() {
+                console.log("test");
+                var id = document.getElementById("order_id").value;
+
+                var xhttp = new XMLHttpRequest();
+                var url = "served.php?order_id=" + id; // ใช้ query parameter
+                xhttp.open("GET", url);
+                xhttp.onload = function () {
+                    if (this.status === 200) {
+                        location.reload();
+                    }
+                };
+                xhttp.send();
+            }
+
+            
+            //ajax realtime
+            function orderPage() {
+                var xhttp1 = new XMLHttpRequest();
+                xhttp1.onload = function () {
+                    if (this.status === 200) {
+                        document.getElementById("orderPage").innerHTML = this.responseText;
+                    }
+                };
+                xhttp1.open("GET", "./order.php");
+                xhttp1.send();
+            }
+
+            function qrPage() {
+                var xhttp2 = new XMLHttpRequest();
+                xhttp2.onload = function () {
+                    if (this.status === 200) {
+                        document.getElementById("qrPage").innerHTML = this.responseText;
+                    }
+                };
+                xhttp2.open("GET", "./qr.php");
+                xhttp2.send();
+            }
+
+            // เรียกใช้ฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จสิ้น
+            window.onload = orderPage;
+            window.onload = qrPage;
+
+            setInterval(orderPage, 500);  // 2 วิ
+            setInterval(qrPage, 2000);
+        </script>
 </head>
 <body>
     <div class="employeePage">
@@ -18,61 +79,11 @@
         </div>
         
         <!-- หน้า Order -->
-        <div id="orderPage">
-            <table>
-                <tr>
-                    <th>เมนู</th>
-                    <th>จำนวน</th>
-                    <th>โต๊ะ</th>
-                    <th>ส่งงาน</th>
-                </tr>
-
-                <?php
-                $stmt = $pdo->prepare("SELECT *
-                    FROM orders o
-                    INNER JOIN menu m ON o.menu_id = m.menu_id
-                    INNER JOIN customer c ON o.cus_id = c.cus_id
-                    WHERE o.process LIKE '%Serve%';
-                ");
-
-                $stmt->execute();
-                $rows = $stmt->fetchAll();
-
-                foreach ($rows as $row) {
-                ?>
-
-                <tr>
-                    <form action="served.php" method="post">
-                        <input type="hidden" value="<?=$row ['order_id']?>" name="order_id" >
-                        <td><?=$row ["menu_name"]?> (<?=$row ["category"]?>)</td>
-                        <td><?=$row ["quantity"]?></td>
-                        <td><?=$row ["table_number"]?></td>
-                        <td><input type="submit" value="เสร็จสิน"></td>
-                    </form>
-                </tr>
-
-                <?php } ?>
-
-            </table>
-        </div>
+        <div id="orderPage"></div>
 
         <!-- หน้า QR Code -->
         <div id="qrCodePage" style="display: none;">
-            <div class="tableCount">
-                <p>จำนวนโต๊ะ: <span id="tableCount">10</span></p>
-                <button id="editTableButton" onclick="editTable()">แก้ไข</button>
-                <button id="saveTableButton" style="display: none;" onclick="saveTable()">บันทึก</button>
-            </div>
-            <div class="editQR">
-                <button onclick="createQR()">สร้าง QR</button>
-                <button onclick="deleteQR()">ลบ QR</button>
-                <button onclick="viewQR()">ดู QR</button>
-            </div>
-            <h3>รายการโต๊ะ:</h3>
-            <div class="tableList">
-                <!-- สร้างรายการโต๊ะตามจำนวนที่ระบุ -->
-                <ul id="tableListContainer"></ul>
-            </div>
+            <div id="qrPage"></div>
         </div>
 
     </div>
