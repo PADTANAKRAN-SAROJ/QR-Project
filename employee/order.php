@@ -31,7 +31,7 @@
         <td><?=$row ["menu_name"]?> (<?=$row ["category"]?>)</td>
         <td><?=$row ["quantity"]?></td>
         <td><?=$row ["table_number"]?></td>
-        <td><input type="submit" onclick="served()"></td>
+        <td><input type="submit" onclick="served(this)"></td>
     </tr>
     <?php }
     } else {

@@ -24,16 +24,17 @@
             }
 
             //order page
-            function served() {
-                console.log("test");
-                var id = document.getElementById("order_id").value;
+            function served(button) {
+                console.log("served!!");
+                var orderRow = button.parentElement.parentElement; // รับแถวข้อมูลออร์เดอร์ที่ถูกคลิก
+                var id = orderRow.querySelector("#order_id").value;
 
                 var xhttp = new XMLHttpRequest();
                 var url = "served.php?order_id=" + id; // ใช้ query parameter
                 xhttp.open("GET", url);
                 xhttp.onload = function () {
                     if (this.status === 200) {
-                        location.reload();
+                        orderPage(); // อัพเดตหน้า Order โดยเรียกฟังก์ชัน orderPage()
                     }
                 };
                 xhttp.send();
@@ -42,15 +43,16 @@
             
             //ajax realtime
             function orderPage() {
-                var xhttp1 = new XMLHttpRequest();
-                xhttp1.onload = function () {
-                    if (this.status === 200) {
-                        document.getElementById("orderPage").innerHTML = this.responseText;
-                    }
-                };
-                xhttp1.open("GET", "./order.php");
-                xhttp1.send();
-            }
+            var xhttp1 = new XMLHttpRequest();
+            xhttp1.onload = function () {
+                if (this.status === 200) {
+                    document.getElementById("orderPage").innerHTML = this.responseText;
+                }
+            };
+            xhttp1.open("GET", "./order.php");
+            xhttp1.send();
+        }
+
 
             function qrPage() {
                 var xhttp2 = new XMLHttpRequest();
@@ -67,7 +69,7 @@
             window.onload = orderPage;
             window.onload = qrPage;
 
-            setInterval(orderPage, 500);  // 2 วิ
+            setInterval(orderPage, 100); 
             setInterval(qrPage, 2000);
         </script>
 </head>
@@ -85,7 +87,6 @@
         <div id="qrCodePage" style="display: none;">
             <div id="qrPage"></div>
         </div>
-
     </div>
 </body>
 </html>
