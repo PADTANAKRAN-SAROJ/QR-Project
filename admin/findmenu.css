@@ -208,11 +208,8 @@ input.withicon{
     display: inline-block;
     border-radius: 0.5rem;
     background-color: #609966; /* #cbe2c5 */
-    transition: 0.2s;
-
     text-align: center;
     font-size: 1rem;
-    font-family: 'Noto Sans Thai', sans-serif;
 }
 .confirmButton:hover{
     background-color: #25814c;
@@ -220,4 +217,20 @@ input.withicon{
 
 .add{
     text-align: right;
+}
+
+.editButton{
+    color: white;
+    border: none;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: inline-block;
+    border-radius: 0.5rem;
+    background-color: #FFB500; /* #cbe2c5 */
+    text-align: center;
+    font-size: 1rem;
+}
+.editButton:hover{
+    background-color: #e78504;
 }

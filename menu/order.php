@@ -78,6 +78,7 @@
 				<tr>
 					<th>ชื่อเมนู</th>
 					<th>ราคา</th>
+					<th>รายละเอียด</th>
 					<th>จำนวน</th>
 				</tr>
 			
@@ -99,6 +100,9 @@
 						?>
 					</td>
 					<td class="center"><?=$item["price"]?></td>
+					<td>
+						<input class="a10" type="text" placeholder="รายละเอียด" name="detail" value=""/>
+					</td>
 					<td class="center">            
 						<input type="number" id="<?=$item["menu_id"]?>" value="<?=$item["qty"]?>" min="1" max="9">
 						<a href="#" onclick="update(<?=$item["menu_id"]?>)">แก้ไข</a>
@@ -116,7 +120,7 @@
 			</table>
 
 			<div class="c6" align="right" >
-				<a href="order.php">
+				<a href="addorder.php">
 				<input class="orderConfirmButton" type="submit" name="Submit" value="ยืนยันคำสั่งซื้อ" /></input>
 				</a>
 			</div>

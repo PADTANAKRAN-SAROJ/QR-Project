@@ -128,3 +128,11 @@ td.center{
     text-align: center;
     
 }
+
+input.a10 {
+    width: 100px; 
+    height: 30px; 
+    border-radius: 1rem;
+    margin: 0.5rem 0; 
+    padding: 15px;  
+}

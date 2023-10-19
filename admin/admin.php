@@ -49,6 +49,7 @@
         <div class="c6">
             <div class="tt1 add">
                 <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
+                <a href="edit.php"><button class="editButton">แก้ไข</button></a>
             </div>
         </div>
 
