@@ -27,6 +27,8 @@
 		<a href="history.php">ประวัติการสั่งซื้อ</a>
 	</div>
 
+	<div id="list">
+
 		<?php
 		session_start();
 
@@ -121,6 +123,6 @@
 
 			</form>
 		</div>
-
+	</div>
 </body>
 </html>

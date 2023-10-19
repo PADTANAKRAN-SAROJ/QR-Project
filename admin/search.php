@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="findmenu.css">
+
+    <script>
+        function showPopup(imageUrl) {
+            // Set the image source of the popup window
+            document.getElementById("popup-image").src = imageUrl;
+
+            // Show the popup window
+            document.getElementById("popup").style.display = "block";
+        }
+
+
+        function hidePopup() {
+            // Hide the popup window
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
 </head>
 <body>
 
     <?php
     $menu_name = $_GET["menu_name"];
-    echo $menu_name . "<br>";
+    //echo $menu_name . "<br>";
     try {
         $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "");
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,22 +44,25 @@
     ?>
      
     <table border="1">
-        <tr>
-            <th>ชื่อรายการ</th>
-            <!---<th>รูปภาพ</th>-->
-            <th>ประเภท</th>
-            <th>ราคา</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ชื่อรายการ</th>
+                <th>รูปภาพ</th>
+                <th>ประเภท</th>
+                <th>ราคา</th>
+            </tr>
+        </thead>
         
+        <tbody>
         <?php foreach ($result as $row): ?>
             
             <tr>
                 <td>
                     <?php echo $row["menu_name"] ?>
                 </td>
-                <!--<td>
-                    echo $row["name"]
-                </td>-->
+                <td>
+                    <button onclick="showPopup('../menu/food/<?php echo $row['menu_name']; ?>.jpg')">ดูรูป</button>
+                </td>
                 <td>
                     <?php echo $row["category"] ?>
                 </td>
@@ -50,8 +71,8 @@
                 </td>
             </tr>
         <?php endforeach; ?>
+        </tbody>
     </table>
 
-        
 </body>
 </html>

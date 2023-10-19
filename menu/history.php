@@ -17,6 +17,8 @@
 		<a class="now" href="#his">ประวัติการสั่งซื้อ</a>
 	</div>
 
-	
+	<div id="his">
+
+	</div>
 </body>
 </html>

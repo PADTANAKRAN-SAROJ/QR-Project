@@ -16,30 +16,12 @@
             document.getElementById("popup").style.display = "block";
         }
 
-
         function hidePopup() {
             // Hide the popup window
             document.getElementById("popup").style.display = "none";
         }
 
-        function send() {
-            request = new XMLHttpRequest();
-            request.onreadystatechange = showResult;
-            var menu_name = document.getElementById("menu_name").value; // ใช้ตัวแปร menu_name
-            var url = "search.php?menu_name=" + menu_name; // ใช้ตัวแปร menu_name
-            request.open("GET", url, true);
-            request.send(null);
-        }
-
-        function showResult() {
-            if (request.readyState == 4) {
-            if (request.status == 200)
-                document.getElementById("result").innerHTML = request.responseText;
-            }
-        }
     </script>
-
-
 </head>
 
 <body>
@@ -53,27 +35,23 @@
     ?>
 
     <header>
-		<h1>เมนูอาหารทั้งหมด</h1>
+		<h1>ADMIN</h1>
 	</header>
 
-    <div class="c6">
-        <form method="get" action="findmenu.php">
-            <div class="warpborder tt1">
-                <img src="icon\search.png">
-                <input class="withicon" type="text" id="menu_name" onkeyup="send()">
-                <!--<input class="withicon" name="menu_name" placeholder="ค้นหาชื่อเมนู" />
-                <input class="nextButton" type="submit" value="ค้นหา"> -->
-            </div>
-            
-        </form>
+    <div class="topnav">
+		<a class="now" href="#list">รายการอาหารทั้งหมด</a>
+		<a href="findmenu.php">ค้นหาเมนู</a>
+	</div>
+    
+    <div id="list">
+        <h2>รายการอาหารทั้งหมด</h2>
 
+    <div class="c6">
         <div class="tt1 add">
             <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
         </div>
     </div>
 
-    <div id="result"></div>
-    
     <table class="t8">
         <thead>
             <tr>
@@ -98,6 +76,7 @@
         </tbody>
     </table>
 
+    </div>
 
     <div id="popup" class="overlay">
         <div class="popup center">
@@ -108,6 +87,6 @@
             </div>
         </div>
     </div>
-
+    
 </body>
 </html>
