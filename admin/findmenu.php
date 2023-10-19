@@ -52,8 +52,9 @@
 	</div>
 
     <div id="find">
+        <h2>ค้นหาเมนู</h2>
+        
         <div class="c6">
-            
             <div class="warpborder tt1">
                 <img src="icon\search.png">
                 <input class="withicon" type="text" id="menu_name" onkeyup="send()">

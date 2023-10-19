@@ -46,35 +46,35 @@
     <div id="list">
         <h2>รายการอาหารทั้งหมด</h2>
 
-    <div class="c6">
-        <div class="tt1 add">
-            <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
+        <div class="c6">
+            <div class="tt1 add">
+                <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
+            </div>
         </div>
-    </div>
 
-    <table class="t8">
-        <thead>
-            <tr>
-                <th>ชื่อรายการ</th>
-                <th>รูปภาพ</th>
-                <th>ประเภท</th>
-                <th>ราคา</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-        <?php
-        while ($row = $stmt->fetch()) {
-            echo "<tr>";
-                echo "<td>" . $row["menu_name"] . "</td>";
-                echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_name'] . '.jpg\')">ดูรูป</button></td>';
-                echo "<td>" . $row["category"] . "</td>";
-                echo "<td>" . $row["price"] . "</td>";
-            echo "</tr>";
-        }
-        ?>
-        </tbody>
-    </table>
+        <table class="t8">
+            <thead>
+                <tr>
+                    <th>ชื่อรายการ</th>
+                    <th>รูปภาพ</th>
+                    <th>ประเภท</th>
+                    <th>ราคา</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+            <?php
+            while ($row = $stmt->fetch()) {
+                echo "<tr>";
+                    echo "<td>" . $row["menu_name"] . "</td>";
+                    echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_name'] . '.jpg\')">ดูรูป</button></td>';
+                    echo "<td>" . $row["category"] . "</td>";
+                    echo "<td>" . $row["price"] . "</td>";
+                echo "</tr>";
+            }
+            ?>
+            </tbody>
+        </table>
 
     </div>
 

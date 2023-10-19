@@ -6,22 +6,6 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="findmenu.css">
-
-    <script>
-        function showPopup(imageUrl) {
-            // Set the image source of the popup window
-            document.getElementById("popup-image").src = imageUrl;
-
-            // Show the popup window
-            document.getElementById("popup").style.display = "block";
-        }
-
-
-        function hidePopup() {
-            // Hide the popup window
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
 </head>
 <body>
 
@@ -43,7 +27,7 @@
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
      
-    <table border="1">
+    <table class="t8">
         <thead>
             <tr>
                 <th>ชื่อรายการ</th>
