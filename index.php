@@ -61,7 +61,7 @@ if (!isset($_SESSION['username'])) {
         <a class="menu-link" href="./admin/admin.php">Admin</a>
         <a class="menu-link" href="./chef/chef.php">Chef</a>
         <a class="menu-link" href="./employee/employee.php">Employee</a>
-        <a class="menu-link" href="./menu/menu.php">Menu</a>
+        <a class="menu-link" href="./menu/category.php">Menu</a>
     </div>
 </body>
 </html>

@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: blanchedalmond;
+    padding: 10px;
+    margin: -10px;
+    
+    display: flex; /* เพื่อให้ <h1> และ <a> อยู่ในหนึ่งแถว */
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    flex: 1;
+    text-align: center;
+}
+
+input{
+    border: 1px solid #8f8f8f;
+    padding: 4px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+    width: max-content;
+    margin-top: 50px;
+    font-size: large;
+    border: 1px solid #D9D9D9;
+    padding: 40px 350px;
+    padding-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+.center p {
+    text-align: left; /* จัดให้ข้อความอยู่ด้านซ้าย */
+    margin-bottom: 10px;
+}
+
+input, select {
+    margin-top: 10px;
+    display: block; /* ให้ <input> เริ่มบรรทัดใหม่ */
+}
+
+
+.select-add {
+    width: 50%; /* ให้ความกว้างเต็มหน้าจอ */
+    padding: 4px;
+    border-radius: 5px;
+    text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+}
+
+.confirmButton{
+    color: white;
+    border: none;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+    border-radius: 0.5rem;
+    background-color: #609966; /* #cbe2c5 */
+    text-align: center;
+    font-size: 1rem;
+}
+
+img {
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.05);
+}

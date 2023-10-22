@@ -132,7 +132,8 @@ td.center{
 input.a10 {
     width: 100px; 
     height: 30px; 
-    border-radius: 1rem;
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 6px;
     margin: 0.5rem 0; 
     padding: 15px;  
 }

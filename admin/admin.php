@@ -49,7 +49,7 @@
         <div class="c6">
             <div class="tt1 add">
                 <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
-                <a href="edit.php"><button class="editButton">แก้ไข</button></a>
+                <!--<a href="edit.php"><button class="editButton">แก้ไข</button></a> -->
             </div>
         </div>
 
@@ -60,6 +60,7 @@
                     <th>รูปภาพ</th>
                     <th>ประเภท</th>
                     <th>ราคา</th>
+                    <th></th>
                 </tr>
             </thead>
             
@@ -71,6 +72,7 @@
                     echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_name'] . '.jpg\')">ดูรูป</button></td>';
                     echo "<td>" . $row["category"] . "</td>";
                     echo "<td>" . $row["price"] . "</td>";
+                    echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข</button></a></td>";
                 echo "</tr>";
             }
             ?>

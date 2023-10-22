@@ -114,7 +114,7 @@
 			}
 			?>
 				<tr>
-					<td colspan="3" align="center">ราคารวม <?=$sum?> บาท</td>
+					<td colspan="4" align="center">ราคารวม <?=$sum?> บาท</td>
 				</tr>
 				
 			</table>

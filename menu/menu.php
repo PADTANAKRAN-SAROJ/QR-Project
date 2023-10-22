@@ -47,7 +47,7 @@
 
             <div>
                 <?php
-                echo "ราคา:" . $row["price"];
+                echo "ราคา: " . $row["price"] . " บาท";
                 ?>   
             </div>
 

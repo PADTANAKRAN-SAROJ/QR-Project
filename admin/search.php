@@ -34,6 +34,7 @@
                 <th>รูปภาพ</th>
                 <th>ประเภท</th>
                 <th>ราคา</th>
+                <th></th>
             </tr>
         </thead>
         
@@ -52,6 +53,9 @@
                 </td>
                 <td>
                     <?php echo $row["price"] ?>
+                </td>
+                <td>
+                    <a href='edit.php?menu_id=<?php echo $row["menu_id"] ?>'><button class='editButton'>แก้ไข</button></a>
                 </td>
             </tr>
         <?php endforeach; ?>
