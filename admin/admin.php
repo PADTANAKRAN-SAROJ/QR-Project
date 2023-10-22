@@ -61,6 +61,7 @@
                     <th>ประเภท</th>
                     <th>ราคา</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             
@@ -73,6 +74,7 @@
                     echo "<td>" . $row["category"] . "</td>";
                     echo "<td>" . $row["price"] . "</td>";
                     echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข</button></a></td>";
+                    echo "<td><a href='delete.php?menu_id=" . $row["menu_name"] . "' onclick='confirmDelete(\"" . $row["menu_id"] . "\")'><button class='deleteButton'>ลบ</button></a></td>";
                 echo "</tr>";
             }
             ?>
@@ -91,5 +93,18 @@
         </div>
     </div>
     
+    <script>
+        function confirmDelete(menu_name) {
+            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
+            if (ans == true) {
+                // ให้เปลี่ยนเส้นทางไปยังหน้า remove.php พร้อม ID ของรายการที่ต้องการลบ
+                document.location = "delete.php?menu_name=" + menu_name;
+            } else {
+                // ถ้ากด "Cancel" ให้ย้อนกลับไปยังหน้าเดิม
+                window.history.back();
+            }
+        }
+    </script>
+
 </body>
 </html>

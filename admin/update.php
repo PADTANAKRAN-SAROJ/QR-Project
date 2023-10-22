@@ -14,14 +14,29 @@
         $menu_name = $_POST["menu_name"];
         $price = $_POST["price"];
         $category = $_POST["category"];
+ 
+        // เช็คว่ามีการอัปโหลดไฟล์รูปภาพใหม่หรือไม่
+        if (isset($_FILES["profile"]) && is_uploaded_file($_FILES["profile"]["tmp_name"])) {
+            // ลบไฟล์เดิม
+            $oldProfilePicture = "../menu/food/" . $menu_name . ".jpg";
+            if (file_exists($oldProfilePicture)) {
+                unlink($oldProfilePicture);
+            }
 
+            // อัปโหลดรูปภาพใหม่
+            $profilePicture = $_FILES["profile"];
 
-        // ตรวจสอบค่าที่รับมาจากแบบฟอร์ม
-        $category = $_POST["category"];
-        echo "category: " . $category;
-        
+            $uploadDirectory = "../menu/food/";
+            $profilePictureName = $menu_name . ".jpg";
 
-        // ตรวจสอบว่ามีการอัปโหลดไฟล์รูปภาพใหม่หรือไม่
+            if (move_uploaded_file($profilePicture["tmp_name"], $uploadDirectory . $profilePictureName)) {
+                // ได้ทำการอัปโหลดรูปภาพเรียบร้อยแล้ว
+            } else {
+                echo "เกิดข้อผิดพลาดในการอัปโหลดรูปภาพ";
+            }
+        }
+
+        // แก้ไขภาพมั้ย
         if (isset($_FILES["profile"]) && is_uploaded_file($_FILES["profile"]["tmp_name"])) {
             // อัปโหลดรูปภาพใหม่เฉพาะหากมีการเลือกไฟล์ใหม่
             $profilePicture = $_FILES["profile"];

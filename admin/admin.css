@@ -175,7 +175,6 @@ td.center{
 .confirmButton{
     color: white;
     border: none;
-    cursor: pointer;
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
@@ -208,3 +207,20 @@ td.center{
 .editButton:hover{
     background-color: #e78504;
 }
+
+.deleteButton{
+    color: white;
+    border: none;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: inline-block;
+    border-radius: 0.5rem;
+    background-color: #c60000; /* #cbe2c5 */
+    text-align: center;
+    font-size: 1rem;
+}
+.deleteButton:hover{
+    background-color: #e70404;
+}
+ 

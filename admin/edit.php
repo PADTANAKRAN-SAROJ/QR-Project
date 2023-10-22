@@ -46,7 +46,7 @@
             <p>
                 ประเภทอาหาร:
                 <select class="select-add" name="category" id="category">
-                    <option value="">-เลือกประเภท</option>
+                    <option value="<?=$row["category"]?>"><?=$row["category"]?></option>
                     <?php foreach($categories as $category) { ?>
                         <option value="<?=$category['category'];?>"><?=$category['category'];?></option>
                     <?php } ?>
