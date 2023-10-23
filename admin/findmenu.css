@@ -234,3 +234,21 @@ input.withicon{
 .editButton:hover{
     background-color: #e78504;
 }
+
+.deleteButton{
+    color: white;
+    border: none;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: inline-block;
+    border-radius: 0.5rem;
+    background-color: #e70404; /* #cbe2c5 */
+    text-align: center;
+    font-size: 1rem;
+    margin-left: 15px;
+}
+.deleteButton:hover{
+    background-color: #c60000;
+}
+ 

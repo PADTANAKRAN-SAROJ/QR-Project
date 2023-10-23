@@ -37,6 +37,16 @@
                 document.getElementById("result").innerHTML = request.responseText;
             }
         }
+
+        function confirmDelete(menu_name) {
+            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
+            if (ans === true) {
+                // ให้เปลี่ยนเส้นทางไปยังหน้า remove.php พร้อม ID ของรายการที่ต้องการลบ
+                document.location = "delete.php?menu_name=" + menu_name;
+            } else {
+                // หากผู้ใช้คลิก "ยกเลิก," จะไม่มีการกระทำใด ๆ
+            }
+        }
     </script>
 
 </head>
@@ -63,7 +73,6 @@
 
             <div class="tt1 add">
                 <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
-                <a href="edit.php"><button class="editButton">แก้ไข</button></a>
             </div>
         </div>
 

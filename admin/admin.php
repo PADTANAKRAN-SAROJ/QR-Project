@@ -61,7 +61,6 @@
                     <th>ประเภท</th>
                     <th>ราคา</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             
@@ -73,8 +72,8 @@
                     echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_name'] . '.jpg\')">ดูรูป</button></td>';
                     echo "<td>" . $row["category"] . "</td>";
                     echo "<td>" . $row["price"] . "</td>";
-                    echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข</button></a></td>";
-                    echo "<td><a href='delete.php?menu_id=" . $row["menu_name"] . "' onclick='confirmDelete(\"" . $row["menu_id"] . "\")'><button class='deleteButton'>ลบ</button></a></td>";
+                    echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข</button></a>";
+                    echo "<a href='delete.php?menu_name=" . $row["menu_name"] . "' onclick='confirmDelete(\"" . $row["menu_name"] . "\")'><button class='deleteButton'>ลบ</button></a></td>";
                 echo "</tr>";
             }
             ?>

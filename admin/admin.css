@@ -212,15 +212,16 @@ td.center{
     color: white;
     border: none;
     padding: 5px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
     display: inline-block;
     border-radius: 0.5rem;
-    background-color: #c60000; /* #cbe2c5 */
+    background-color: #e70404; /* #cbe2c5 */
     text-align: center;
     font-size: 1rem;
+    margin-left: 15px;
 }
 .deleteButton:hover{
-    background-color: #e70404;
+    background-color: #c60000;
 }
  
