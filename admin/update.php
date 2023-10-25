@@ -15,10 +15,10 @@
         $price = $_POST["price"];
         $category = $_POST["category"];
  
-        // เช็คว่ามีการอัปโหลดไฟล์รูปภาพใหม่หรือไม่
+        // ตรวจสอบว่ามีการอัปโหลดรูปภาพใหม่หรือไม่
         if (isset($_FILES["profile"]) && is_uploaded_file($_FILES["profile"]["tmp_name"])) {
             // ลบไฟล์เดิม
-            $oldProfilePicture = "../menu/food/" . $menu_name . ".jpg";
+            $oldProfilePicture = "../menu/food/" . $menu_id . ".jpg";
             if (file_exists($oldProfilePicture)) {
                 unlink($oldProfilePicture);
             }
@@ -27,22 +27,7 @@
             $profilePicture = $_FILES["profile"];
 
             $uploadDirectory = "../menu/food/";
-            $profilePictureName = $menu_name . ".jpg";
-
-            if (move_uploaded_file($profilePicture["tmp_name"], $uploadDirectory . $profilePictureName)) {
-                // ได้ทำการอัปโหลดรูปภาพเรียบร้อยแล้ว
-            } else {
-                echo "เกิดข้อผิดพลาดในการอัปโหลดรูปภาพ";
-            }
-        }
-
-        // แก้ไขภาพมั้ย
-        if (isset($_FILES["profile"]) && is_uploaded_file($_FILES["profile"]["tmp_name"])) {
-            // อัปโหลดรูปภาพใหม่เฉพาะหากมีการเลือกไฟล์ใหม่
-            $profilePicture = $_FILES["profile"];
-
-            $uploadDirectory = "../menu/food/";
-            $profilePictureName = $menu_name . ".jpg";
+            $profilePictureName = $menu_id . ".jpg";
 
             if (move_uploaded_file($profilePicture["tmp_name"], $uploadDirectory . $profilePictureName)) {
                 // ได้ทำการอัปโหลดรูปภาพเรียบร้อยแล้ว
@@ -65,6 +50,5 @@
 
         header("location: admin.php");
     ?>
-
 </body>
 </html>

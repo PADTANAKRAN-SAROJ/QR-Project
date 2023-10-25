@@ -36,7 +36,7 @@
         while ($row = $stmt->fetch()) :
     ?>
         <div class="menu-item">
-            <img src='food/<?= $row["menu_name"] ?>.jpg'>
+            <img src='food/<?= $row["menu_id"] ?>.jpg'>
             <br>
 
             <div>

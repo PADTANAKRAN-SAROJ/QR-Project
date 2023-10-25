@@ -53,7 +53,7 @@
                 </select>
             </p>
 
-            <img src='../menu/food/<?=$row["menu_name"]?>.jpg' width='200' height='200'> 
+            <img src='../menu/food/<?=$row["menu_id"]?>.jpg' width='200' height='200'> 
             <p>
                 แก้ไขรูปภาพ:  
                 <input type="file" name="profile">    

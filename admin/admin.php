@@ -21,6 +21,15 @@
             document.getElementById("popup").style.display = "none";
         }
 
+        function confirmDelete(menu_name) {
+            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
+            if (ans == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     </script>
 </head>
 
@@ -69,11 +78,11 @@
             while ($row = $stmt->fetch()) {
                 echo "<tr>";
                     echo "<td>" . $row["menu_name"] . "</td>";
-                    echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_name'] . '.jpg\')">ดูรูป</button></td>';
+                    echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_id'] . '.jpg\')">ดูรูป</button></td>';
                     echo "<td>" . $row["category"] . "</td>";
                     echo "<td>" . $row["price"] . "</td>";
                     echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข</button></a>";
-                    echo "<a href='delete.php?menu_name=" . $row["menu_name"] . "' onclick='confirmDelete(\"" . $row["menu_name"] . "\")'><button class='deleteButton'>ลบ</button></a></td>";
+                    echo "<a href='delete.php?menu_name=" . $row["menu_name"] . "' onclick='return confirmDelete(\"" . $row["menu_name"] . "\")'><button class='deleteButton'>ลบ</button></a></td>";
                 echo "</tr>";
             }
             ?>
@@ -91,19 +100,6 @@
             </div>
         </div>
     </div>
-    
-    <script>
-        function confirmDelete(menu_name) {
-            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans == true) {
-                // ให้เปลี่ยนเส้นทางไปยังหน้า remove.php พร้อม ID ของรายการที่ต้องการลบ
-                document.location = "delete.php?menu_name=" + menu_name;
-            } else {
-                // ถ้ากด "Cancel" ให้ย้อนกลับไปยังหน้าเดิม
-                window.history.back();
-            }
-        }
-    </script>
-
+  
 </body>
 </html>
