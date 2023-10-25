@@ -18,12 +18,14 @@
         .pagination button {
             margin: 5px;
             padding: 5px 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #D9D9D9;
             cursor: pointer;
+            border-radius: 5px;
+            background-color: blanchedalmond;
         }
         .pagination button.active {
-            background-color: #333;
-            color: white;
+            background-color: pink;
+            color: black;
         }
     </style>
 
