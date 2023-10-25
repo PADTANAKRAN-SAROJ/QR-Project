@@ -1,5 +1,7 @@
-<?php
+<?php 
 include "../connect.php" ;
+include "./checkRole.php" ;
+
 if (isset($_GET['cus_id'])) {
     $cusId = $_GET['cus_id'];
 
@@ -17,7 +19,7 @@ if (isset($_GET['cus_id'])) {
             $updateStmt->bindParam(':cus_id', $cusId, PDO::PARAM_INT);
             if ($updateStmt->execute()) {
                 echo "บิลของลูกค้ารหัส $cusId อัปเดตสถานะเป็น 'Done'";
-                echo '<script>window.location.href = "employee.php";</script>';
+                echo '<script>window.location.href = "./QRcode.php";</script>';
             } else {
                 echo "ไม่สามารถอัปเดตสถานะบิลได้";
             }

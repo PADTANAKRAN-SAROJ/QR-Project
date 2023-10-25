@@ -1,5 +1,6 @@
-<?php
-include "../connect.php";
+<?php 
+include "../connect.php" ;
+include "./checkRole.php" ;
 
 // ตรวจสอบว่ามีค่า table_number ที่ถูกส่งมาหรือไม่
 if (isset($_GET['table_number'])) {

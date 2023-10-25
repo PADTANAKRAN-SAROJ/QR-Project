@@ -1,5 +1,6 @@
-<?php
-include "../connect.php";
+<?php 
+include "../connect.php" ;
+include "./checkRole.php" ;
 
 $sql = "SELECT * FROM customer WHERE state = 'On_table'";
 $stmt = $pdo->query($sql);

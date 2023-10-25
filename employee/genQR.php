@@ -1,5 +1,6 @@
-<?php
-include "../connect.php";
+<?php 
+include "../connect.php" ;
+include "./checkRole.php" ;
 
 // ตรวจสอบว่ามีค่า number_table ที่ถูกส่งมาหรือไม่
 if (isset($_GET['number_table'])) {
@@ -37,7 +38,7 @@ if (isset($_GET['number_table'])) {
             // เพิ่มปุ่ม "ปริ้น QR Code"
             echo '<button onclick="printQRCode()">ปริ้น QR Code</button> </br>';
             // แสดงลิ้งย้อนกลับ
-            echo '<a href="./employee.php">ย้อนกลับ</a> </br>';
+            echo '<a href="./QRcode.php">ย้อนกลับ</a> </br>';
         } else {
             echo "ไม่พบข้อมูลลูกค้าสำหรับโต๊ะนี้";
         }

@@ -1,5 +1,6 @@
-<?php
-include "../connect.php";
+<?php 
+include "../connect.php" ;
+include "./checkRole.php" ;
 
 // ตรวจสอบว่ามีค่า cus_id ที่ถูกส่งมาหรือไม่
 if (isset($_GET['cus_id'])) {
@@ -32,7 +33,7 @@ if (isset($_GET['cus_id'])) {
     <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>
     <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank">ดู QR Code</a> </br>
     <a href="bill.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
-    <a href="./employee.php">ย้อนกลับ</a> </br>
+    <a href="./QRcode.php">ย้อนกลับ</a> </br>
 </body>
 </html>
 <?php

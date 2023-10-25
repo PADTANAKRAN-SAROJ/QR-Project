@@ -1,5 +1,6 @@
-<?php
-include "../connect.php";
+<?php 
+include "../connect.php" ;
+include "./checkRole.php" ;
 
 if (isset($_GET["order_id"])) { // ใช้ $_GET ในการรับค่า
     $order_id = $_GET["order_id"];

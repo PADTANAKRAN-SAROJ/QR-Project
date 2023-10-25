@@ -1,4 +1,7 @@
-<?php include "../connect.php" ?>
+<?php 
+include "../connect.php" ;
+include "./checkRole.php" ;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,10 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>employee</title>
     <link rel="stylesheet" type="text/css" href="./css/employee.css">
-
-    <script src="./js/Switch_menu.js"></script>
+    
     <script type="text/javascript">
-            //qr - page
+            function showOrder() {
+                var url = "./index.php";
+                window.location.href = url;
+            }
             // ประกาศฟังก์ชันเพื่อเปลี่ยน URL สำหรับแสดงรายละเอียด
             function showDetail(cus_id) {
                 var url = "./detailQr.php?cus_id=" + cus_id;
@@ -40,20 +45,6 @@
                 xhttp.send();
             }
 
-            
-            //ajax realtime
-            function orderPage() {
-            var xhttp1 = new XMLHttpRequest();
-            xhttp1.onload = function () {
-                if (this.status === 200) {
-                    document.getElementById("orderPage").innerHTML = this.responseText;
-                }
-            };
-            xhttp1.open("GET", "./order.php");
-            xhttp1.send();
-        }
-
-
             function qrPage() {
                 var xhttp2 = new XMLHttpRequest();
                 xhttp2.onload = function () {
@@ -66,25 +57,20 @@
             }
 
             // เรียกใช้ฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จสิ้น
-            window.onload = orderPage;
             window.onload = qrPage;
 
-            setInterval(orderPage, 100); 
-            setInterval(qrPage, 2000);
+            setInterval(qrPage, 500);
         </script>
 </head>
 <body>
     <div class="employeePage">
         <div class="topBar">
-            <button onclick="showOrder()">Order</button>
-            <button onclick="showQRCode()">QR Code</button>
+            <!-- ไปหน้า order -->
+            <button class="menuButton" onclick="showOrder()">Order</button>
+            <button class="menuButton" disabled>QR Code</button> 
         </div>
-        
-        <!-- หน้า Order -->
-        <div id="orderPage"></div>
-
         <!-- หน้า QR Code -->
-        <div id="qrCodePage" style="display: none;">
+        <div id="qrCodePage">
             <div id="qrPage"></div>
         </div>
     </div>
