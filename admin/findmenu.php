@@ -53,7 +53,7 @@
 <body>
 
     <header>
-		<h1>เมนูอาหารทั้งหมด</h1>
+		<h1>ADMIN</h1>
 	</header>
 
     <div class="topnav">
