@@ -40,13 +40,13 @@
 
         function confirmDelete(menu_name) {
             var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans === true) {
-                // ให้เปลี่ยนเส้นทางไปยังหน้า remove.php พร้อม ID ของรายการที่ต้องการลบ
-                document.location = "delete.php?menu_name=" + menu_name;
+            if (ans) {
+                return true;
             } else {
-                // หากผู้ใช้คลิก "ยกเลิก," จะไม่มีการกระทำใด ๆ
+                return false;
             }
         }
+
     </script>
 
 </head>

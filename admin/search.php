@@ -10,11 +10,10 @@
     <script>
         function confirmDelete(menu_name) {
             var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans == true) {
-                // ให้เปลี่ยนเส้นทางไปยังหน้า remove.php พร้อม ID ของรายการที่ต้องการลบ
-                document.location = "delete.php?menu_name=" + menu_name;
+            if (ans) {
+                return true;
             } else {
-                 
+                return false;
             }
         }
     </script>
@@ -68,7 +67,7 @@
                 </td>
                 <td>
                     <a href='edit.php?menu_id=<?php echo $row["menu_id"] ?>'><button class='editButton'>แก้ไข</button></a>
-                    <a href='delete.php?menu_name=<?php echo $row["menu_name"] ?>'><button class="deleteButton" onclick="confirmDelete(' <? $row['menu_name'] ?>')">ลบ</button></a>
+                    <a href='delete.php?menu_name=<?php echo $row["menu_name"] ?>' onclick="return confirmDelete('<?php echo $row['menu_name'] ?>')"><button class='deleteButton'>ลบ</button></a></td>
                 </td>
             </tr>
         <?php endforeach; ?>

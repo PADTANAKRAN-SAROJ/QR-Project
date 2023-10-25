@@ -23,13 +23,12 @@
 
         function confirmDelete(menu_name) {
             var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans == true) {
+            if (ans) {
                 return true;
             } else {
                 return false;
             }
         }
-
     </script>
 </head>
 
