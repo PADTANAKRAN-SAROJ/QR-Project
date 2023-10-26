@@ -13,6 +13,53 @@
 
 </head>
 
+<?php
+    session_start(); // เริ่มเซสชันตอนแรก
+
+    include "../connect.php";
+
+    // ตรวจสอบว่าเซสชันมีค่า Cus ID, Table Number, และ Entry Time หรือไม่
+    if (isset($_SESSION['cus_id']) && isset($_SESSION['table_number']) && isset($_SESSION['entry_timestamp'])) {
+        // มี session อยู่
+        $cusId = $_SESSION['cus_id'];
+        $tableNumber = $_SESSION['table_number'];
+        $entry_timestamp = $_SESSION['entry_timestamp'];
+
+        // ตรวจสอบค่าในฐานข้อมูล (เช่นแต่ไม่แสดงผลลัพธ์ที่เหลือเพื่อรักษาความกระชับ)
+        $sql = "SELECT * FROM customer WHERE cus_id = :cus_id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':cus_id', $cusId, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $databaseTableNumber = $row['table_number'];
+                $databaseEntryTime = $row['entry_timestamp'];
+
+                if ($row['state'] == 'Done') {
+                    echo "ขอบคุณที่อุดหนุน!";
+                } else {
+                    // เปรียบเทียบเฉพาะวันและเวลา (ไม่เจาะจงไปถึงวินาที)
+                    if ($tableNumber == $databaseTableNumber && date('Y-m-d H:i', strtotime($entry_timestamp)) == date('Y-m-d H:i', strtotime($databaseEntryTime))) {
+                        // ตรงข้อมูลและมี session ให้ทำตามที่คุณต้องการ
+                        // ตรวจสอบ session ตรงตามความต้องการ
+                        echo "Session ตรงตามที่คุณต้องการ";
+                    } else {
+                        echo "ข้อมูลไม่ตรงกัน";
+                    }
+                }
+            } else {
+                echo "ไม่พบข้อมูลในฐานข้อมูล";
+            }
+        } else {
+            echo "เกิดข้อผิดพลาดในการคิวรีข้อมูล";
+        }
+    } else {
+        echo "ไม่มีเซสชันที่ต้องการ";
+    }
+?>
+
+
 <body>
 
 	<header>
@@ -30,8 +77,7 @@
 	<div id="list">
 
 		<?php
-		session_start();
-
+ 
 		// เพิ่มสินค้า
 		if ($_GET["action"]=="add") {
 
