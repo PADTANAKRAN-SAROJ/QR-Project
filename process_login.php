@@ -46,4 +46,3 @@ try {
     die("เกิดข้อผิดพลาดในการดำเนินการ: " . $e->getMessage());
     header("Location: login.php");
 }
-
