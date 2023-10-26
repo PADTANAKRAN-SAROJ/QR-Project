@@ -20,7 +20,7 @@ if (isset($_GET['number_table'])) {
             $entryTime = $row['entry_timestamp'];
             
             // สร้าง URL ด้วยเลขโต๊ะและเวลาเข้าร้าน
-            $url = "../menu/category.php?cus_id=" . $cusId . "&table_number=" . $tableNumber . "&entry_time=" . $entryTime;
+            $url = "../menu/createTable.php?cus_id=" . $cusId . "&table_number=" . $tableNumber . "&entry_time=" . $entryTime;
 
             // สร้าง QR code จาก URL
             echo '<div id="qrcode"></div>';
