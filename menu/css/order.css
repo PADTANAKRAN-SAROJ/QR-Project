@@ -137,3 +137,9 @@ input.a10 {
     margin: 0.5rem 0; 
     padding: 15px;  
 }
+
+img {
+    max-width: 70px; 
+    max-height: 70px; 
+    border-radius: 5px;
+}
