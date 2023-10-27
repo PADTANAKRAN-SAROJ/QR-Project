@@ -2,6 +2,8 @@
 <html lang="en">
 <body>
 <?php
+    include "./checkSession.php";
+
     //ติดไว้ก่อน
     // รับข้อมูลจากฟอร์ม
     $username = $_POST["username"];

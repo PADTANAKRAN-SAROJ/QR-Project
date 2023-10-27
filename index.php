@@ -1,67 +1,33 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
+if (isset($_SESSION['role'])) {
+    if (isset($_COOKIE['role'])) {
+        // ถอดรหัส
+        $decodedRole = base64_decode($_COOKIE['role']);
+
+        if ($decodedRole == "admin") {
+            header("Location: ./admin/admin.php");
+            exit();
+        } else if ($decodedRole == "chef") {
+            header("Location: ./chef/chef.php");
+            exit();
+        } else if ($decodedRole == "employee") {
+            // หากไม่ใช่ admin หรือ chef ให้เปลี่ยนไปยังหน้าอื่น ๆ
+            header("Location: ./employee/index.php");
+            exit();
+        }
+    } else {
+        // ถ้าไม่มีคีย์ 'role' ใน $_COOKIE
+        echo "ข้อผิดพลาด: ไม่มีคีย์ 'role' ในคุกกี้";
+        header("Location: login.php");
+        exit();
+    }
+} else {
+    // ถ้าไม่มี session หรือไม่มีบทบาท
+    echo "ข้ออภัยคุณไม่มีสิทธิ์ในการเข้าถึงข้อมูล";
     header("Location: login.php");
     exit();
 }
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F8F8FF;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #E6E6FA;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-family: 'Your Desired Font', sans-serif;
-            font-size: 36px;
-            color: #A52A2A; 
-            text-align: center; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
-
-        }
-
-        .menu-link {
-            display: block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .menu-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>SCANSAVOR</h1>
-        <a class="menu-link" href="./admin/admin.php">Admin</a>
-        <a class="menu-link" href="./chef/chef.php">Chef</a>
-        <a class="menu-link" href="./employee/employee.php">Employee</a>
-        <a class="menu-link" href="./menu/category.php">Menu</a>
-    </div>
-</body>
-</html>

@@ -3,7 +3,9 @@
 	<link rel="stylesheet" href="css/history.css">
 
 </head>
-
+<?php
+include "./checkSession.php";
+?>
 <body>
 	<header>
 		<div class="back">

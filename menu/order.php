@@ -17,6 +17,7 @@
     session_start(); // เริ่มเซสชันตอนแรก
 
     include "../connect.php";
+	include "./checkSession.php";
 
     // ตรวจสอบว่าเซสชันมีค่า Cus ID, Table Number, และ Entry Time หรือไม่
     if (isset($_SESSION['cus_id']) && isset($_SESSION['table_number']) && isset($_SESSION['entry_timestamp'])) {
