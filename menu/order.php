@@ -122,7 +122,8 @@
 			<form action="addorder.php" method="post" enctype="multipart/form-data">
 			<table class="item">
 				<tr>
-					<th>ชื่อเมนู</th>
+					<th></th>
+					<th align="left">ชื่อเมนู</th>
 					<th>ราคา</th>
 					<th>รายละเอียด</th>
 					<th>จำนวน</th>
@@ -137,6 +138,9 @@
 				?>
 				<tr>
 					<td>
+					<img src='food/<?=$item["menu_id"]?>.jpg'>
+					</td>
+					<td align="left">
 						<?php
 						if (isset($item["menu_name"])) {
 							echo $item["menu_name"]; 
@@ -160,7 +164,7 @@
 			}
 			?>
 				<tr>
-					<td colspan="4" align="center">ราคารวม <?=$sum?> บาท</td>
+					<td colspan="5" align="center">ราคารวม <?=$sum?> บาท</td>
 				</tr>
 				
 			</table>
