@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-        include "../connect.php";
-        session_start();
-
-        // ตรวจสอบว่ามีชื่อใน session หรือไม่ หากไม่มีให้ไปหน้า login อัตโนมัติ
-        if (empty($_SESSION["username"])) {
-            header("location: login.php");
-        }
-    ?>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
@@ -66,7 +56,10 @@
 
 <body>
     <?php
-    if (isset($_SESSION["role"]) && $_SESSION["role"] === "admin") {
+        //ตรวจสอบสิทธิ์
+        include "./checkRole.php";
+        include "../connect.php";
+
         $stmt = $pdo->prepare("SELECT * FROM menu");
         $stmt->execute();
 
@@ -119,7 +112,7 @@
                     $row = $result[$i];
                     echo "<tr>";
                     echo "<td>" . $row["menu_name"] . "</td>";
-                    echo '<td><button onclick="showPopup(\'http://localhost/qr/menu/food/' . $row['menu_id'] . '.jpg\')">ดูรูป</button></td>';
+                    echo '<td><button onclick="showPopup(\'../menu/food/' . $row['menu_id'] . '.jpg\')">ดูรูป</button></td>';
                     echo "<td>" . $row["category"] . "</td>";
                     echo "<td>" . $row["price"] . "</td>";
                     echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข</button></a>";
@@ -149,11 +142,6 @@
                 </div>
             </div>
         </div>
-    <?php 
-    }else {
-        echo '<p>คุณไม่มีสิทธิเข้าถึง</p>';
-        }
-    ?>
     
 </body>
 </html>

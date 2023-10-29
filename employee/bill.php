@@ -18,18 +18,9 @@ if (isset($_GET['cus_id'])) {
             $updateStmt = $pdo->prepare($updateSql);
             $updateStmt->bindParam(':cus_id', $cusId, PDO::PARAM_INT);
             if ($updateStmt->execute()) {
-                echo "บิลของลูกค้ารหัส $cusId อัปเดตสถานะเป็น 'Done'";
-                echo '<script>window.location.href = "./QRcode.php";</script>';
-            } else {
-                echo "ไม่สามารถอัปเดตสถานะบิลได้";
+                header("Location: ./QRcode.php");
             }
-        } else {
-            echo "ไม่พบข้อมูลลูกค้าสำหรับ cus_id ที่ระบุ";
         }
-    } else {
-        echo "เกิดข้อผิดพลาดในการคิวรีข้อมูล";
-    }
-} else {
-    echo "ไม่ได้ระบุ cus_id";
+    } 
 }
 ?>

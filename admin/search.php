@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Search</title>
 
     <link rel="stylesheet" href="findmenu.css">
 
@@ -23,12 +23,9 @@
     <?php
     $menu_name = $_GET["menu_name"];
     //echo $menu_name . "<br>";
-    try {
-        $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-    }
+    //ตรวจสอบสิทธิ์
+    include "./checkRole.php";
+    include "../connect.php";
 
     $sql = "SELECT * FROM menu WHERE menu_name LIKE :menu_name";
     $nameParam = '%' . $menu_name . '%';  // Add '%' to the bound parameter

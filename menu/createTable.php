@@ -19,7 +19,6 @@ if (isset($_GET['cus_id'])) {
             $databaseEntryTime = $row['entry_timestamp'];
             //ลูกค้าที่ โต๊ะว่างไปแล้วจะขอบคุณไม่สามารถเข้าถึงหนา้นั้นได้
             if ($row['state'] == 'Done') {
-                echo "ขอบคุณที่อุดหนุน!";
                 header("Location: ../thackYou.php");
             } else {
                 //ตรวจสอบว่าข้อมูลที่ได้มานั้นถูกต้องไหม
@@ -29,24 +28,18 @@ if (isset($_GET['cus_id'])) {
                     $_SESSION['cart'] = array();
                     $_SESSION['cus_id'] = $cusId;
                     
-                    setcookie("cart", serialize($_SESSION['cart']), time() + 43200, "/"); // ตั้งค่าคุกกี้ "cart" มีอายุ 12 ชั่วโมง
+                    setcookie("cart", serialize($_SESSION['cart']), time() + 10800, "/"); // ตั้งค่าคุกกี้ "cart" มีอายุ 3 ชั่วโมง
                 
                     $encodedCusId = base64_encode($cusId);
-                    setcookie("cus_id", $encodedCusId, time() + 43200, "/"); // ตั้งค่าคุกกี "cus_id" มีอายุ 12 ชั่วโมง
+                    setcookie("cus_id", $encodedCusId, time() + 10800, "/"); // ตั้งค่าคุกกี "cus_id" มีอายุ 3 ชั่วโมง
                     
                     //ไปหน้าcategory เมื่อสร้าง sessionเสร็จสิ้น
                     header("Location: ./category.php");
                 } else {
-                    echo "ไม่พบข้อมูล โปรดติดต่อพนักงาน";
+                    header("Location: ../contactStaff.php");
                 }
             }
-        } else {
-            echo "ไม่พบข้อมูลในฐานข้อมูล";
         }
-    } else {
-        echo "เกิดข้อผิดพลาดในการคิวรีข้อมูล";
     }
-} else {
-    echo "ไม่มี Cus ID ใน GET ไม่สามารถดึงข้อมูล";
 }
 ?>

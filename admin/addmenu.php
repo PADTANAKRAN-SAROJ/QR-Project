@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>addmenu</title>
 
     <link rel="stylesheet" href="addmenu.css">
 </head>
 <body>
     <?php
-        $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //ตรวจสอบสิทธิ์
+        include "./checkRole.php";
+        include "../connect.php";
 
         $stmt = $pdo->prepare("SELECT * FROM menu WHERE category = ?");
         $stmt->bindParam(1, $_GET["category"]); // ผูกค่าจากพารามิเตอร์ URL

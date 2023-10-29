@@ -1,7 +1,8 @@
 <?php
 if (isset($_GET["menu_name"])) {
-    $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //ตรวจสอบสิทธิ์
+    include "./checkRole.php";
+    include "../connect.php";
 
     $menu_name = $_GET["menu_name"];
 

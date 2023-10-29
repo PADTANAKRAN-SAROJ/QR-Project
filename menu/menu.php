@@ -4,13 +4,10 @@
 <head>
     <link rel="stylesheet" href="css/menu.css">
 </head>
-<?php
-include "./checkSession.php";
-?>
 <body>
     <?php
-        $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        include "./checkSession.php";
+        include "../connect.php";
 
         $stmt = $pdo->prepare("SELECT * FROM menu WHERE category = ?");
         $stmt->bindParam(1, $_GET["category"]); // ผูกค่าจากพารามิเตอร์ URL

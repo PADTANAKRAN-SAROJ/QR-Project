@@ -2,6 +2,8 @@
 <html lang="en">
 <body>
 <?php 
+    //ตรวจสอบสิทธิ์
+    include "./checkRole.php";
     // รับข้อมูลจากฟอร์ม
     $name = $_POST["name"];
     $type = $_POST["type"];
@@ -17,8 +19,7 @@
         $uploadDirectory = "../menu/food/";
     
         // สร้างชื่อไฟล์ใหม่โดยใช้ menu_id แทนชื่อเมนู
-        $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        include "../connect.php";
     
         $stmt = $pdo->prepare("INSERT INTO menu (menu_name, category, price, username) VALUES (?, ?, ?, ?)");
         $stmt->bindParam(1, $name);

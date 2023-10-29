@@ -1,20 +1,18 @@
 <?php
-// เริ่ม session (หรือใช้การตรวจสอบการล็อกอินอื่น ๆ)
 session_start();
 
-// ตรวจสอบว่ามี session และมีตัวแปร role อยู่หรือไม่
-if (isset($_SESSION['role'])) {
+if (isset($_COOKIE['role'])) {
     //ถอดรหัส
-    $decodedRole = base64_decode($_COOKIE['user']);
+    $decodedRole = base64_decode($_COOKIE['role']);
 
     // ตรวจสอบว่าบทบาทไม่ใช่ "admin" หรือ "employee"
     if ($decodedRole !== "admin" && $decodedRole !== "employee") {
-        echo "ข้ออภัยคุณไม่มีสิทธิ์ในการเข้าถึงข้อมูล โปรดติดต่อหัวหน้า";
+        header("Location: ../login.php");
         exit;
     }
 } else {
     // ถ้าไม่มี session หรือไม่มีบทบาท
-    echo "ข้ออภัยคุณไม่มีสิทธิ์ในการเข้าถึงข้อมูล";
+    header("Location: ../login.php");
     exit;
 }
 ?>

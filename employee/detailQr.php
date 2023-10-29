@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
 <?php 
 include "../connect.php" ;
 include "./checkRole.php" ;
@@ -21,13 +28,6 @@ if (isset($_GET['cus_id'])) {
         // แปลงเวลาเข้าร้านให้อยู่ในรูปแบบที่คุณต้องการ
         $entryTimeFormatted = date('Y-m-d H:i:s', strtotime($entryTime));
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายละเอียด</title>
-</head>
 <body>
     <h1>หมายเลขโต๊ะ <?php echo $numberTable; ?></h1> 
     <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>

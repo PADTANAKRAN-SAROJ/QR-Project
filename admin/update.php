@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UPDATE</title>
 </head>
 <body>
     <?php
-        $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //ตรวจสอบสิทธิ์
+        include "./checkRole.php";
+        include "../connect.php";
         
         $menu_id = $_POST["menu_id"];
         $menu_name = $_POST["menu_name"];
@@ -45,8 +46,6 @@
         $stmt->bindParam(4, $menu_id);
 
         $stmt->execute();
- 
-        echo "อัปเดตข้อมูลรายการอาหารเรียบร้อยแล้ว";
 
         header("location: admin.php");
     ?>

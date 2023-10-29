@@ -27,8 +27,7 @@
         // อัพโหลดไฟล์ไปยังโฟลเดอร์
         if (move_uploaded_file($profilePicture["tmp_name"], $uploadDirectory . $profilePictureName)) {
             // เชื่อมต่อฐานข้อมูลและเพิ่มข้อมูลโดยไม่รวมรูปภาพ
-            $pdo = new PDO("mysql:host=localhost;dbname=blueshop;charset=utf8", "root", "");
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            include "../connect.php";
 
             $stmt = $pdo->prepare("INSERT INTO member (username, password, name, address, mobile, email) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bindParam(1, $username);

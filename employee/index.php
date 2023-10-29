@@ -51,14 +51,15 @@ include "./checkRole.php" ;
 
             setInterval(orderPage, 1000); 
         </script>
+
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
     <div class="employeePage">
-        <div class="topBar">
-            <button class="menuButton" disabled>Order</button>
-            <!-- ไปหน้าQRcode -->
-            <button class="menuButton" onclick="showQRCode()">QR Code</button> 
-        </div>
+            <div class="topBar">
+                <button class="menuButton" disabled>Order</button>
+                <button class="menuButton" onclick="showQRCode()">QR Code</button>
+            </div>
         
         <!-- แสดง หน้า Order แบบ เรียลไทม์-->
         <div id="orderPage"></div>
