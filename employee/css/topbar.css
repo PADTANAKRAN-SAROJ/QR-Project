@@ -1,0 +1,42 @@
+body{
+    margin: auto;
+}
+.employeePage{
+
+}
+
+.employeePage > .topBar{
+    padding: 2%;
+    background-color: rgb(231, 231, 231);
+    text-align: center;
+    
+}
+.topBar > button {
+    min-height: 50px;
+    margin: auto 3%;
+    padding: 2% 15%;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 18px;
+}
+.topBar > button:hover {
+    background-color: #258cd1;
+}
+
+.topBar > button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed; 
+}
+
+@media (max-width: 768px) {
+    .topBar > button {
+        min-width: 150px;
+        font-size: 16px;
+        padding: 2% 10%;
+        margin: 1% 3%;
+    }
+}

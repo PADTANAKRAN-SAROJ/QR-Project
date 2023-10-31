@@ -5,7 +5,6 @@ include "./checkRole.php";
 <!DOCTYPE html>
 <html>
 <head>
-
 </head>
 <body>
     <div class="order">
@@ -22,7 +21,7 @@ include "./checkRole.php";
 
         if (count($rows) > 0) {
             echo "    
-            <table>
+            <table class='orders'>
                 <tr>
                     <th>เมนู</th>
                     <th>จำนวน</th>
@@ -42,8 +41,9 @@ include "./checkRole.php";
             }
             echo "</table>";
         } else {
-            // If there is no data
-            echo "<h1>ไม่พบรายการเสริฟ</h1>";
+            ?>
+                <div class="noOrder"><h1>ไม่พบรายการเสริฟ</h1></div>
+            <?php
         }
         ?>
     </div>

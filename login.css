@@ -1,0 +1,62 @@
+body{
+    display: flex;
+    margin: auto;
+}
+.loginPage{
+    margin: auto;
+    padding: 20px;
+    margin: 10% auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    min-width: 300px;
+    width: 100%;
+    
+}
+.loginPage > h2 {
+    text-align: center;
+    
+}
+.loginPage > .formLogin {
+    padding: 5px;
+}
+
+.formLogin > .form-group {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.form-group > label{
+    color: rgb(136, 136, 136);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.form-group > input[type="text"],input[type="password"] {
+    padding: 2% 10px;
+    border: none; 
+    border-radius: 10em;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 80%;
+    min-width: 60%;
+    text-align: center;
+}
+.form-group > input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 10em;
+    padding: 10px 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
+}
+
+.form-group > input[type="submit"]:hover {
+    background-color: #258cd1;
+}
+
+@media (max-width: 768px) {
+    .loginPage{
+        margin: 20% auto;
+        width: 70%;
+    }
+}

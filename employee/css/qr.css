@@ -1,0 +1,71 @@
+.tableList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 80%;
+}
+
+.tableList li button {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.tableList .full button{
+    background-color: #4CAF50;
+    font-size: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.tableList .full button:hover {
+    background-color: #45a049;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.tableList .empty button{
+    background-color: #3498db;
+    font-size: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.tableList .empty button:hover{
+    background-color: #258cd1;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .tableList {
+        margin: auto 5%;
+        max-width: 100%;
+    }
+    
+    .tableList li button {
+        width: 50px;
+        height: 50px;
+        margin: 8px;
+        border-radius: 10px;
+    }
+
+    .tableList .full button{
+        font-size: 16px;
+    }
+    .tableList .full button:hover {
+        font-size: 16px;
+    }
+    
+    .tableList .empty button{
+        font-size: 16px;
+    }
+    .tableList .empty button:hover{
+        font-size: 16px;
+    }
+}

@@ -9,7 +9,8 @@ include "./checkRole.php" ;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>employee</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/topbar.css">
+    <link rel="stylesheet" type="text/css" href="./css/qr.css">
     
     <script type="text/javascript">
             function showOrder() {

@@ -33,7 +33,6 @@ if ($restaurantData) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,26 +40,21 @@ if ($restaurantData) {
 </head>
 <body>
     
-<table>
-    <tr>
-        <th>Table Number</th>
-    </tr>
+<ul class="tableList">
     <?php for ($tableNumber = 1; $tableNumber <= $number_of_tables; $tableNumber++): ?>
         <?php
             $tableClass = ($tableStatus[$tableNumber] === 'full') ? 'full' : 'empty';
             $cusId = getCusId($tableNumber);
         ?>
-        <tr>
-            <td class="<?= $tableClass ?>">
-                <?php if ($tableStatus[$tableNumber] === 'full'): ?>
-                    <button class="button" onclick="showDetail(<?= $cusId ?>)"><?= $tableNumber ?> full</button>
-                <?php else: ?>
-                    <button class="button" onclick="createQR(<?= $tableNumber ?>)"><?= $tableNumber ?></button>
-                <?php endif; ?>
-            </td>
-        </tr>
+        <li class="<?= $tableClass ?>">
+            <?php if ($tableStatus[$tableNumber] === 'full'): ?>
+                <button class="buttonFull" onclick="showDetail(<?= $cusId ?>)"><?= $tableNumber ?></button>
+            <?php else: ?>
+                <button class="buttonEmpty" onclick="createQR(<?= $tableNumber ?>)"><?= $tableNumber ?></button>
+            <?php endif; ?>
+        </li>
     <?php endfor; ?>
-</table>
+</ul>
 </body>
 </html>
 

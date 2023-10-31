@@ -1,0 +1,54 @@
+.noOrder{
+    text-align: center;
+    margin-top: 15%;
+}
+/* สไตล์ตาราง */
+.orders {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 15px auto;
+}
+
+.orders th, .orders td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* สไตล์เริ่มต้นสำหรับแถวที่เป็นหัวของตาราง */
+.orders th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* สไตล์สำหรับแถวที่ไม่เป็นหัวของตาราง */
+.orders tr:not(:first-child) {
+    background-color: #ffffff;
+}
+
+/* สไตล์สำหรับแถวที่เป็นหัวของตาราง */
+.orders tr:nth-child(odd) {
+    background-color: #f0f0f0; /* สลับสีกับแถวที่เป็นหัว */
+}
+
+.orders input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.orders input[type="submit"]:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .orders {
+        width: 100%;
+        border-collapse: collapse;
+        margin: auto;
+    }
+}

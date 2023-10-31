@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/detailqr.css">
     <title>Details</title>
 </head>
 <?php 
@@ -14,7 +15,7 @@ if (isset($_GET['cus_id'])) {
     $cusId = $_GET['cus_id'];
 
     // คำสั่ง SQL เพื่อดึงข้อมูลลูกค้าจาก cus_id
-    $sql = "SELECT * FROM customer WHERE cus_id = :cus_id";
+    $sql = "SELECT * FROM customer WHERE cus_id = :cus_id AND state = 'On_table' ";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':cus_id', $cusId, PDO::PARAM_INT);
     $stmt->execute();
@@ -29,18 +30,22 @@ if (isset($_GET['cus_id'])) {
         $entryTimeFormatted = date('Y-m-d H:i:s', strtotime($entryTime));
 ?>
 <body>
-    <h1>หมายเลขโต๊ะ <?php echo $numberTable; ?></h1> 
-    <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>
-    <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank">ดู QR Code</a> </br>
-    <a href="bill.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
-    <a href="./QRcode.php">ย้อนกลับ</a> </br>
+    <div class="detail">
+        <h1>หมายเลขโต๊ะ <?php echo $numberTable; ?></h1> 
+        <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>
+        <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank">ดู QR Code</a> </br>
+        <a onclick="return confirm('ยืนยันการเช็คบิล ??');" href="bill.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
+        <a href="./QRcode.php">ย้อนกลับ</a> </br>
+    </div>
 </body>
 </html>
 <?php
     } else {
-        echo "ไม่พบข้อมูลลูกค้าสำหรับ cus_id ที่ระบุ";
+        header("Location: ./QRcode.php");
+        exit();
     }
 } else {
-    echo "ไม่ได้ระบุ cus_id";
+    header("Location: ./QRcode.php");
+    exit();
 }
 ?>

@@ -3,14 +3,14 @@ include "../connect.php" ;
 include "./checkRole.php" ;
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>employee</title>
-    <link rel="stylesheet" type="text/css" href="./css/employee.css">
+    <link rel="stylesheet" type="text/css" href="./css/topbar.css">
+    <link rel="stylesheet" type="text/css" href="./css/order.css">
     
     <script type="text/javascript">
             //ไปหน้า qrcode
@@ -52,7 +52,6 @@ include "./checkRole.php" ;
             setInterval(orderPage, 1000); 
         </script>
 
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
     <div class="employeePage">

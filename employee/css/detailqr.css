@@ -1,0 +1,30 @@
+/* เลือกส่วนของโค้ดที่คุณต้องการจะสร้างสไตล์ */
+.detail {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 2% auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+}
+
+.detail h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.detail p {
+    font-size: 16px;
+    color: #666;
+}
+
+.detail a {
+    text-decoration: none;
+    color: #0077cc;
+    margin-right: 10px;
+}
+
+.detail a:hover {
+    text-decoration: underline;
+}
