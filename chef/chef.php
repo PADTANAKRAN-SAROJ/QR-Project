@@ -1,6 +1,10 @@
-<?php include "../connect.php" ?>
+<?php
+include "../connect.php";
+?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>รายการอาหารที่สั่ง</title>
     <style>
@@ -8,7 +12,9 @@
             border-collapse: collapse;
             width: 100%;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid black;
             padding: 8px;
             text-align: center;
@@ -19,71 +25,101 @@
         function hideAndRemoveRow(orderId) {
             var row = document.getElementById("row_" + orderId);
             row.style.display = "none";
-            row.parentNode.removeChild(row);
         }
+
+        function loadOrders() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "get_orders.php", true);
+
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    var orders = JSON.parse(xhr.responseText);
+
+                    var table = document.querySelector("table");
+                    table.innerHTML = "<tr><th>รหัสรายการ</th><th>ชื่อเมนู</th><th>จำนวน</th><th>รายละเอียด</th><th>เวลา</th><th>การดำเนินการ</th></tr>";
+
+                    orders.forEach(function (order) {
+                        var orderId = order.order_id;
+                        var menuName = order.menu_name;
+                        var quantity = order.quantity;
+                        var detail = order.detail;
+                        var orderTimestamp = order.order_timestamp;
+
+                        var row = table.insertRow(-1);
+                        row.id = "row_" + orderId;
+
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+                        var cell5 = row.insertCell(4);
+                        var cell6 = row.insertCell(5);
+
+                        cell1.innerHTML = orderId;
+                        cell2.innerHTML = menuName;
+                        cell3.innerHTML = quantity;
+                        cell4.innerHTML = detail;
+                        cell5.innerHTML = orderTimestamp;
+
+                        cell6.innerHTML = `
+                            <input type='hidden' name='order_id' value='${orderId}'>
+                            <button type='button' onclick='cancelOrder(${orderId})'>Cancel</button>
+                            <button type='button' onclick='completeOrder(${orderId})'>Complete</button>
+                        `;
+                    });
+                }
+            };
+
+            xhr.send();
+        }
+
+        function cancelOrder(orderId) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "process_order.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    hideAndRemoveRow(orderId);
+                }
+            };
+            xhr.send("action=cancel&order_id=" + orderId);
+        }
+
+        function completeOrder(orderId) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "process_order.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    hideAndRemoveRow(orderId);
+                }
+            };
+            xhr.send("action=complete&order_id=" + orderId);
+        }
+
+
+        window.addEventListener("load", function () {
+            loadOrders();
+        });
+
+
+        setInterval(loadOrders, 10000);
     </script>
 </head>
+
 <body>
     <h1>รายการอาหารที่สั่ง</h1>
 
-    <?php
-         //ตรวจการส่งแบบฟอร์ม
-    if (isset($_POST['order_id']) && isset($_POST['action'])) {
-        $order_id = $_POST['order_id'];
-        $action = $_POST['action'];
-
-        // ตรวจการอนุมัตuser&data
-        if ($action == 'cancel') {
-            $authorized = true;
-            if ($authorized) {
-                //เขียนSQL query
-                echo "Order $order_id has been canceled.";
-            } else {
-                echo "ไม่อนุญาตให้ยกเลิกคำสั่งซื้อนี้";
-            }
-        } elseif ($action == 'complete') {
-            //ตรวจการให้สิทธิ์
-            $authorized = true;
-
-            if ($authorized) {
-                //ดำเนินการทั้งหมดในฐานข้อมูล
-                echo "Order $order_id has been completed.";
-            } else {
-                echo "ไม่อนุญาตให้เสร็จสิ้นคำสั่งซื้อนี้";
-            }
-        }
-    }
-
-    // ดึงรายละเอียดคำสั่งซื้อด้วย order_timestamp
-    $sql = "SELECT orders.order_id, menu.menu_name, orders.quantity, orders.detail, orders.order_timestamp FROM orders
-            INNER JOIN menu ON orders.menu_id = menu.menu_id";
-
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-
-    if ($stmt->rowCount() > 0) {
-        echo "<form method='post' action=''>"; //การสั่งซื้อ
-
-        echo "<table>";
-        echo "<tr><th>รหัสรายการ</th><th>ชื่อเมนู</th><th>จำนวน</th><th>รายละเอียด</th><th>เวลา</th><th>การดำเนินการ</th></tr>";
-
-        while ($row = $stmt->fetch()) {
-            $orderId = $row["order_id"];
-            echo "<tr id='row_$orderId'><td>".htmlspecialchars($orderId)."</td><td>".htmlspecialchars($row["menu_name"])."</td><td>".htmlspecialchars($row["quantity"])."</td><td>".htmlspecialchars($row["detail"])."</td><td>".htmlspecialchars($row["order_timestamp"])."</td>";
-
-            //  Cancel&Completeของทุกๆorder
-            echo "<td>
-                <input type='hidden' name='order_id' value='".$orderId."'>
-                <button type='submit' name='action' value='cancel' onclick='hideAndRemoveRow($orderId)'>Cancel</button>
-                <button type='submit' name='action' value='complete' onclick='hideAndRemoveRow($orderId)'>Complete</button>
-            </td></tr>";
-        }
-
-        echo "</table>";
-        echo "</form>";
-    } else {
-        echo "ไม่มีข้อมูลในฐานข้อมูล";
-    }
-    ?>
+    <table>
+        <tr>
+            <th>รหัสรายการ</th>
+            <th>ชื่อเมนู</th>
+            <th>จำนวน</th>
+            <th>รายละเอียด</th>
+            <th>เวลา</th>
+            <th>การดำเนินการ</th>
+        </tr>
+    </table>
 </body>
+
 </html>
