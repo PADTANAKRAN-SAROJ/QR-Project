@@ -14,6 +14,8 @@
         <ol>
             <li><a href="./admin.php">admin</a></li>
             <li><a href="../employee/index.php">emplyee</a></li>
+            <li><a href="./restaurant/index.php">restaurant</a></li>
+            <li><a href="./summary/index.php">summary</a></li>
         </ol>
     </div>
 </body>

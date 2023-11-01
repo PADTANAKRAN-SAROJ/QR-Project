@@ -43,7 +43,17 @@ include "../connect.php";
                         var menuName = order.menu_name;
                         var quantity = order.quantity;
                         var detail = order.detail;
-                        var orderTimestamp = order.order_timestamp;
+                        var orderTimestamp = new Date(order.order_timestamp);
+                        var currentTime = new Date();
+                        var timeDiff = currentTime - orderTimestamp;
+
+                        var hours = Math.floor(timeDiff / 3600000);
+                        timeDiff %= 3600000;
+                        var minutes = Math.floor(timeDiff / 60000);
+                        timeDiff %= 60000;
+                        var seconds = Math.floor(timeDiff / 1000);
+
+                        var orderTime = `${hours} : ${minutes} : ${seconds}`;
 
                         var row = table.insertRow(-1);
                         row.id = "row_" + orderId;
@@ -59,7 +69,7 @@ include "../connect.php";
                         cell2.innerHTML = menuName;
                         cell3.innerHTML = quantity;
                         cell4.innerHTML = detail;
-                        cell5.innerHTML = orderTimestamp;
+                        cell5.innerHTML = orderTime;
 
                         cell6.innerHTML = `
                             <input type='hidden' name='order_id' value='${orderId}'>
@@ -103,7 +113,7 @@ include "../connect.php";
         });
 
 
-        setInterval(loadOrders, 10000);
+        setInterval(loadOrders, 1000);
     </script>
 </head>
 

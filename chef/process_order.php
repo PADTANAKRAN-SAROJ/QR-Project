@@ -7,16 +7,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $action = $_POST['action'];
 
     
-        $authorized = true;
+        $authorized = true;//เดี่ยวค่อยใส่ ตรวจสอบsession มา
 
         if ($authorized) {
             if ($action == 'cancel') {
-                $sql = "UPDATE orders SET status = 'Canceled' WHERE order_id = :order_id";
+                $sql = "UPDATE orders SET process = 'Cancel' WHERE order_id = :order_id";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
                 $stmt->execute();
             } elseif ($action == 'complete') {
-                $sql = "UPDATE orders SET status = 'Completed' WHERE order_id = :order_id";
+                $sql = "UPDATE orders SET process = 'Served' WHERE order_id = :order_id";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
                 $stmt->execute();
