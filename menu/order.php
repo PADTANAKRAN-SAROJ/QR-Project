@@ -1,5 +1,6 @@
 <html>
 <head>
+	<?php session_start(); ?>
 	<link rel="stylesheet" href="css/order.css">
 
 	<script>

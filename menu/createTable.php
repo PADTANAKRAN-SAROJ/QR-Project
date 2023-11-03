@@ -1,5 +1,10 @@
 <?php
-session_start(); // เริ่มเซสชันตอนแรก
+session_start(); // เริ่มเซสชัน
+
+// ลบ session เก่า (ถ้ามี)
+session_unset();
+session_destroy();
+
 include "../connect.php";
 
 //ตรวจสอบข้อมูลที่ได้มาจากลิ้ง
@@ -23,22 +28,31 @@ if (isset($_GET['cus_id'])) {
             } else {
                 //ตรวจสอบว่าข้อมูลที่ได้มานั้นถูกต้องไหม
                 if ($databaseTableNumber == $tableNumber && $databaseEntryTime == $entryTimestamp) {
-                    
-                    // สร้าง session cart and cus_id สร้างใหม่ตลอดเพื่อปก้องกัน ข้อมูลเดิม หลงเหลือ กรณี กินอาหารวันเดียวกัน และ cookie ยังอยู่
+                    // เริ่ม session ใหม่
+                    session_start();
+
+                    // สร้าง session ใหม่เมื่อข้อมูลถูกตรวจสอบและถูกต้อง
                     $_SESSION['cart'] = array();
                     $_SESSION['cus_id'] = $cusId;
-                    
-                    setcookie("cart", serialize($_SESSION['cart']), time() + 10800, "/"); // ตั้งค่าคุกกี้ "cart" มีอายุ 3 ชั่วโมง
-                
-                    $encodedCusId = base64_encode($cusId);
-                    setcookie("cus_id", $encodedCusId, time() + 10800, "/"); // ตั้งค่าคุกกี "cus_id" มีอายุ 3 ชั่วโมง
+
+                    // ลบคุกกี้เก่าที่อาจถูกใช้ไว้
+                    if (isset($_COOKIE['cart'])) {
+                        setcookie("cart", "", time() - 10800, "/");
+                    }
+                    if (isset($_COOKIE['cus_id'])) {
+                        setcookie("cus_id", "", time() - 10800, "/");
+                    }
                     
                     //ไปหน้าcategory เมื่อสร้าง sessionเสร็จสิ้น
                     header("Location: ./category.php");
                 } else {
                     header("Location: ../contactStaff.php");
                 }
+            } else {
+                header("Location: ../contactStaff.php");
             }
+        } else {
+            header("Location: ../contactStaff.php");
         }
     }
 }
