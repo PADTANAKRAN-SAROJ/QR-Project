@@ -1,6 +1,10 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/order.css">
+	<?php
+		include "../connect.php";
+		include "./checkSession.php";
+	?>
 
 	<script>
 		// ใช้สำหรับปรับปรุงจำนวนสินค้า
@@ -12,11 +16,6 @@
 	</script>
 
 </head>
-
-<?php
-    include "../connect.php";
-	include "./checkSession.php";
-?>
 
 <body>
 
@@ -33,9 +32,7 @@
 	</div>
 
 	<div id="list">
-
 		<?php
- 
 		// เพิ่มสินค้า
 		if ($_GET["action"]=="add") {
 
@@ -72,11 +69,11 @@
 			$menu_id = $_GET['menu_id'];
 			unset($_SESSION['cart'][$menu_id]);
 		}
-
 		?>
 
-		<div class="cart-container">
+		<div>
 			<h2>ตะกร้าอาหาร</h2>
+			<p class="c6" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
 			<form action="addorder.php" method="post" enctype="multipart/form-data">
 			<table class="item">
 				<tr>

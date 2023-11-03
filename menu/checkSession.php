@@ -1,20 +1,24 @@
 <?php
-// เริ่ม session (หรือใช้การตรวจสอบการล็อกอินอื่น ๆ)
+
 include "../connect.php";
 session_start();
-if (isset($_COOKIE['cus_id'])) {
-    $decodedCusId = base64_decode($_COOKIE['cus_id']);
 
-    //ตรวจสอบสถาณะของโต๊ะนั้นๆ
-    $sql = "SELECT * FROM customer WHERE cus_id = :decodedCusId";
+if (isset($_SESSION['cus_id'])) {
+    $cusId = $_SESSION['cus_id'];
+
+    // ตรวจสอบสถานะของโต๊ะนั้น ๆ
+    $sql = "SELECT * FROM customer WHERE cus_id = :cusId";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':decodedCusId', $decodedCusId, PDO::PARAM_INT);
+    $stmt->bindParam(':cusId', $cusId, PDO::PARAM_INT);
 
     if ($stmt->execute()) {
         if ($stmt->rowCount() > 0) {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $databaseTableNumber = $row['table_number'];
             $databaseEntryTime = $row['entry_timestamp'];
+
+            $tableNumber = $row["table_number"];
+            $_SESSION["table_number"] = $tableNumber;
 
             if ($row['state'] == 'Done') {
                 header("Location: ../thankYou.php");
@@ -25,7 +29,8 @@ if (isset($_COOKIE['cus_id'])) {
     } else {
         header("Location: ../contactStaff.php");
     }
-
-}else{
+} else {
     header("Location: ../contactStaff.php");
 }
+
+?>

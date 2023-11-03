@@ -89,6 +89,9 @@ if (isset($_GET['number_table'])) {
         <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>
         <button onclick="printQRCode()">ปริ้น QR Code</button>
         <a class="back-link" href="./QRcode.php">ย้อนกลับ</a>
+
+        <a href="../menu/createTable.php?cus_id=<?php echo $cusId; ?>&table_number=<?php echo $tableNumber; ?>&entry_time=<?php echo $entryTime; ?>"> menu</a>
+
     </div>
 </body>
 
