@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<?php
+    <?php
+    include "../connect.php";
     include "./checkSession.php";
 
-    //ติดไว้ก่อน
-    // รับข้อมูลจากฟอร์ม
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $name = $_POST["name"];
-    $address = $_POST["address"];
-    $mobile = $_POST["mobile"];
-    $email = $_POST["email"];
+    // เช็คว่า session 'cart' มีค่าหรือไม่
+    if (!empty($_SESSION['cart'])) {
+        // ตั้งค่าโซนเวลาให้เป็น "Asia/Bangkok"
+        date_default_timezone_set("Asia/Bangkok");
+        // ดึงเวลาปัจจุบัน
+        $current_timestamp = date("Y-m-d H:i:s");
 
-    // ข้อมูลของไฟล์รูปภาพ
-    $profilePicture = $_FILES["profile"];
+        // วนลูปเพื่อแสดงรายการสินค้าในตะกร้า
+        foreach ($_SESSION['cart'] as $menu_id => $item) {
+            $cus_id = $_SESSION["cus_id"];
+            $menu_id = $item['menu_id'];
+            $qty = $item['qty'];
+            $detail = $item['detail'];
+            $process = "Cooking";
 
-    // ตรวจสอบว่ามีการอัพโหลดรูปภาพหรือไม่
-    if (!empty($profilePicture["name"])) {
-        // ระบุโฟลเดอร์ที่คุณต้องการบันทึกไฟล์
-        $uploadDirectory = "member_photo/";
+            $stmt = $pdo->prepare("INSERT INTO orders (cus_id, menu_id, process, quantity, detail) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bindParam(1, $cus_id);
+            $stmt->bindParam(2, $menu_id);
+            $stmt->bindParam(3, $process);
+            $stmt->bindParam(4, $qty);
+            $stmt->bindParam(5, $detail);
+             
+            $stmt->execute();
 
-        // สร้างชื่อไฟล์ใหม่โดยใช้ username และนามสกุลของไฟล์
-        $profilePictureName = $username . ".jpg";
-
-        // อัพโหลดไฟล์ไปยังโฟลเดอร์
-        if (move_uploaded_file($profilePicture["tmp_name"], $uploadDirectory . $profilePictureName)) {
-            // เชื่อมต่อฐานข้อมูลและเพิ่มข้อมูลโดยไม่รวมรูปภาพ
-            include "../connect.php";
-
-            $stmt = $pdo->prepare("INSERT INTO member (username, password, name, address, mobile, email) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bindParam(1, $username);
-            $stmt->bindParam(2, $password);
-            $stmt->bindParam(3, $name);
-            $stmt->bindParam(4, $address);
-            $stmt->bindParam(5, $mobile);
-            $stmt->bindParam(6, $email);
-
-            $stmt->execute(); // เริ่มเพิ่มข้อมูล
-
-            // ส่งผู้ใช้ไปยังหน้ารายละเอียดด้วยชื่อผู้ใช้
-            header("location: detail.php?username=" . $username);
-        } else {
-            echo "การอัพโหลดรูปภาพล้มเหลว";
+            // ลบตะกร้าสินค้าที่อยู่ใน $_SESSION
+            unset($_SESSION['cart']);
+            header("Location: ./history.php");
         }
     } else {
-        echo "โปรดเลือกรูปภาพ";
+        echo "ไม่มีสินค้าในตะกร้า";
+        echo "<a href='./category.php'>กลับไปเลือกสินค้า</a>";
     }
 
-?>
-
-
+    ?>
 </body>
 </html>
