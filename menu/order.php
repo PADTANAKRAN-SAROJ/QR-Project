@@ -9,10 +9,17 @@
 	<script>
 		// ใช้สำหรับปรับปรุงจำนวนสินค้า
 		function update(menu_id) {
-			var qty = document.getElementById(menu_id).value;
+			var qty = document.getElementById("quantity_" + menu_id).value;
 			// ส่งรหัสสินค้า และจำนวนไปปรับปรุงใน session
-			document.location = "order.php?action=update&menu_id=" + menu_id + "&qty=" + qty; 
+			document.location = "order.php?action=update&menu_id=" + menu_id + "&qty=" + qty;
 		}
+
+		function comment(menu_id) {
+			var text = document.getElementById(menu_id).value;
+			// ส่งรหัสสินค้าและรายละเอียดไปยังหน้า "order.php" เพื่อเก็บใน session
+			document.location = "order.php?action=comment&menu_id=" + menu_id + "&text=" + text;
+		}
+
 	</script>
 
 </head>
@@ -42,7 +49,8 @@
 				'menu_id' => $menu_id,
 				'menu_name' => $_GET['menu_name'],
 				'price' => $_GET['price'],
-				'qty' => $_POST['qty']
+				'qty' => $_POST['qty'],
+				'detail' => ""
 			);
 
 			// ถ้ายังไม่มีสินค้าใดๆในรถเข็น
@@ -69,6 +77,12 @@
 			$menu_id = $_GET['menu_id'];
 			unset($_SESSION['cart'][$menu_id]);
 		}
+		else if ($_GET["action"] == "comment") {
+			$menu_id = $_GET["menu_id"];
+			$text = $_GET["text"];
+			$_SESSION['cart'][$menu_id]['detail'] = $text;
+		}
+			
 		?>
 
 		<div>
@@ -89,7 +103,9 @@
 
 			if(!empty($_SESSION["cart"])){
 				foreach ($_SESSION["cart"] as $item) {
-					$sum += $item["price"] * $item["qty"];
+					if (is_numeric($item["price"])) {
+						$sum += $item["price"] * $item["qty"];
+					}
 				?>
 				<tr>
 					<td>
@@ -106,11 +122,11 @@
 					</td>
 					<td class="center"><?=$item["price"]?></td>
 					<td>
-						<input class="a10" type="text" placeholder="รายละเอียด" name="detail" value=""/>
+						<input class="a10" type="text" id="<?=$item["menu_id"]?>" onblur='comment(<?=$item["menu_id"]?>)' placeholder="รายละเอียด" value="<?=$item["detail"]?>"/>
 					</td>
 					<td class="center">            
-						<input type="number" id="<?=$item["menu_id"]?>" value="<?=$item["qty"]?>" min="1" max="9">
-						<a href="#" onclick="update(<?=$item["menu_id"]?>)">แก้ไข</a>
+						<input type="number" id="quantity_<?=$item["menu_id"]?>" value="<?=$item["qty"]?>" min="1" max="9">
+						<a href="#" onclick="update(<?=$item['menu_id']?>)">แก้ไข</a>
 						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>">ลบ</a>
 					</td>
 				</tr>
