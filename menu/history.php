@@ -40,6 +40,7 @@
 					<th>ราคา</th>
 					<th>รายละเอียด</th>
 					<th>จำนวน</th>
+					<th>สถานะ</th>
 				</tr>
 				</thead>
                 <tbody>
@@ -53,6 +54,17 @@
 						echo "<td>" . $row["price"] . "</td>";
 						echo "<td>" . $row["detail"] . "</td>";
 						echo "<td>" . $row["quantity"] . "</td>";
+
+						if($row["process"]=="Done"){
+							echo "<td> เสร็จสิ้น </td>";
+						}else if($row["process"]=="Cooking"){
+							echo "<td> กำลังปรุง </td>";
+						}else if($row["process"]=="Served"){
+							echo "<td> ปรุงเสร็จแล้ว </td>";
+						}else if($row["process"]=="Cancel"){
+							echo "<td> ยกเลิก </td>";
+						}
+						
 						 
 						echo "</tr>";
 
