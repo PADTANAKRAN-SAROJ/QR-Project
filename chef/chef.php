@@ -8,17 +8,58 @@ include "../connect.php";
 <head>
     <title>รายการอาหารที่สั่ง</title>
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
-
-        th,
-        td {
-            border: 1px solid black;
-            padding: 8px;
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
             text-align: center;
         }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+    button.cancel {
+        padding: 5px 10px;
+        background-color: #FF0000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button.cancel:hover {
+        background-color: #555;
+    }
+
+    button.complete {
+        padding: 5px 10px;
+        background-color: #008000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button.complete:hover {
+        background-color: #555;
+    }
+
     </style>
 
     <script>
@@ -72,10 +113,11 @@ include "../connect.php";
                         cell5.innerHTML = orderTime;
 
                         cell6.innerHTML = `
-                            <input type='hidden' name='order_id' value='${orderId}'>
-                            <button type='button' onclick='cancelOrder(${orderId})'>Cancel</button>
-                            <button type='button' onclick='completeOrder(${orderId})'>Complete</button>
-                        `;
+                                       <input type='hidden' name='order_id' value='${orderId}'>
+                                       <button class='cancel' type='button' onclick='cancelOrder(${orderId})'>Cancel</button>
+                                       <button class='complete' type='button' onclick='completeOrder(${orderId})'>Complete</button>
+                                       `;
+
                     });
                 }
             };
