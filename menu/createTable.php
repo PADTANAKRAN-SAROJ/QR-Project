@@ -25,16 +25,10 @@ if (isset($_GET['cus_id'])) {
             //ลูกค้าที่ โต๊ะว่างไปแล้วจะขอบคุณไม่สามารถเข้าถึงหนา้นั้นได้
             if ($row['state'] == 'Done') {
                 header("Location: ../thackYou.php");
-            } else {
+            } 
+            else {
                 //ตรวจสอบว่าข้อมูลที่ได้มานั้นถูกต้องไหม
                 if ($databaseTableNumber == $tableNumber && $databaseEntryTime == $entryTimestamp) {
-                    // เริ่ม session ใหม่
-                    session_start();
-
-                    // สร้าง session ใหม่เมื่อข้อมูลถูกตรวจสอบและถูกต้อง
-                    $_SESSION['cart'] = array();
-                    $_SESSION['cus_id'] = $cusId;
-
                     // ลบคุกกี้เก่าที่อาจถูกใช้ไว้
                     if (isset($_COOKIE['cart'])) {
                         setcookie("cart", "", time() - 10800, "/");
@@ -42,18 +36,32 @@ if (isset($_GET['cus_id'])) {
                     if (isset($_COOKIE['cus_id'])) {
                         setcookie("cus_id", "", time() - 10800, "/");
                     }
+
+                    // เริ่ม session ใหม่
+                    session_start();
+
+                    // สร้าง session ใหม่เมื่อข้อมูลถูกตรวจสอบและถูกต้อง
+                    $_SESSION['cart'] = array();
+                    $_SESSION['cus_id'] = $cusId;
+
+                    // สร้าง cookie ใหม่ 3 ชม
+                    setcookie("cart", "", time() - 10800, "/");
+                    setcookie("cus_id", "", time() - 10800, "/");
+
                     
                     //ไปหน้าcategory เมื่อสร้าง sessionเสร็จสิ้น
                     header("Location: ./category.php");
-                } else {
+                }else {
                     header("Location: ../contactStaff.php");
                 }
-            } else {
-                header("Location: ../contactStaff.php");
             }
         } else {
             header("Location: ../contactStaff.php");
         }
+    }else {
+        header("Location: ../contactStaff.php");
     }
+}else {
+    header("Location: ../contactStaff.php");
 }
 ?>

@@ -82,7 +82,7 @@ h2 {
 .c6{
     width: 60%;
     margin: auto;
-    margin-bottom: 5rem;
+    margin-bottom: 10px;
 }
 
 table{
@@ -143,3 +143,4 @@ img {
     max-height: 70px; 
     border-radius: 5px;
 }
+ 
