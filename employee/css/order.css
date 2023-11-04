@@ -32,17 +32,24 @@
 }
 
 .orders input[type="submit"] {
-    background-color: #4CAF50;
     color: #fff;
     border: none;
     padding: 10px 30px;
     cursor: pointer;
     border-radius: 5px;
 }
-
-.orders input[type="submit"]:hover {
+.served {
+    background-color: #4CAF50;
+}
+.served:hover{
     background-color: #45a049;
-    cursor: pointer;
+}
+
+.cancel {
+    background-color: #af4c4c;
+}
+.cancel:hover  {
+    background-color: #a04545;
 }
 
 @media (max-width: 768px) {

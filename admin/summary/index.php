@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css/topbar.css">
     <link rel="stylesheet" type="text/css" href="../css/summary.css">
     <link rel="stylesheet" type="text/css" href="../css/menu_summary.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu_summary.css">
 </head>
 <body>
     <div class="topbar">
