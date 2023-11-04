@@ -4,87 +4,109 @@
 <head>
 <style>
     body {
-        font-family: Arial, sans-serif;
-        background-color: #B0C4DE;
-        margin: 0;
-        padding: 0;
-    }
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* เปลี่ยนสีพื้นหลัง */
+    margin: 0;
+    padding: 0;
+}
 
-    h1 {
-        text-align: center;
-    }
+h1 {
+    text-align: center;
+    background-color: #333; /* เปลี่ยนสีพื้นหลังของเนื้อหา h1 */
+    color: #FFF; /* เปลี่ยนสีข้อความใน h1 เป็นขาว */
+    padding: 20px; /* เพิ่มระยะห่างรอบข้อความใน h1 */
+    margin: 0px;
+}
 
-    .descriptions {
-        gap: 0px;
-    }
+.chef {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-    .divmenu {
-        display: flex;
-        flex-direction: row;
-        padding: 0;
-        margin: 0;
-    }
-
-    .detail {
-        color: gray;
-        font-size: 15px;
-    }
-
-    .chef {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr); /* Adjust rows if necessary */
-        gap: 10px;
-    }
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-
+.category-container {
+    overflow: auto;
+    scrollbar-width: none; /* ซ่อน scrollbar */
+    width: 24%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    margin: 1px;
+}
+@media (max-height: 720px) {
     .category-container {
-        display: flex;
-        flex-direction: column;
-        background-color: #008000;
-        gap: 10px;
-        width: 100%;
-        max-height: 330px; /* Use max-height instead of height to allow content to overflow */
-        overflow: auto; /* Add overflow to make content scrollable if it exceeds the container */
-        border: 1px solid #000000;
-        align-items: center;
+        height: 300px;
     }
+}
 
-    .cards {
-        background-color: #FFFFFF;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        width: 300px;
-        height: 100px;
-        
-    }
+/* สีของ scrollbar ใน Chrome */
+.category-container::-webkit-scrollbar {
+    width: 0; /* ซ่อน scrollbar */
+}
 
-    .cancel {
-        background-color: #DC143C;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-        margin: 0 auto;
-    }
+/* สีของ scrollbar thumb ใน Chrome */
+.category-container::-webkit-scrollbar-thumb {
+    background-color: transparent; /* ทำให้ thumb โปร่งใส */
+}
 
-    .complete {
-        background-color: #228B22;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-        margin: 0 auto;
-    }
+.cards {
+    /* background-color: #a12fff; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 10px;
+    margin: 10px; /* เพิ่มระยะห่างรอบ cards */
+    border: 1px solid #333;
+}
+.cards p  {
+    /* background-color: #a12;  */
+    margin: 2px;
+}
+
+.cards .buttonAction{
+    text-align: right;
+    /* background-color: #333; */
+}
+
+.cards .detail p{
+    /* background-color: #27AE60; */
+    padding: 0px;
+    margin: 0px;
+}
+
+.cards .divmenu{
+    min-width: 60px;
+    /* background-color: blue; */
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+
+}
+.cards .descriptions{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    /* background-color: #27AE60; */
+}
+.cards .buttonAction{
+    min-width: 120px;
+}
+.cancel, .complete {
+    background-color: #E74C3C;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 5px; /* เพิ่มระยะห่างรอบปุ่ม */
+}
+
+.complete {
+    background-color: #27AE60;
+}
+
 </style>
 
     <title>รายการอาหารที่สั่ง</title>
@@ -146,28 +168,27 @@
                 var divmenu = document.createElement('div');
                 var cell6Content = `
                     <input type='hidden' name='order_id' value='${orderId}'>
-                    <div>
-                    <button class='complete' type='button' onclick='completeOrder(${orderId})'>DONE</button>
-                    <button class='cancel' type='button' onclick='cancelOrder(${orderId})'>X</button></div>
+                    <div class='buttonAction'>
+                        <button class='complete' type='button' onclick='completeOrder(${orderId})'>DONE</button>
+                        <button class='cancel' type='button' onclick='cancelOrder(${orderId})'>X</button>
+                    </div>
               `;
               descriptions.classList.add('descriptions')
               divmenu.classList.add('divmenu')
               p4.classList.add('detail')
                 
                 p1.innerHTML = orderId
-                p2.innerHTML = menuName
-                p3.innerHTML = `(${quantity})`
+                p2.innerHTML = menuName + `(${quantity})`
                 p4.innerHTML =  `หมายเหตุ:${detail} `
                 p5.innerHTML = orderTime
                 p6.innerHTML =cell6Content
 
-                divmenu.append(p2)
-                divmenu.append(p3)
-                descriptions.append(divmenu)
+                divmenu.append(p5)
+                descriptions.append(p2)
                 descriptions.append(p4)
                 
 
-                cards.append(p5)
+                cards.append(divmenu)
                 cards.append(descriptions)
 
                 cards.append(p6)//ปุ่ม
@@ -214,7 +235,7 @@
             loadOrdersByCategory(8);
         });
 
-        // Replace the previous setInterval calls with this code
+        //Replace the previous setInterval calls with this code
         setInterval(function () {
             loadOrdersByCategory(1);
             loadOrdersByCategory(2);
