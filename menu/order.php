@@ -125,8 +125,14 @@
 						<input class="a10" type="text" id="<?=$item["menu_id"]?>" onblur='comment(<?=$item["menu_id"]?>)' placeholder="รายละเอียด" value="<?=$item["detail"]?>"/>
 					</td>
 					<td class="center">            
-						<input type="number" id="quantity_<?=$item["menu_id"]?>" value="<?=$item["qty"]?>" min="1" max="9">
-						<a href="#" onclick="update(<?=$item['menu_id']?>)"><button type="button" class='editButton'>แก้ไข</button></a>
+						<select id="quantity_<?=$item["menu_id"]?>" onchange="update(<?=$item['menu_id']?>)">
+							<?php
+							for ($i = 1; $i <= 9; $i++) {
+								$selected = ($i == $item["qty"]) ? 'selected' : '';
+								echo "<option value='$i' $selected>$i</option>";
+							}
+							?>
+						</select>
 						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'>ลบ</button></a>
 					</td>
 				</tr>

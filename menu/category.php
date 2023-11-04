@@ -29,7 +29,7 @@ include "./checkSession.php";
                 </a>
                 <br>
                 <?php
-                echo "ชื่อประเภท: " . $row["category"] . "<br>";
+                echo $row["category"] . "<br>";
                 ?>
                 
                 

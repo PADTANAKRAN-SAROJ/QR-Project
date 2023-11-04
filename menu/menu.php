@@ -54,7 +54,7 @@
             
             <form method="post" action="order.php?action=add&menu_id=<?=$row["menu_id"]?>&menu_name=<?=$row["menu_name"]?>&price=<?=$row["price"]?>">
 				<input type="number" name="qty" value="1" min="1" max="9">
-				<input type="submit" value="ใส่ตะกร้า">	   
+				<input class="orderConfirmButton" type="submit" value="ใส่ตะกร้า">	   
 			</form>
         </div>
     <?php endwhile; ?>

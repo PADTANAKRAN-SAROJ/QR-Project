@@ -143,38 +143,29 @@ img {
     max-height: 70px; 
     border-radius: 5px;
 }
- 
-.editButton{
-    color: white;
-    border: none;
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    display: inline-block;
-    border-radius: 0.5rem;
-    background-color: #FFB500; /* #cbe2c5 */
-    text-align: center;
-    font-size: 1rem;
-    margin-left: 8px;
-}
-.editButton:hover{
-    background-color: #e78504;
-}
 
 .deleteButton{
     color: white;
     border: none;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 4px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 8px;
     display: inline-block;
-    border-radius: 0.5rem;
+    border-radius: 10px;
     background-color: #e70404; /* #cbe2c5 */
     text-align: center;
     font-size: 1rem;
-    margin-left: 3px;
+    margin-left: 5px;
 }
 .deleteButton:hover{
     background-color: #c60000;
     
+}
+
+select {
+    width: 40px;
+    height: 30px; /* ปรับความสูงตามที่คุณต้องการ */
+    font-size: 13px;
+    border-radius: 5px;
 }

@@ -11,9 +11,20 @@
     flex: 33.33%;
     max-width: 300px;
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid #D9D9D9;
     border-radius: 10px;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0,0.05);
+
+    transition: transform 0.2s; /* เพิ่มการเปลี่ยนแปลงการแสดงผลด้วยการขยับ */
+
+    /* เมื่อวางเม้าส์เข้าไป */
+    cursor: pointer;
 }
+
+.menu-item:hover {
+    transform: translateY(-10px); /* ขยับขึ้นขณะวางเม้าส์เข้าไป */
+}
+
 
 .menu-item img {
     width: 100%;
