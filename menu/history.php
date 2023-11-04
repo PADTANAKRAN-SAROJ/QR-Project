@@ -44,6 +44,7 @@
 				</tr>
 				</thead>
                 <tbody>
+					<tr>
 					<?php
 					$sum = 0;
 
@@ -71,9 +72,10 @@
 						$sum+= $row["price"] * $row["quantity"];
 					}
 					?>
-				<tr>
-					<td colspan="5" align="center">ราคารวม <?=$sum?> บาท</td>
-				</tr>
+					</tr>
+					<tr>
+						<td colspan="5" align="center">ราคารวม <?=$sum?> บาท</td>
+					</tr>
 
 				</tbody>
 			</table>

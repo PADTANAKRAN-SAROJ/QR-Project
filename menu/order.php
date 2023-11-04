@@ -126,8 +126,8 @@
 					</td>
 					<td class="center">            
 						<input type="number" id="quantity_<?=$item["menu_id"]?>" value="<?=$item["qty"]?>" min="1" max="9">
-						<a href="#" onclick="update(<?=$item['menu_id']?>)">แก้ไข</a>
-						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>">ลบ</a>
+						<a href="#" onclick="update(<?=$item['menu_id']?>)"><button type="button" class='editButton'>แก้ไข</button></a>
+						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'>ลบ</button></a>
 					</td>
 				</tr>
 				<?php
