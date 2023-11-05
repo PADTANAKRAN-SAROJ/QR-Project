@@ -20,12 +20,26 @@ include "./checkRole.php" ;
             }
             //order page
             function served(button) {
-                console.log("served!!");
                 var orderRow = button.parentElement.parentElement; // รับแถวข้อมูลออร์เดอร์ที่ถูกคลิก
                 var id = orderRow.querySelector("#order_id").value;
 
                 var xhttp = new XMLHttpRequest();
                 var url = "served.php?order_id=" + id; // ใช้ query parameter
+                xhttp.open("GET", url);
+                xhttp.onload = function () {
+                    if (this.status === 200) {
+                        orderPage(); // อัพเดตหน้า Order โดยเรียกฟังก์ชัน orderPage()
+                    }
+                };
+                xhttp.send();
+            }
+
+            function cancel(button) {
+                var orderRow = button.parentElement.parentElement; // รับแถวข้อมูลออร์เดอร์ที่ถูกคลิก
+                var id = orderRow.querySelector("#order_id").value;
+
+                var xhttp = new XMLHttpRequest();
+                var url = "cancel.php?order_id=" + id; // ใช้ query parameter
                 xhttp.open("GET", url);
                 xhttp.onload = function () {
                     if (this.status === 200) {

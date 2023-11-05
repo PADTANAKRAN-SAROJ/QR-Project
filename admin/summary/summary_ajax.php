@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             INNER JOIN menu m ON o.menu_id = m.menu_id
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
+                            AND o.process = 'Done' 
                             GROUP BY m.category, m.menu_name
                             ORDER BY m.category";
     
@@ -88,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             INNER JOIN menu m ON o.menu_id = m.menu_id
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
+                            AND o.process = 'Done' 
                             GROUP BY m.category, m.menu_name
                             ORDER BY m.category";
 
@@ -145,6 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             INNER JOIN menu m ON o.menu_id = m.menu_id
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
+                            AND o.process = 'Done' 
                             GROUP BY m.category, m.menu_name
                             ORDER BY m.category";
             
@@ -205,6 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
         
@@ -268,6 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         WHERE o.order_timestamp >= :start_time
                         AND o.order_timestamp <= :end_time
                         AND m.category = :food_category_thai
+                        AND o.process = 'Done' 
                         GROUP BY m.menu_name
                         ORDER BY m.menu_name";
             
@@ -327,6 +332,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
                 
@@ -385,6 +391,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
         
@@ -448,6 +455,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         WHERE o.order_timestamp >= :start_time
                         AND o.order_timestamp <= :end_time
                         AND m.category = :food_category_thai
+                        AND o.process = 'Done' 
                         GROUP BY m.menu_name
                         ORDER BY m.menu_name";
             
@@ -507,6 +515,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
                 
@@ -565,6 +574,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
         
@@ -628,6 +638,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         WHERE o.order_timestamp >= :start_time
                         AND o.order_timestamp <= :end_time
                         AND m.category = :food_category_thai
+                        AND o.process = 'Done' 
                         GROUP BY m.menu_name
                         ORDER BY m.menu_name";
             
@@ -687,6 +698,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
                 
@@ -745,6 +757,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
         
@@ -808,6 +821,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         WHERE o.order_timestamp >= :start_time
                         AND o.order_timestamp <= :end_time
                         AND m.category = :food_category_thai
+                        AND o.process = 'Done' 
                         GROUP BY m.menu_name
                         ORDER BY m.menu_name";
             
@@ -867,6 +881,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
                 
@@ -925,6 +940,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
         
@@ -988,6 +1004,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         WHERE o.order_timestamp >= :start_time
                         AND o.order_timestamp <= :end_time
                         AND m.category = :food_category_thai
+                        AND o.process = 'Done' 
                         GROUP BY m.menu_name
                         ORDER BY m.menu_name";
             
@@ -1047,6 +1064,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
                 
@@ -1106,6 +1124,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
         
@@ -1169,6 +1188,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         WHERE o.order_timestamp >= :start_time
                         AND o.order_timestamp <= :end_time
                         AND m.category = :food_category_thai
+                        AND o.process = 'Done' 
                         GROUP BY m.menu_name
                         ORDER BY m.menu_name";
             
@@ -1228,6 +1248,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
                 
@@ -1287,6 +1308,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
         
@@ -1350,6 +1372,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         WHERE o.order_timestamp >= :start_time
                         AND o.order_timestamp <= :end_time
                         AND m.category = :food_category_thai
+                        AND o.process = 'Done' 
                         GROUP BY m.menu_name
                         ORDER BY m.menu_name";
             
@@ -1409,6 +1432,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             WHERE o.order_timestamp >= :start_time
                             AND o.order_timestamp <= :end_time
                             AND m.category = :food_category_thai
+                            AND o.process = 'Done' 
                             GROUP BY m.menu_name
                             ORDER BY m.menu_name";
                 
@@ -1459,34 +1483,325 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         }
 
-    }else if($summary_option == "revenue_summary") {
-        echo "revenue_summary : ";
-        if($revenue_option == 'daily'){
-            if($selected_date!=''){
-                echo "daily :" . $selected_date ;
-            }else{
+    }else if ($summary_option == "revenue_summary") {
+        if ($revenue_option == 'daily') {
+            if ($selected_date != '') {
+                $start_time = $selected_date . " 00:00:00";
+                $end_time = $selected_date . " 23:59:59";
+                
+                $sql = "SELECT m.category, SUM(o.quantity * m.price) AS total_revenue
+                        FROM orders o
+                        INNER JOIN menu m ON o.menu_id = m.menu_id
+                        WHERE o.order_timestamp >= :start_time
+                        AND o.order_timestamp <= :end_time
+                        AND o.process = 'Done' 
+                        GROUP BY m.category";
+    
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(":start_time", $start_time);
+                $stmt->bindParam(":end_time", $end_time);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                // รวมรายได้ของแต่ละหมวดหมู่
+                $categoryRevenue = array();
+                foreach ($result as $row) {
+                    $categoryRevenue[] = array(
+                        'category' => $row["category"],
+                        'revenue' => $row["total_revenue"]
+                    );
+                }
+
+                $totalDailyRevenue = array_sum(array_column($categoryRevenue, 'revenue'));
+                echo " <h3> รายได้รวม : $totalDailyRevenue บาท </h3>";
+                // ส่งข้อมูลรายได้ไปยัง JavaScript ในรูปแบบ JSON
+                echo '<script>';
+                echo 'var categoryData = ' . json_encode($categoryRevenue) . ';';
+                echo '</script>';
+                echo "
+                    <canvas id='revenueChart' width='400' height='100%' ></canvas>
+                    
+                    <script>
+                    var ctx = document.getElementById('revenueChart').getContext('2d');
+
+                    // ตรวจสอบค่าของ categoryData ใน Console
+                    console.log(categoryData);
+
+                    // สร้างอาร์เรย์ของสีสำหรับแต่ละประเภท
+                    var categoryColors = {
+                        'จานเดียว': 'rgba(75, 192, 192)',
+                        'เส้น': 'rgba(255, 99, 132)',
+                        'กับข้าว': 'rgba(20, 255, 86)',
+                        'ของกินเล่น': 'rgba(255, 206, 86)',
+                        'ต้ม': 'rgba(54, 162, 235)',
+                        'ของหวาน': 'rgba(153, 102, 255)',
+                        'เครื่องดื่ม': 'rgba(255, 159, 64)',
+                        'อื่นๆ': 'rgba(200, 200, 200)'
+                    };
+
+                    // ตรวจสอบค่าของ categoryData ใน Console
+                    console.log(categoryData);
+
+                    // สร้างกราฟแท่งด้วย Chart.js
+                    if (categoryData) {
+                        var categoryLabels = categoryData.map(item => item.category);
+                        var categoryRevenues = categoryData.map(item => item.revenue);
+
+                        // สร้างอาร์เรย์สีสำหรับแต่ละหมวดหมู่
+                        var categoryBackgroundColors = categoryLabels.map(label => categoryColors[label]);
+
+                        var data = {
+                            labels: categoryLabels,
+                            datasets: [{
+                                label: 'รายได้',
+                                data: categoryRevenues,
+                                backgroundColor: categoryBackgroundColors, // ใช้สีตามหมวดหมู่
+                                borderWidth: 1
+                            }]
+                        };
+
+                        var options = {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        };
+
+                        var revenueChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: data,
+                            options: options
+                        });
+                    }
+                </script>
+                ";
+            } else {
                 echo "กรุณากรอกข้อมูลให้ครบถ้วน";
             }
-        }else if($revenue_option == 'monthly'){
-            if($selected_month!=''){
-                echo "monthly" . $selected_month;
-            }else{
+        }else if ($revenue_option == 'monthly') {
+            if ($selected_month != '') {
+                $selected_month = date('Y-m', strtotime($selected_month));
+                $start_time = $selected_month . "-01 00:00:00";
+                $end_time = date('Y-m-t', strtotime($selected_month)) . " 23:59:59";
+        
+                $sql = "SELECT DATE(o.order_timestamp) AS order_date, SUM(o.quantity * m.price) AS total_revenue
+                        FROM orders o
+                        INNER JOIN menu m ON o.menu_id = m.menu_id
+                        WHERE o.order_timestamp >= :start_time
+                        AND o.order_timestamp <= :end_time
+                        AND o.process = 'Done' 
+                        GROUP BY order_date";
+        
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(":start_time", $start_time);
+                $stmt->bindParam(":end_time", $end_time);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+                if (count($result) > 0) {
+                    $total_monthly_revenue = 0;
+                    foreach ($result as $row) {
+                        $total_monthly_revenue += $row["total_revenue"];
+                    }
+        
+                    echo '</table> <br>';
+                    echo "รายได้รวมในเดือน $selected_month: $total_monthly_revenue";
+        
+                    // ส่งข้อมูลรายได้ไปยัง JavaScript ในรูปแบบ JSON เพื่อใช้ในการสร้างกราฟ
+                    echo '<script>';
+                    echo 'var monthlyData = ' . json_encode($result) . ';';
+                    echo '</script>';
+        
+                    // สร้างกราฟแท่งด้วย Chart.js
+                    echo "
+                        <canvas id='monthlyChart' width='400px' height='100%'></canvas>
+                        
+                        <script>
+                        var ctx = document.getElementById('monthlyChart').getContext('2d');
+        
+                        // สร้างอาร์เรย์ของวันที่และรายได้
+                        var orderDates = monthlyData.map(item => {
+                            var date = new Date(item.order_date);
+                            var dayOfWeek = date.toLocaleDateString('th-TH', { weekday: 'long' });
+                            return dayOfWeek + ' ' + date.getDate();
+                        });
+                        var orderRevenues = monthlyData.map(item => item.total_revenue);                        
+                        
+                        // สร้างอาร์เรย์ของสีตามวันของสัปดาห์
+                        // สร้างอาร์เรย์ของสีตามวันของสัปดาห์และชื่อวันภาษาไทย
+                        var dayColors = {
+                            'วันอาทิตย์': 'red', 
+                            'วันจันทร์': 'yellow', 
+                            'วันอังคาร': 'pink', 
+                            'วันพุธ': 'green', 
+                            'วันพฤหัสบดี': 'orange', 
+                            'วันศุกร์': 'blue', 
+                            'วันเสาร์': 'purple'
+                        };
+                        
+        
+                        // กำหนดสีตามวันของสัปดาห์
+                        var backgroundColors = orderDates.map(day => dayColors[day.split(' ')[0]]);
+        
+                        var data = {
+                            labels: orderDates,
+                            datasets: [{
+                                label: 'รายได้',
+                                data: orderRevenues,
+                                backgroundColor: backgroundColors,
+                                borderWidth: 1
+                            }]
+                        };
+        
+                        var options = {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        };
+        
+                        var monthlyChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: data,
+                            options: options
+                        });
+                        </script>
+                    ";
+                } else {
+                    echo "ไม่พบข้อมูลสำหรับรายการในเดือน $selected_month";
+                }
+            } else {
                 echo "กรุณากรอกข้อมูลให้ครบถ้วน";
-            }
-        }else if($revenue_option == 'yearly'){
-            if($selected_year!=''){
-                echo "yearly" . $selected_year;
-            }else{
+            }    
+        }else if ($revenue_option == 'yearly') {
+            if ($selected_year != '') {
+                $start_time = $selected_year . "-01-01 00:00:00";
+                $end_time = $selected_year . "-12-31 23:59:59";
+        
+                $sql = "SELECT DATE_FORMAT(o.order_timestamp, '%Y-%m') AS order_month, SUM(o.quantity * m.price) AS total_revenue
+                        FROM orders o
+                        INNER JOIN menu m ON o.menu_id = m.menu_id
+                        WHERE o.order_timestamp >= :start_time
+                        AND o.order_timestamp <= :end_time
+                        AND o.process = 'Done' 
+                        GROUP BY order_month";
+        
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(":start_time", $start_time);
+                $stmt->bindParam(":end_time", $end_time);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+                if (count($result) > 0) {   
+                    $total_yearly_revenue = 0;
+                    foreach ($result as $row) {
+                        $total_yearly_revenue += $row["total_revenue"];
+
+                    }
+        
+                    echo '</table> <br>';
+                    echo "รายได้รวมทั้งหมดในปี $selected_year: $total_yearly_revenue";
+        
+                    // ส่งข้อมูลรายได้ไปยัง JavaScript ในรูปแบบ JSON เพื่อใช้ในการสร้างกราฟ
+                    echo '<script>';
+                    echo 'var yearlyData = ' . json_encode($result) . ';';
+                    echo '</script>';
+        
+                    // สร้างกราฟแท่งด้วย Chart.js
+                    echo "
+                        <canvas id='yearlyChart' width='400' height='200'></canvas>
+                        
+                        <script>
+                        var ctx = document.getElementById('yearlyChart').getContext('2d');
+
+                        // สร้างอาร์เรย์ของเดือนและรายได้
+                        var orderMonths = yearlyData.map(item => {
+                            var parts = item.order_month.split('-');
+                            return parseInt(parts[1]); // ใช้ parseInt เพื่อแปลงให้เป็นตัวเลข
+                        });
+                        var orderRevenues = yearlyData.map(item => item.total_revenue);
+
+                        // สร้างอาร์เรย์ของสีตามเดือน
+                        var monthColors = [
+                            'rgba(255, 99, 132)',
+                            'rgba(75, 192, 192)',
+                            'rgba(54, 162, 235)',
+                            'rgba(153, 102, 255)',
+                            'rgba(255, 159, 64)',
+                            'rgba(20, 255, 86)',
+                            'rgba(255, 206, 86)',
+                            'rgba(255, 99, 132)',
+                            'rgba(75, 192, 192)',
+                            'rgba(54, 162, 235)',
+                            'rgba(153, 102, 255)',
+                            'rgba(255, 159, 64)'
+                        ];
+        
+                        // สร้างอาร์เรย์ของชื่อเดือนและรายได้
+                        var monthNames = [
+                            'มกราคม',
+                            'กุมภาพันธ์',
+                            'มีนาคม',
+                            'เมษายน',
+                            'พฤษภาคม',
+                            'มิถุนายน',
+                            'กรกฎาคม',
+                            'สิงหาคม',
+                            'กันยายน',
+                            'ตุลาคม',
+                            'พฤศจิกายน',
+                            'ธันวาคม'
+                        ];
+
+                        var orderMonths = yearlyData.map(item => {
+                            var parts = item.order_month.split('-');
+                            var monthIndex = parseInt(parts[1]) - 1; // ลบ 1 เนื่องจากเดือนใน JavaScript เริ่มที่ 0
+                            return monthNames[monthIndex];
+                        });
+                        var orderRevenues = yearlyData.map(item => item.total_revenue);
+
+        
+                        var data = {
+                            labels: orderMonths,
+                            datasets: [{
+                                label: 'รายได้',
+                                data: orderRevenues,
+                                backgroundColor: backgroundColors,
+                                borderWidth: 1
+                            }]
+                        };
+        
+                        var options = {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        };
+        
+                        var yearlyChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: data,
+                            options: options
+                        });
+                        </script>
+                    ";
+                } else {
+                    echo "ไม่พบข้อมูลสำหรับรายการในปี $selected_year";
+                }
+            } else {
                 echo "กรุณากรอกข้อมูลให้ครบถ้วน";
             }
         }
-
-    }else{
-        echo "ไม่พบข้อมูล";
-    }
-
-} else {
+    }else {
     // หากไม่ใช่ POST request ให้ส่งข้อความแจ้งเตือน
     echo "ไม่พบข้อมูลที่ส่งเข้ามาหรือเป็นประเภทผิด";
 }
+}
 ?>
+<head>
+    <!-- เรียกใช้ไลบรารี Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
