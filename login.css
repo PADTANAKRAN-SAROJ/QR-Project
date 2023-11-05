@@ -1,21 +1,41 @@
 body{
     display: flex;
-    margin: auto;
+    margin: 30px;
+    background-color: #2A9D8Faa;
 }
 .loginPage{
     margin: auto;
     padding: 20px;
-    margin: 10% auto;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 700px;
+    box-shadow: 0 0 10px #264653aa;
+    max-width: 1200px;
     min-width: 300px;
     width: 100%;
+    text-align: center;
+    background-color: white;
+}
+.loginPage img{
+    max-width: 150px;
+    width: 100%;
+    margin: 10px;
+}
+
+.loginPage h2{
+    margin-top: 30px;
+    color: #F4A261;
     
 }
-.loginPage > h2 {
-    text-align: center;
-    
+
+.restaurant_name{
+    margin-top: 20px;
+}
+.restaurant_name h1{
+    margin: 0px;
+    color: #2A9D8F;
+}
+.restaurant_name h2{
+    margin: 0px;
+    color: #2A9D8Faa;
 }
 .loginPage > .formLogin {
     padding: 5px;
@@ -23,40 +43,48 @@ body{
 
 .formLogin > .form-group {
     margin-bottom: 20px;
-    text-align: center;
+
 }
 .form-group > label{
-    color: rgb(136, 136, 136);
+    color: #777777;
     display: inline-block;
     margin-bottom: 10px;
 }
 .form-group > input[type="text"],input[type="password"] {
-    padding: 2% 10px;
-    border: none; 
-    border-radius: 10em;
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border: 1px #F4A26199 solid; 
+    border-radius: 10px;
+    box-shadow: 0 1px 6px #F4A26199;
     width: 100%;
     max-width: 80%;
-    min-width: 60%;
-    text-align: center;
+    min-width: 40%;
 }
 .form-group > input[type="submit"] {
-    background-color: #3498db;
+    background-color: #2A9D8F;
     color: #fff;
     border: none;
-    border-radius: 10em;
+    border-radius: 10px;
     padding: 10px 30px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
+    box-shadow: 0 4px 6px #264653aa; /* เพิ่มเงาให้ปุ่ม */
 }
 
 .form-group > input[type="submit"]:hover {
-    background-color: #258cd1;
+    background-color: #264653;
 }
 
 @media (max-width: 768px) {
-    .loginPage{
-        margin: 20% auto;
-        width: 70%;
+    body{
+        margin: 20px;
+    }
+    .loginPage img{
+        max-width: 100px;
+        margin: 8px;
+    }
+    .restaurant_name h1{
+        font-size: 22px;
+    }
+    .restaurant_name h2{
+        font-size: 18px;
     }
 }

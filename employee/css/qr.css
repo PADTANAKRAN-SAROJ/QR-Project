@@ -1,3 +1,6 @@
+body{
+    background-color: #F5F2E9 ;
+}
 .tableList {
     list-style: none;
     padding: 0;
@@ -21,23 +24,23 @@
 }
 
 .tableList .full button{
-    background-color: #4CAF50;
+    background-color: #DD9E68;
     font-size: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .tableList .full button:hover {
-    background-color: #45a049;
+    background-color: #CF7157;
     font-size: 25px;
     cursor: pointer;
 }
 
 .tableList .empty button{
-    background-color: #3498db;
+    background-color: #4D9589;
     font-size: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .tableList .empty button:hover{
-    background-color: #258cd1;
+    background-color: #2C424F;
     font-size: 25px;
     cursor: pointer;
 }

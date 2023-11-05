@@ -7,7 +7,7 @@ body{
 
 .employeePage > .topBar{
     padding: 2%;
-    background-color: rgb(231, 231, 231);
+    background-color: #DD9E68;
     text-align: center;
     
 }
@@ -15,7 +15,7 @@ body{
     min-height: 50px;
     margin: auto 3%;
     padding: 2% 15%;
-    background-color: #3498db;
+    background-color: #4D9589;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -24,7 +24,7 @@ body{
     font-size: 18px;
 }
 .topBar > button:hover {
-    background-color: #258cd1;
+    background-color: #2C424F;
 }
 
 .topBar > button:disabled {
