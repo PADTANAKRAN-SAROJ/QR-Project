@@ -11,9 +11,18 @@
     flex: 33.33%;
     max-width: 300px;
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid #D9D9D9;
     border-radius: 10px;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0,0.05);
 
+    transition: transform 0.2s; /* เพิ่มการเปลี่ยนแปลงการแสดงผลด้วยการขยับ */
+
+    /* เมื่อวางเม้าส์เข้าไป */
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px); /* ขยับขึ้นขณะวางเม้าส์เข้าไป */
 }
 
 .menu-item img {
@@ -47,4 +56,21 @@ h1 {
     gap: 10%;
 
     margin-right: 15px;
+}
+
+.orderConfirmButton{
+    color: white;
+    border: none;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+    border-radius: 0.5rem;
+    background-color: #609966; /* #cbe2c5 */
+    text-align: center;
+    font-size: 1rem;
+    margin-left: 8px;
+}
+.orderConfirmButton:hover{
+    background-color: #25814c;
 }

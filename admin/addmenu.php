@@ -12,10 +12,6 @@
         //ตรวจสอบสิทธิ์
         include "./checkRole.php";
         include "../connect.php";
-
-        $stmt = $pdo->prepare("SELECT * FROM menu WHERE category = ?");
-        $stmt->bindParam(1, $_GET["category"]); // ผูกค่าจากพารามิเตอร์ URL
-        $stmt->execute(); // ดำเนินการคิวรี
     ?>
 
     <header>
