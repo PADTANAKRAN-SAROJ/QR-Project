@@ -3,12 +3,17 @@
 
 <head>
 <style>
-    body {
+  body {
     font-family: Arial, sans-serif;
+    background-image: url(https://media.istockphoto.com/id/1221913991/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B%E0%B9%82%E0%B8%95%E0%B9%8A%E0%B8%B0%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%9A%E0%B8%99%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%A0%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%99%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%9A%E0%B8%A5%E0%B8%AD.jpg?s=1024x1024&w=is&k=20&c=T_4X5bKJMsvqs3q3w4TNXFyDhrPWFNouGyMqaCN4VVM=);
+    background-repeat: no-repeat;
+    background-position: center top;
     background-color: #F5F5F5; /* เปลี่ยนสีพื้นหลัง */
+    background-size: cover; /* ปรับขนาดให้เต็มพื้นที่ */
     margin: 0;
     padding: 0;
 }
+
 
 h1 {
     text-align: center;
@@ -31,7 +36,7 @@ h1 {
     height: 450px;
     display: flex;
     flex-direction: column;
-    background-color: #FFF;
+    background-color: rgba(248, 248, 255, 0.3 ); /* ค่า RGBA ที่ใช้ให้โปร่งใส */
     border: 1px solid #DDD;
     margin: 1px;
 }
@@ -40,6 +45,18 @@ h1 {
         height: 300px;
     }
 }
+
+/*  */
+@media (max-width: 768px) {
+    .category-container {
+        width: 100%; 
+    }
+
+    .cards {
+        flex-direction: column; 
+    }
+}
+
 
 /* สีของ scrollbar ใน Chrome */
 .category-container::-webkit-scrollbar {
@@ -52,7 +69,7 @@ h1 {
 }
 
 .cards {
-    /* background-color: #a12fff; */
+    background-color: rgba(248, 248, 255, 0.3 ); /* สีเทาโปร่งใส */
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -61,6 +78,7 @@ h1 {
     margin: 10px; /* เพิ่มระยะห่างรอบ cards */
     border: 1px solid #333;
 }
+
 .cards p  {
     /* background-color: #a12;  */
     margin: 2px;
