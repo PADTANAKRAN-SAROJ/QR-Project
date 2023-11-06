@@ -8,7 +8,7 @@ if (isset($_SESSION['role'])) {
         header("Location: ./admin/index.php");
         exit();
     } else if ($role == "chef") {
-        header("Location: ./chef/chef.php");
+        header("Location: ./chef/index.php");
         exit();
     } else if ($role == "employee") {
         header("Location: ./employee/index.php");

@@ -29,10 +29,8 @@ include "./checkSession.php";
                 </a>
                 <br>
                 <?php
-                echo $row["category"] . "<br>";
+                echo "<h2>" . $row["category"] . "</h2>";
                 ?>
-                
-                
             </div>
         <?php endwhile; ?>
     </div>
