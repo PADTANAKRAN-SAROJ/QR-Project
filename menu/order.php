@@ -33,16 +33,15 @@
 		<h1>รวมรายการที่สั่ง</h1>
 	</header>
 
-	<div> 
+	<div id="wrapper">
 		<nav id="nav">
 			<ul>
-				<li><a href="#list" class="active">ตะกร้าอาหาร</a></li>
+				<li><a href="#main" class="active">ตะกร้าอาหาร</a></li>
 				<li><a href="history.php">ประวัติการสั่งซื้อ</a></li>
 			</ul>
 		</nav>
-	</div>
 
-	<div id="list">
+	<div id="main">
 		<?php
 		// เพิ่มสินค้า
 		if ($_GET["action"]=="add") {
@@ -158,6 +157,7 @@
 
 			</form>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

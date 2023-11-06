@@ -17,14 +17,15 @@
 		<h1>รวมรายการที่สั่ง</h1>
 	</header>
 
-	<div> 
+	<div id="wrapper">
+
 		<nav id="nav">
 			<ul>
 				<li><a href="order.php?action=">ตะกร้าอาหาร</a></li>
-				<li><a href="#his" class="active">ประวัติการสั่งซื้อ</a></li>
+				<li><a href="#main" class="active">ประวัติการสั่งซื้อ</a></li>
 			</ul>
 		</nav>
-	</div>
+
 
 	<?php
 		$stmt = $pdo->prepare("SELECT * FROM orders JOIN menu ON orders.menu_id = menu.menu_id WHERE cus_id = ?");
@@ -32,8 +33,7 @@
         $stmt->execute();
 	?>
 
-	<div id="his">
-		<div>
+	<div id="main">
 			<h2>ประวัติการสั่งซื้อ</h2>
 			<p class="c6" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
 			
@@ -83,7 +83,7 @@
 
 				</tbody>
 			</table>
-		</div>
+	</div>
 	</div>
 </body>
 </html>
