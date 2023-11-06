@@ -3,10 +3,10 @@ body {
 }
 
 header {
-    background-color: blanchedalmond;
+    background-color: #4D9589;
     padding: 10px;
     margin: -10px;
-    
+    margin-bottom: 15px;
     display: flex; /* เพื่อให้ <h1> และ <a> อยู่ในหนึ่งแถว */
     justify-content: space-between;
     align-items: center;
@@ -15,37 +15,7 @@ header {
 h1 {
     flex: 1;
     text-align: center;
-}
-
-.topnav {
-    overflow: hidden;
-    background-color: #333;
-    margin: 10px 0px 0px 0px;
-    width: 100%;
-    display: flex;
-}
-  
-.topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-  
-.topnav a:hover {
-    background-color: palevioletred;
-    color: white;
-}
-  
-.topnav a.now {
-    background-color: pink;
-    color: black;
+    color: #F5F2E9;
 }
 
 h2{
@@ -58,7 +28,7 @@ table.t8{
 table{
     margin: auto;
     text-align: center;
-
+    background-color: #ffffff;
     box-shadow: 0 10px 10px 10px rgba(0, 0, 0,0.05);
     border-collapse: collapse;
     border-radius: 1rem;
@@ -113,17 +83,6 @@ td.center{
     width: 60%;
     margin: auto;
     margin-bottom: 15px;
-}
-
-.nextButton{
-    color: white;
-    border: none;
-    padding: 5px 25px 5px 25px;
-    display: inline-block;
-    border-radius: 10px;
-    background-color: palevioletred; /* #cbe2c5 */
-    transition: 0.2s;
-    text-align: center;
 }
 
     /* สไตล์สำหรับ overlay */
@@ -226,3 +185,100 @@ td.center{
     
 }
  
+
+
+#nav{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    display: block;
+}
+/* Nav */
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+#nav {
+    -moz-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+    -webkit-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+    -ms-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+    transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+    background-color: #ffffff;
+    color: #CF7157;
+    flex: 1; /* เพิ่ม flex: 1; เพื่อให้ความกว้างเท่ากับ #main */
+    max-width: 100%;
+    padding: 1em;
+    background-color: #DABC73;
+    border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+    cursor: default;
+    text-align: center;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color: #CF7157;
+}
+
+#nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#nav ul li {
+    -moz-transition: margin 0.2s ease;
+    -webkit-transition: margin 0.2s ease;
+    -ms-transition: margin 0.2s ease;
+    transition: margin 0.2s ease;
+    display: inline-block;
+    margin: 0 0.35em;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#nav ul li a {
+    -moz-transition: font-size 0.2s ease;
+    -webkit-transition: font-size 0.2s ease;
+    -ms-transition: font-size 0.2s ease;
+    transition: font-size 0.2s ease;
+    display: inline-block;
+    height: 2.25em;
+    line-height: 2.25em;
+    padding: 0 1.25em;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px transparent;
+}
+
+#nav ul li a:hover {
+    background-color: #F5F2E9;
+}
+
+#nav ul li a.active {
+    background-color: #F5F2E9;
+    box-shadow: none;
+}
+
+#nav + #main {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#main {
+    background-color: #F5F2E9;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#wrapper {
+    width: 74em;
+    max-width: calc(100% - 4em);
+    margin: 0 auto;
+}
+
