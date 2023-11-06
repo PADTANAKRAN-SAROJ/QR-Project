@@ -17,9 +17,13 @@
 		<h1>รวมรายการที่สั่ง</h1>
 	</header>
 
-	<div class="topnav">
-		<a href="order.php?action=">ตะกร้าอาหาร</a>
-		<a class="now" href="#his">ประวัติการสั่งซื้อ</a>
+	<div> 
+		<nav id="nav">
+			<ul>
+				<li><a href="order.php?action=">ตะกร้าอาหาร</a></li>
+				<li><a href="#his" class="active">ประวัติการสั่งซื้อ</a></li>
+			</ul>
+		</nav>
 	</div>
 
 	<?php
@@ -59,11 +63,11 @@
 						if($row["process"]=="Done"){
 							echo "<td> เสร็จสิ้น </td>";
 						}else if($row["process"]=="Cooking"){
-							echo "<td> กำลังปรุง </td>";
+							echo "<td class='cooking'> กำลังปรุง </td>";
 						}else if($row["process"]=="Served"){
-							echo "<td> ปรุงเสร็จแล้ว </td>";
+							echo "<td class='served'> รอรับอาหาร </td>";
 						}else if($row["process"]=="Cancel"){
-							echo "<td> ยกเลิก </td>";
+							echo "<td class='cancel'> ยกเลิก </td>";
 						}
 						
 						 
