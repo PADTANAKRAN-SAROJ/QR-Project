@@ -33,9 +33,13 @@
 		<h1>รวมรายการที่สั่ง</h1>
 	</header>
 
-	<div class="topnav">
-		<a class="now" href="#list">ตะกร้าอาหาร</a>
-		<a href="history.php">ประวัติการสั่งซื้อ</a>
+	<div> 
+		<nav id="nav">
+			<ul>
+				<li><a href="#list" class="active">ตะกร้าอาหาร</a></li>
+				<li><a href="history.php">ประวัติการสั่งซื้อ</a></li>
+			</ul>
+		</nav>
 	</div>
 
 	<div id="list">

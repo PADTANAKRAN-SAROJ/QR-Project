@@ -31,7 +31,7 @@
 }
 
 header {
-    background-color: blanchedalmond;
+    background-color: #4D9589;
     padding: 10px;
     margin: -10px;
     margin-bottom: 15px;
@@ -43,6 +43,7 @@ header {
 h1 {
     flex: 1;
     text-align: center;
+    color: #F5F2E9;
 }
 
 .back {
@@ -73,4 +74,12 @@ h1 {
 }
 .orderConfirmButton:hover{
     background-color: #25814c;
+}
+
+select {
+    width: 40px;
+    height: 25px; /* ปรับความสูงตามที่คุณต้องการ */
+    font-size: 13px;
+    border-radius: 5px;
+    text-align: center;
 }
