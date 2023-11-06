@@ -48,6 +48,9 @@ include "../../connect.php";
 $sql = "SELECT * FROM restaurant WHERE id = 1";
 $result = $pdo->query($sql);
 ?>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/topbar.css">
+</head>
 <body>
     <?php
     if ($result) {

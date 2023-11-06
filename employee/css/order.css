@@ -17,7 +17,7 @@
 
 /* สไตล์เริ่มต้นสำหรับแถวที่เป็นหัวของตาราง */
 .orders th {
-    background-color: #3498db;
+    background-color: #2C424F;
     color: #fff;
 }
 
@@ -28,21 +28,28 @@
 
 /* สไตล์สำหรับแถวที่เป็นหัวของตาราง */
 .orders tr:nth-child(odd) {
-    background-color: #f0f0f0; /* สลับสีกับแถวที่เป็นหัว */
+    background-color: #F5F2E9; /* สลับสีกับแถวที่เป็นหัว */
 }
 
 .orders input[type="submit"] {
-    background-color: #4CAF50;
     color: #fff;
     border: none;
     padding: 10px 30px;
     cursor: pointer;
     border-radius: 5px;
 }
+.served {
+    background-color: #4D9589;
+}
+.served:hover{
+    background-color: #2C424F;
+}
 
-.orders input[type="submit"]:hover {
-    background-color: #45a049;
-    cursor: pointer;
+.cancel {
+    background-color: #DD9E68;
+}
+.cancel:hover  {
+    background-color: #CF7157;
 }
 
 @media (max-width: 768px) {
