@@ -27,22 +27,21 @@
 <body>
 
 	<header>
-		<div class="back">
+		<div class="icon">
             <a href="category.php"><img src="icon\back.png" width="30rem"></a>
         </div>
-		<h1>รวมรายการที่สั่ง</h1>
+		<h1>ตะกร้าอาหาร</h1>
 	</header>
 
-	<div> 
+	<div id="wrapper">
 		<nav id="nav">
 			<ul>
-				<li><a href="#list" class="active">ตะกร้าอาหาร</a></li>
+				<li><a href="#main" class="active">ตะกร้าอาหาร</a></li>
 				<li><a href="history.php">ประวัติการสั่งซื้อ</a></li>
 			</ul>
 		</nav>
-	</div>
 
-	<div id="list">
+	<div id="main">
 		<?php
 		// เพิ่มสินค้า
 		if ($_GET["action"]=="add") {
@@ -90,8 +89,7 @@
 		?>
 
 		<div>
-			<h2>ตะกร้าอาหาร</h2>
-			<p class="c6" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
+			<p class="c6 posit" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
 			<form action="addorder.php" method="post" enctype="multipart/form-data">
 			<table class="item">
 				<tr>
@@ -137,7 +135,7 @@
 							}
 							?>
 						</select>
-						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'>ลบ</button></a>
+						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'>ลบ <img src="../admin/icon/bin.png" width="15rem"></button></a>
 					</td>
 				</tr>
 				<?php
@@ -150,7 +148,7 @@
 				
 			</table>
 
-			<div class="c6" align="right" >
+			<div class="c6 cbutton">
 				<a href="addorder.php">
 				<input class="orderConfirmButton" type="submit" name="Submit" value="ยืนยันคำสั่งซื้อ" /></input>
 				</a>
@@ -158,6 +156,7 @@
 
 			</form>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

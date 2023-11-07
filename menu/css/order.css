@@ -9,13 +9,24 @@ header {
 }
 
 h1 {
+    margin-right: 40px;
     flex: 1;
     text-align: center;
     color: #F5F2E9;
 }
 
-.back {
-    text-align: left;
+.icon{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 10%;
+    margin-left: 20px;
+}
+
+.icon a {
+    background-color: white;
+    padding: 6px 7px;
+    border-radius: 50%; /* ให้เป็นวงกลม */
 }
 
 body {
@@ -39,10 +50,10 @@ h2 {
     border-radius: 2rem;
     background-color: #609966; /* #cbe2c5 */
     transition: 0.2s;
-
     text-align: center;
     font-size: 1rem;
     font-family: 'Noto Sans Thai', sans-serif;
+    margin-top: 10px;
 }
 .orderConfirmButton:hover{
     background-color: #25814c;
@@ -54,14 +65,19 @@ h2 {
     margin-bottom: 5px;
 }
 
+.posit{
+    margin-left: 19rem;
+}
+
 table{
     margin: auto;
     text-align: center;
-    width: 60%;
+    width: 90%;
     box-shadow: 0 10px 10px 10px rgba(0, 0, 0,0.05);
     border-collapse: collapse;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    background-color: #ffffff;
 }
 
 th, td {
@@ -116,16 +132,15 @@ img {
 .deleteButton{
     color: white;
     border: none;
-    padding: 3px;
-    padding-left: 22px;
-    padding-right: 22px;
-    padding-bottom: 8px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: inline-block;
-    border-radius: 10px;
+    border-radius: 0.5rem;
     background-color: #e70404; /* #cbe2c5 */
     text-align: center;
     font-size: 1rem;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 .deleteButton:hover{
     background-color: #c60000;
@@ -142,7 +157,7 @@ select {
 
 
 #nav{
-    margin: 0 auto;
+    margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -164,11 +179,12 @@ a{
     transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
     background-color: #ffffff;
     color: #CF7157;
-    width: 74em;
-    max-width: calc(100% - 4em);
+    flex: 1; /* เพิ่ม flex: 1; เพื่อให้ความกว้างเท่ากับ #main */
+    max-width: 100%;
     padding: 1em;
     background-color: #DABC73;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
     cursor: default;
     text-align: center;
     text-decoration: none;
@@ -214,6 +230,50 @@ a{
 }
 
 #nav ul li a.active {
-    background-color: #ffffff;
+    background-color: #F5F2E9;
     box-shadow: none;
+}
+
+#nav + #main {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#main {
+    background-color: #F5F2E9;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#wrapper {
+    width: 100%;
+    max-width: calc(100% - 4em);
+    margin: 0 auto;
+}
+.cbutton{
+        text-align: center;
+}
+@media (max-width: 480px) {
+    /* Mobile */
+    .cbutton{
+        text-align: center;
+        background-color: #000000;
+    }
+    body{
+        background-color: #000000;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    /* iPad */
+    body{
+        background-color: #000000;
+    }
+    #wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    /* destop */
 }

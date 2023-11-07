@@ -60,29 +60,31 @@ include "./checkRole.php";
 		<h1>ADMIN</h1>
 	</header>
 
-    <div class="topnav">
-		<a href="admin.php">รายการอาหารทั้งหมด</a>
-		<a class="now" href="#find">ค้นหาเมนู</a>
-	</div>
+        <nav id="nav">
+            <ul>
+                <li><a href="admin.php">รายการอาหารทั้งหมด</a></li>
+                <li><a href="#main" class="active">ค้นหาเมนู</a></li>
+            </ul>
+        </nav>
 
-    <div id="find">
-        <h2>ค้นหาเมนู</h2>
-        
-        <div class="c6">
-            <div class="warpborder tt1">
-                <img src="icon\search.png">
-                <input class="withicon" type="text" id="menu_name" onkeyup="send()">
+        <div id="main">
+            <h2>ค้นหาเมนู</h2>
+            
+            <div class="c6">
+                <div class="warpborder tt1">
+                    <img src="icon\find.png">
+                    <input class="withicon" type="text" id="menu_name" onkeyup="send()">
+                </div>
+
+
+                <div class="tt1 add">
+                    <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
+                </div>
             </div>
 
-
-            <div class="tt1 add">
-                <a href="addmenu.php"><button class="confirmButton">เพิ่มอาหาร</button></a>
-            </div>
         </div>
 
-    </div>
-
-    <div id="result"></div>
+        <div id="result"></div>
 
     <div id="popup" class="overlay">
         <div class="popup center">

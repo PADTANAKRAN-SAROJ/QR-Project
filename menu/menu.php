@@ -15,7 +15,7 @@
     ?>
 
     <header>
-        <div class="back">
+        <div class="icon">
             <a href="category.php"><img src="icon\back.png" width="30rem"></a>
         </div>
         <h1>
