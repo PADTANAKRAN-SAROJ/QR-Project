@@ -88,7 +88,7 @@
 			
 		?>
 
-		<div>
+		<div class='b'>
 			<p class="c6 posit" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
 			<form action="addorder.php" method="post" enctype="multipart/form-data">
 			<table class="item">
@@ -135,7 +135,7 @@
 							}
 							?>
 						</select>
-						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'>ลบ <img src="../admin/icon/bin.png" width="15rem"></button></a>
+						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'><img src="../admin/icon/bin.png" width="15rem"></button></a>
 					</td>
 				</tr>
 				<?php
