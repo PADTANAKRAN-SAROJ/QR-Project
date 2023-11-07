@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    background-color: #4D9589;
+}
+
+header {
+    background-color: #DABC73;
+    padding: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    flex: 1;
+    text-align: center;
+    color: #2C424F;
+}
+
+.adminpage{
+    margin: 0 auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #a2a2a2;
+    max-width: 1200px;
+    min-width: 300px;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    background-color: white;
+}
+ 
+.adminpage ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.adminpage li {
+    display: inline-block;
+    margin: 5px;
+}
+
+.adminpage li a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #DABC73; 
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.adminpage li a:hover {
+    background-color: #4D9589;  
+}

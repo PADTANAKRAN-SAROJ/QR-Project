@@ -81,7 +81,11 @@
         $nextButtonClass = ($currentPage < $totalPages) ? "" : "disabled";
         ?>
         <header>
+            <div class="icon">
+                <a href="index.php"><img src="../menu/icon/back.png" width="30rem"></a>
+            </div>
             <h1>ADMIN</h1>
+            <a href="../logout.php"><img src="../logout.png" width="50rem"></a>
         </header>
 
         <div id="wrapper">

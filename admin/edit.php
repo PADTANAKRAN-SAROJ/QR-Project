@@ -24,7 +24,7 @@
     ?>
 
     <header>
-        <div class="back">
+        <div class="icon">
             <a href="admin.php"><img src="../menu/icon/back.png" width="30rem"></a>
         </div>
         <h1>แก้ไขข้อมูลรายการ</h1>
