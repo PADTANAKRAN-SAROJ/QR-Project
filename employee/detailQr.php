@@ -34,7 +34,7 @@ if (isset($_GET['cus_id'])) {
         <h1>หมายเลขโต๊ะ <?php echo $numberTable; ?></h1> 
         <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>
         <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank">ดู QR Code</a> </br>
-        <a onclick="return confirm('ยืนยันการเช็คบิล ??');" href="bill.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
+        <a href="./billPay.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
         <a href="./QRcode.php">ย้อนกลับ</a> </br>
     </div>
 </body>
