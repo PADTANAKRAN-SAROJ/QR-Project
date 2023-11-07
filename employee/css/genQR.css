@@ -44,7 +44,7 @@ p {
 }
 
 .menu button {
-    background-color: #007BFF;
+    background-color: #4D9589;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -54,7 +54,7 @@ p {
 }
 
 .menu button:hover {
-    background-color: #0056b3;
+    background-color: #2C424F;
 }
 
 /* สไตล์สำหรับอุปกรณ์ขนาดกลาง (iPad) */
