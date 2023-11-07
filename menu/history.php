@@ -55,9 +55,9 @@
 					while ($row= $stmt->fetch()) {
 						echo "<tr>";
 
-						echo "<td>" . $row["menu_name"] . "</td>";
+						echo "<td class='left'>" . $row["menu_name"] . "</td>";
 						echo "<td>" . $row["price"] . "</td>";
-						echo "<td>" . $row["detail"] . "</td>";
+						echo "<td class='left'>" . $row["detail"] . "</td>";
 						echo "<td>" . $row["quantity"] . "</td>";
 
 						if($row["process"]=="Done"){

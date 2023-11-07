@@ -136,7 +136,7 @@
 							}
 							?>
 						</select>
-						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'>ลบ</button></a>
+						<a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'>ลบ <img src="../admin/icon/bin.png" width="15rem"></button></a>
 					</td>
 				</tr>
 				<?php

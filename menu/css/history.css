@@ -31,3 +31,8 @@ h2 {
 .cancel{
     color: #CF7157;
 }
+
+.left{
+    text-align: left;
+    transform: translateX(10px);
+}
