@@ -5,7 +5,7 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background-image: url(https://media.istockphoto.com/id/1221913991/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B%E0%B9%82%E0%B8%95%E0%B9%8A%E0%B8%B0%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%9A%E0%B8%99%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%A0%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%99%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%9A%E0%B8%A5%E0%B8%AD.jpg?s=1024x1024&w=is&k=20&c=T_4X5bKJMsvqs3q3w4TNXFyDhrPWFNouGyMqaCN4VVM=);
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-delicious-food-advertising-background-backgroundfoodhot-pot-ingredientsdatablue-image_54050.jpg);
     background-repeat: no-repeat;
     background-position: center top;
     background-color: #F5F5F5; /* เปลี่ยนสีพื้นหลัง */
@@ -17,8 +17,8 @@
 
 h1 {
     text-align: center;
-    background-color: #333; /* เปลี่ยนสีพื้นหลังของเนื้อหา h1 */
-    color: #FFF; /* เปลี่ยนสีข้อความใน h1 เป็นขาว */
+    background-color: rgba(248, 248, 255, 0.8 ); /* ค่า RGBA ที่ใช้ให้โปร่งใส */
+    color: #black; /* เปลี่ยนสีข้อความใน h1 เป็นขาว */
     padding: 20px; /* เพิ่มระยะห่างรอบข้อความใน h1 */
     margin: 0px;
 }
@@ -36,9 +36,10 @@ h1 {
     height: 450px;
     display: flex;
     flex-direction: column;
-    background-color: rgba(248, 248, 255, 0.3 ); /* ค่า RGBA ที่ใช้ให้โปร่งใส */
+    background-color: rgba(248, 248, 255, 0.8 ); /* ค่า RGBA ที่ใช้ให้โปร่งใส */
     border: 1px solid #DDD;
     margin: 1px;
+    
 }
 @media (max-height: 720px) {
     .category-container {
@@ -69,7 +70,7 @@ h1 {
 }
 
 .cards {
-    background-color: rgba(248, 248, 255, 0.3 ); /* สีเทาโปร่งใส */
+    background-color: rgba(248, 248, 255, 0.8 ); /* สีเทาโปร่งใส */
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -93,6 +94,7 @@ h1 {
     /* background-color: #27AE60; */
     padding: 0px;
     margin: 0px;
+    
 }
 
 .cards .divmenu{
@@ -119,10 +121,12 @@ h1 {
     padding: 5px 10px;
     cursor: pointer;
     margin: 5px; /* เพิ่มระยะห่างรอบปุ่ม */
+    border-radius: 10px;
 }
 
 .complete {
     background-color: #27AE60;
+    border-radius: 10px;
 }
 
 </style>
