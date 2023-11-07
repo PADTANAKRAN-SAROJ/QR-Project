@@ -30,7 +30,7 @@
 		<div class="icon">
             <a href="category.php"><img src="icon\back.png" width="30rem"></a>
         </div>
-		<h1>รวมรายการที่สั่ง</h1>
+		<h1>ตะกร้าอาหาร</h1>
 	</header>
 
 	<div id="wrapper">
@@ -89,8 +89,7 @@
 		?>
 
 		<div>
-			<h2>ตะกร้าอาหาร</h2>
-			<p class="c6" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
+			<p class="c6 posit" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
 			<form action="addorder.php" method="post" enctype="multipart/form-data">
 			<table class="item">
 				<tr>
@@ -149,7 +148,7 @@
 				
 			</table>
 
-			<div class="c6" align="right" >
+			<div class="c6 cbutton">
 				<a href="addorder.php">
 				<input class="orderConfirmButton" type="submit" name="Submit" value="ยืนยันคำสั่งซื้อ" /></input>
 				</a>

@@ -14,7 +14,7 @@
 		<div class="icon">
             <a href="category.php"><img src="icon\back.png" width="30rem"></a>
         </div>
-		<h1>รวมรายการที่สั่ง</h1>
+		<h1>ประวัติการสั่งซื้อ</h1>
 	</header>
 
 	<div id="wrapper">
@@ -34,8 +34,7 @@
 	?>
 
 	<div id="main">
-			<h2>ประวัติการสั่งซื้อ</h2>
-			<p class="c6" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
+			<p class="c6 posit" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
 			
 			<table class="item">
 				<thead>
