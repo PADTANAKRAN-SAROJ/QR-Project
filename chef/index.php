@@ -145,6 +145,7 @@ h1 {
             var categoryContainer = document.getElementById("category_" + category);
             categoryContainer.innerHTML = ""; // Clear previous content
 
+            
             var h2 = document.createElement('h2');
             h2.innerHTML = category
             categoryContainer.append(h2)
