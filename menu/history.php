@@ -12,7 +12,7 @@
 <body>
 	<header>
 		<div class="icon">
-            <a href="category.php"><img src="icon\back.png" width="35rem"></a>
+            <a href="category.php"><img src="icon\back.png" width="30rem"></a>
         </div>
 		<h1>รวมรายการที่สั่ง</h1>
 	</header>
@@ -61,13 +61,13 @@
 						echo "<td>" . $row["quantity"] . "</td>";
 
 						if($row["process"]=="Done"){
-							echo "<td align=\"left\"><img src=\"icon/eat.png\" width=\"25rem\"> เสร็จสิ้น </td>";
+							echo "<td id='pro'><img src=\"icon/eat.png\" width=\"25rem\"> เสร็จสิ้น </td>";
 						}else if($row["process"]=="Cooking"){
-							echo "<td align=\"left\" class='cooking'><img src=\"icon/cooking.png\" width=\"25rem\">  กำลังปรุง </td>";
+							echo "<td id='pro' class='cooking'><img src=\"icon/cooking.png\" width=\"25rem\">  กำลังปรุง </td>";
 						}else if($row["process"]=="Served"){
-							echo "<td align=\"left\" class='served'><img src=\"icon/served.png\" width=\"25rem\">  รอรับอาหาร </td>";
+							echo "<td id='pro' class='served'><img src=\"icon/served.png\" width=\"25rem\">  รอรับอาหาร </td>";
 						}else if($row["process"]=="Cancel"){
-							echo "<td align=\"left\" class='cancel'><img src=\"icon/sorry.png\" width=\"25rem\">  ยกเลิก </td>";
+							echo "<td id='pro' class='cancel'><img src=\"icon/sorry.png\" width=\"25rem\">  ยกเลิก </td>";
 						}
 						
 						 

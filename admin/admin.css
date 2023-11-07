@@ -131,6 +131,7 @@ td.center{
     border-radius: 10px;
 }
 
+
 .confirmButton{
     color: white;
     border: none;
@@ -147,6 +148,10 @@ td.center{
     background-color: #25814c;
 }
 
+.confirmButton img {
+    vertical-align: middle; 
+}
+
 .add{
     text-align: right;
 }
@@ -155,8 +160,8 @@ td.center{
     color: white;
     border: none;
     padding: 5px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
     display: inline-block;
     border-radius: 0.5rem;
     background-color: #FFB500; /* #cbe2c5 */
@@ -171,8 +176,8 @@ td.center{
     color: white;
     border: none;
     padding: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: inline-block;
     border-radius: 0.5rem;
     background-color: #e70404; /* #cbe2c5 */
@@ -280,5 +285,7 @@ a{
     width: 74em;
     max-width: calc(100% - 4em);
     margin: 0 auto;
+
+    margin-bottom: 20px;
 }
 

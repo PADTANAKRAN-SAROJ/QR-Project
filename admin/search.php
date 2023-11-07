@@ -54,7 +54,7 @@
                     <?php echo $row["menu_name"] ?>
                 </td>
                 <td>
-                    <button onclick="showPopup('../menu/food/<?php echo $row['menu_id']; ?>.jpg')">ดูรูป</button>
+                    <button onclick="showPopup('../menu/food/<?php echo $row['menu_id']; ?>.jpg')"><img src="icon/pic.png" width="20rem\"></button>
                 </td>
                 <td>
                     <?php echo $row["category"] ?>

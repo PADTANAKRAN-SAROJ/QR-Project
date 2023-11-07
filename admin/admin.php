@@ -118,11 +118,11 @@
                         $row = $result[$i];
                         echo "<tr>";
                         echo "<td>" . $row["menu_name"] . "</td>";
-                        echo '<td><button onclick="showPopup(\'../menu/food/' . $row['menu_id'] . '.jpg\')">ดูรูป</button></td>';
+                        echo '<td><button onclick="showPopup(\'../menu/food/' . $row['menu_id'] . '.jpg\')"><img src=\'icon/pic.png\' width=\'20rem\'></button></td>';
                         echo "<td>" . $row["category"] . "</td>";
                         echo "<td>" . $row["price"] . "</td>";
-                        echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข</button></a>";
-                        echo "<a href='delete.php?menu_name=" . $row["menu_name"] . "' onclick='return confirmDelete(\"" . $row["menu_name"] . "\")'><button class='deleteButton'>ลบ</button></a></td>";
+                        echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข <img src=\"icon/edit.png\" width=\"15rem\"></button></a>";
+                        echo "<a href='delete.php?menu_name=" . $row["menu_name"] . "' onclick='return confirmDelete(\"" . $row["menu_name"] . "\")'><button class='deleteButton'>ลบ <img src=\"icon/bin.png\" width=\"15rem\"></button></a></td>";
                         echo "</tr>";
                     }
                     ?>

@@ -72,7 +72,7 @@ include "./checkRole.php";
             
             <div class="c6">
                 <div class="warpborder tt1">
-                    <img src="icon\search.png">
+                    <img src="icon\find.png">
                     <input class="withicon" type="text" id="menu_name" onkeyup="send()">
                 </div>
 
