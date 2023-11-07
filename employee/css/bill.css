@@ -1,0 +1,74 @@
+/* ปรับแต่งสไลด์ใบเสร็จ */
+.bill {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    margin: 5px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* ให้สไลด์ที่มุมขวาของ .summarize */
+.summarize {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* รายการต่าง ๆ มุมซ้าย */
+.summarize p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+/* ให้ข้อความที่มุมขวามีสีแดงและให้ตัวหนา */
+.B {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* รายการต่าง ๆ ชิดมุมซ้าย */
+table td:nth-child(2) {
+    text-align: left;
+}
+
+/* ปุ่ม */
+.menu {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menu button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu button:hover {
+    background-color: #0056b3;
+}
