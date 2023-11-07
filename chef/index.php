@@ -10,7 +10,7 @@
     padding: 0;
 }
 
-h1 {
+.top {
     text-align: center;
     background-color: #333; /* เปลี่ยนสีพื้นหลังของเนื้อหา h1 */
     color: #FFF; /* เปลี่ยนสีข้อความใน h1 เป็นขาว */
@@ -252,7 +252,11 @@ h1 {
 </head>
 
 <body>
-<h1>รายการอาหารที่สั่ง</h1>
+    <div class="top">
+        <h1>รายการอาหารที่สั่ง</h1>
+        <a href="../logout.php"><img src="../logout.png" width="50rem"></a>
+    </div>
+
 <div class= 'chef'>
     <div class="category-container" id="category_1"></div>
     <div class="category-container" id="category_2"></div>

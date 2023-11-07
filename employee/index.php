@@ -76,6 +76,7 @@ include "./checkRole.php" ;
         
         <!-- แสดง หน้า Order แบบ เรียลไทม์-->
         <div id="orderPage"></div>
+        <a href="../logout.php"><img src="../logout.png" width="50rem"></a>
 
     </div>
 </body>

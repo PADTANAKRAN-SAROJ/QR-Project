@@ -10,7 +10,9 @@
 </head>
 <body>
     <div class="topbar">
-                <a href="../index.php" class="back-link">ย้อนกลับ</a>
+                <div class="icon">
+                    <a href="../index.php"><img src="../../menu/icon/back.png" width="30rem"></a>
+                </div>
                 <h1 class="center-title">สรุปข้อมูล</h1>
     </div>
 

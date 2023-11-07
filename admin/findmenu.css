@@ -305,3 +305,22 @@ a{
     max-width: calc(100% - 4em);
     margin: 0 auto;
 }
+
+.back{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 10%;
+    margin-left: 20px;
+}
+
+.back a {
+    background-color: white;
+    padding: 5px 7px;
+    border-radius: 50%; 
+    transition: background-color 0.2s;
+}
+
+.back a:hover {
+    background-color: #DD9E68; 
+}

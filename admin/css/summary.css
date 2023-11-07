@@ -33,7 +33,7 @@ input[type="submit"]{
     font-size: 18px;
     padding: 10px 10px;
     color: #ffffff;
-    background-color: #007BFF;
+    background-color: #DABC73;
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -42,7 +42,7 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    background-color: #0056b3;
+    background-color: #4D9589;
 }
 
 input[type="date"]{
