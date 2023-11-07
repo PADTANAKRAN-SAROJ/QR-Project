@@ -322,4 +322,14 @@ body {
         padding: 10px;
         height: 40px;        
     }
+
+    .b tr td img {
+        max-width: 70px; 
+        max-height: 70px; 
+        border-radius: 5px;
+    }
+
+    .deleteButton img{
+        width: 25px;
+    }
 }
