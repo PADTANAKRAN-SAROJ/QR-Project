@@ -1,8 +1,7 @@
 header {
     background-color: #4D9589;
     padding: 10px;
-    /* margin-bottom: 15px; */
-    display: flex; /* เพื่อให้ <h1> และ <a> อยู่ในหนึ่งแถว */
+    display: flex;  
     justify-content: space-between;
     align-items: center;
     font-size: 1.5rem;
@@ -26,7 +25,7 @@ h1 {
 .icon a {
     background-color: white;
     padding: 6px 7px;
-    border-radius: 50%; /* ให้เป็นวงกลม */
+    border-radius: 50%;  
 }
   
 h2 {
@@ -44,7 +43,7 @@ h2 {
     padding: 1rem 1.5rem;
     display: inline-block;
     border-radius: 2rem;
-    background-color: #609966; /* #cbe2c5 */
+    background-color: #609966;  
     transition: 0.2s;
     text-align: center;
     font-size: 1.2rem;
@@ -62,16 +61,6 @@ h2 {
 .c6_cbutton{
     text-align: center;
 }
-
-/* .c6{
-    width: 60%;
-    margin-bottom: 5px;
-} */
-
-/*.posit{
-    margin: 0 auto;
-    transform: translateX(40px);
-}*/
 
 table{
     font-size: 1.8rem;
@@ -154,12 +143,16 @@ input.a10 {
     background-color: #c60000;
 }
 
+.deleteButton img{
+    width: 30px;
+}
+
 select {
     text-align: center;
     font-size: 1rem;
     padding: 1rem;
     min-width: 4rem;
-    /* height: 2rem; */
+    height: 50px;
     border-radius: 5px;
     
 }
@@ -190,8 +183,6 @@ a{
     max-width: 100%;
     padding: 1em;
     background-color: #DABC73;
-    border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
     cursor: default;
     text-align: center;
     text-decoration: none;
@@ -255,7 +246,6 @@ a{
 
 #wrapper {
     width: 100%;
-    /* max-width: calc(100% - 4em); */
     margin: 0 auto;
 }
 
@@ -269,16 +259,67 @@ body {
     #wrapper table{
         width: 90%;
     }
+
+    .c6_cbutton{
+        width: 80%;
+        text-align: center;
+        margin-left: 5rem;
+    }
 }
 
 /* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
 @media screen and (min-width: 1024px) {
-    #wrapper table{
-        width: 80%;
+    header{
+        margin-bottom: 15px;
+        font-size: 1rem;
     }
+    #nav{
+        border-top-left-radius: 10px;
+	    border-top-right-radius: 10px;
+    }
+    .orderConfirmButton{
+        font-size: 1rem;
+    }
+
+    #nav ul {
+        font-size: 1.2rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #wrapper {
+        width: 74em;
+        max-width: calc(100% - 4em);
+        margin: 0 auto;
+    }
+
     .c6_cbutton{
         width: 80%;
         text-align: right;
     }
 
+    .detail_menu td:nth-child(2), .detail_menu td:nth-child(3) {
+        font-size: 1rem;
+    }
+
+    table{
+        font-size: 1rem;
+    }
+
+    input.a10 {
+        padding: 10px;  
+        font-size: 15px;
+    }
+
+    .c6_posit {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    select {
+        font-size: 1rem;
+        padding: 10px;
+        height: 40px;        
+    }
 }
