@@ -24,18 +24,50 @@ if (isset($_GET['cus_id'])) {
     if ($stmt->rowCount() > 0) {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $numberTable = $row['table_number'];
-        $entryTime = $row['entry_timestamp'];
 
-        // แปลงเวลาเข้าร้านให้อยู่ในรูปแบบที่คุณต้องการ
-        $entryTimeFormatted = date('Y-m-d H:i:s', strtotime($entryTime));
+        // แปลงเวลาเข้าเป็นภาษาไทย
+        $entry_timestamp = date("d F Y", strtotime($row['entry_timestamp']));
+        $entry_timestampTime = date("H:i", strtotime($row['entry_timestamp']));
+        $entry_timestamp = str_replace('January', 'มกราคม', $entry_timestamp);
+        $entry_timestamp = str_replace('February', 'กุมภาพันธ์', $entry_timestamp);
+        $entry_timestamp = str_replace('March', 'มีนาคม', $entry_timestamp);
+        $entry_timestamp = str_replace('April', 'เมษายน', $entry_timestamp);
+        $entry_timestamp = str_replace('May', 'พฤษภาคม', $entry_timestamp);
+        $entry_timestamp = str_replace('June', 'มิถุนายน', $entry_timestamp);
+        $entry_timestamp = str_replace('July', 'กรกฎาคม', $entry_timestamp);
+        $entry_timestamp = str_replace('August', 'สิงหาคม', $entry_timestamp);
+        $entry_timestamp = str_replace('September', 'กันยายน', $entry_timestamp);
+        $entry_timestamp = str_replace('October', 'ตุลาคม', $entry_timestamp);
+        $entry_timestamp = str_replace('November', 'พฤศจิกายน', $entry_timestamp);
+        $entry_timestamp = str_replace('December', 'ธันวาคม', $entry_timestamp);
+        // แปลงปีพ.ศ.
+        $entry_timestamp = str_replace(date('Y'), date('Y') + 543, $entry_timestamp);
 ?>
 <body>
     <div class="detail">
-        <h1>หมายเลขโต๊ะ <?php echo $numberTable; ?></h1> 
-        <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>
-        <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank">ดู QR Code</a> </br>
-        <a href="./billPay.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
-        <a href="./QRcode.php">ย้อนกลับ</a> </br>
+        <?php 
+            $query = "SELECT restaurant_name_eng,restaurant_name_thai FROM restaurant WHERE id = 1";
+            $result = $pdo->query($query);
+
+            if ($result) {
+                $row = $result->fetch(PDO::FETCH_ASSOC);
+
+                if ($row) {
+                    $restaurantNameEng = strtoupper($row['restaurant_name_eng']);
+                    $restaurantNameThai = strtoupper($row['restaurant_name_thai']);
+                }
+            }
+        ?>
+        <h1><?php echo $restaurantNameThai; ?></h1>
+        <h2>หมายเลขโต๊ะ <?php echo $numberTable; ?></h2> 
+        <p>วันที่: <?php echo $entry_timestamp; ?></p>
+        <p>เวลา: <?php echo $entry_timestampTime; ?></p>
+        <br><hr><br>
+        <footer>
+            <a href="./billPay.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
+            <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank">ดู QR Code</a> </br>
+            <a href="./QRcode.php">ย้อนกลับ</a> </br>
+        </footer>
     </div>
 </body>
 </html>

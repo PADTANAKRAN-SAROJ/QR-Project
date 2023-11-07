@@ -32,7 +32,13 @@ include "./checkRole.php";
             ?>
             <tr>
                 <input type="hidden" id="order_id" value="<?=$row['order_id']?>">
-                <td><?=$row ["menu_name"]?> (<?=$row ["category"]?>)</td>
+                <td class="menu-td"><?= $row["menu_name"] ?>
+                    <?php
+                    if ($row["detail"] != "") {
+                        echo " <div class='detail'> หมายเหตุ :" . $row["detail"] . "</div>";
+                    }
+                    ?>
+                </td>
                 <td><?=$row ["quantity"]?></td>
                 <td><?=$row ["table_number"]?></td>
                 <td>

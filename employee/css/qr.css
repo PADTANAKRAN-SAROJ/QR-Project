@@ -8,67 +8,90 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-    max-width: 80%;
+    max-width: 90%;
 }
 
 .tableList li button {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
+    width: 4.2rem;
+    height: 4.2rem;
+    margin: 0.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 0.5rem;
 }
 
 .tableList .full button{
     background-color: #DD9E68;
-    font-size: 25px;
+    font-size: 1.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .tableList .full button:hover {
     background-color: #CF7157;
-    font-size: 25px;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 .tableList .empty button{
     background-color: #4D9589;
-    font-size: 25px;
+    font-size: 1.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .tableList .empty button:hover{
     background-color: #2C424F;
-    font-size: 25px;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* สไตล์สำหรับอุปกรณ์ขนาดกลาง (iPad) */
+@media screen and (min-width: 768px) {
     .tableList {
-        margin: auto 5%;
-        max-width: 100%;
+        max-width: 80%;
     }
-    
     .tableList li button {
-        width: 50px;
-        height: 50px;
-        margin: 8px;
-        border-radius: 10px;
+        width: 6rem;
+        height: 6rem;
+        margin: 0.5rem;
     }
-
     .tableList .full button{
-        font-size: 16px;
+        font-size: 2rem;
     }
     .tableList .full button:hover {
-        font-size: 16px;
+        font-size: 2rem;
     }
-    
+
     .tableList .empty button{
-        font-size: 16px;
+        font-size: 2rem;
     }
     .tableList .empty button:hover{
-        font-size: 16px;
+        font-size: 2rem;
+    }
+
+}
+
+/* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
+@media screen and (min-width: 1024px) {
+    .tableList {
+        max-width: 60%;
+    }
+    .tableList li button {
+        width: 8rem;
+        height: 8rem;
+        margin: 0.5rem;
+    }
+    .tableList .full button{
+        font-size: 2.5rem;
+    }
+    .tableList .full button:hover {
+        font-size: 2.5rem;
+    }
+
+    .tableList .empty button{
+        font-size: 2.5rem;
+    }
+    .tableList .empty button:hover{
+        font-size: 2.5rem;
     }
 }

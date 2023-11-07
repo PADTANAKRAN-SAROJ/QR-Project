@@ -1,20 +1,26 @@
-.noOrder{
-    text-align: center;
-    margin-top: 15%;
-}
 /* สไตล์ตาราง */
 .orders {
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
-    margin: 15px auto;
+    margin: 0;
 }
 
 .orders th, .orders td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 0.5rem;
+    border: 0.1rem solid #ddd;
     text-align: center;
+    font-size: 1.2rem;
 }
 
+.orders .menu-td {
+    text-align: left; 
+}
+
+.orders .detail {
+    font-style: italic; 
+    font-size: 1rem;
+    color: #CF7157;
+}
 /* สไตล์เริ่มต้นสำหรับแถวที่เป็นหัวของตาราง */
 .orders th {
     background-color: #2C424F;
@@ -34,9 +40,9 @@
 .orders input[type="submit"] {
     color: #fff;
     border: none;
-    padding: 10px 30px;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.5rem;
 }
 .served {
     background-color: #4D9589;
@@ -52,10 +58,30 @@
     background-color: #CF7157;
 }
 
-@media (max-width: 768px) {
+/* สไตล์สำหรับอุปกรณ์ขนาดกลาง (iPad) */
+@media screen and (min-width: 768px) {
+    .orders th, .orders td {
+        padding: 0.2rem;
+        font-size: 1.5rem;
+    }
+    .orders .detail {
+        font-size: 1.2rem;
+    }
+    .orders input[type="submit"] {
+        padding: 0.5rem 1.8rem;
+    }
+}
+
+/* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
+@media screen and (min-width: 1024px) {
     .orders {
-        width: 100%;
-        border-collapse: collapse;
-        margin: auto;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .orders th, .orders td {
+        padding: 0.5rem;
+    }
+    .orders input[type="submit"] {
+        padding: 0.8rem 2rem;
     }
 }
