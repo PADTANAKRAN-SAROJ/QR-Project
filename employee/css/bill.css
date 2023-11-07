@@ -1,12 +1,10 @@
-/* ปรับแต่งสไลด์ใบเสร็จ */
 .bill {
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #ccc;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
 }
 
 h1 {
@@ -14,42 +12,15 @@ h1 {
 }
 
 p {
-    margin: 5px 0;
+    margin:0;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
     margin-top: 10px;
 }
 
 th, td {
-    padding: 8px;
-    text-align: left;
-}
-
-/* ให้สไลด์ที่มุมขวาของ .summarize */
-.summarize {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-/* รายการต่าง ๆ มุมซ้าย */
-.summarize p {
-    margin: 5px 0;
-    text-align: left;
-}
-
-/* ให้ข้อความที่มุมขวามีสีแดงและให้ตัวหนา */
-.B {
-    color: red;
-    font-weight: bold;
-}
-
-
-/* รายการต่าง ๆ ชิดมุมซ้าย */
-table td:nth-child(2) {
     text-align: left;
 }
 
@@ -71,4 +42,21 @@ table td:nth-child(2) {
 
 .menu button:hover {
     background-color: #0056b3;
+}
+
+/* สไตล์สำหรับอุปกรณ์ขนาดกลาง (iPad) */
+@media screen and (min-width: 768px) {
+    .bill {
+        margin: 1.5rem auto;
+        padding: 18px;
+
+    }
+}
+
+/* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
+@media screen and (min-width: 1024px) {
+    .bill {
+        margin: 2rem auto 2rem auto;
+        padding: 20px;
+    }
 }

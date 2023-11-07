@@ -59,13 +59,17 @@ if (isset($_GET['number_table'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR CODE</title>
-    <link rel="stylesheet" type="text/css" href="./css/genQR.css">
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script>
-        function printQRCode() {
-            window.print();
+        function printContent() {
+            var contentToPrint = document.querySelector(".genQr");
+            var popupWin = window.open('', '_blank', 'width=600,height=600');
+            popupWin.document.open();
+            popupWin.document.write('<html><head><title>Print</title><link rel="stylesheet" type="text/css" href="./css/genQR.css"></head><body onload="window.print();">' + contentToPrint.innerHTML + '</body></html>');
+            popupWin.document.close();
         }
     </script>
+    <link rel="stylesheet" href="./css/genQR.css">
 </head>
 <body>
     <div class="genQr">
@@ -84,14 +88,13 @@ if (isset($_GET['number_table'])) {
                 });
             </script>
         </div>
-        <p>( แสกนเพื่อสั่งอาหาร ทานให้อร่อย!! )</p>
-        <p>วันที่เข้า: <?php echo $entryDate; ?></p>
-        <p>เวลาเข้าร้าน: <?php echo $entryTimeFormatted; ?></p>
-        <button onclick="printQRCode()">ปริ้น QR Code</button>
-        <a class="back-link" href="./QRcode.php">ย้อนกลับ</a>
-
-        <a href="../menu/createTable.php?cus_id=<?php echo $cusId; ?>&table_number=<?php echo $tableNumber; ?>&entry_time=<?php echo $entryTime; ?>"> menu</a>
-
+        <p>( กรุณาแสกนเพื่อสั่งอาหาร )</p>
+        <p>วันที่: <?php echo $entryDate; ?></p>
+        <p>เวลา: <?php echo $entryTimeFormatted; ?></p>
+    </div>
+    <div class="menu">
+        <a class="back-link" href="./QRcode.php"> <button>ย้อนกลับ</button> </a>
+        <button onclick="printContent()">ปริ้น QR Code</button>
     </div>
 </body>
 

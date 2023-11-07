@@ -25,20 +25,25 @@ body{
     color: #666;
 }
 
-.detail a {
-    text-decoration: none;
-    color: #0077cc;
-    font-size: 1.2rem;
-    margin: auto;
+.detail button {
+    font-size: 0.9rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 0.5rem;
 }
 
-.detail a:hover {
-    text-decoration: underline;
+.detail button:hover {
+    background-color: #0056b3;
 }
 
 footer{
     display: flex;
     flex-flow: row;
+    justify-content: center;
 }
 
 /* สไตล์สำหรับอุปกรณ์ขนาดกลาง (iPad) */
@@ -59,6 +64,9 @@ footer{
     
     .detail p {
         margin: 0;
+        font-size: 1.5rem;
+    }
+    .detail button {
         font-size: 1.5rem;
     }
 }
@@ -82,5 +90,8 @@ footer{
     .detail p {
         margin: 0;
         font-size: 1.5rem;
+    }
+    .detail button {
+        font-size: 1.58rem;
     }
 }

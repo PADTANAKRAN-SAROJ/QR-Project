@@ -64,9 +64,9 @@ if (isset($_GET['cus_id'])) {
         <p>เวลา: <?php echo $entry_timestampTime; ?></p>
         <br><hr><br>
         <footer>
-            <a href="./billPay.php?cus_id=<?php echo $cusId; ?>">เช็คบิล</a> </br>
-            <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank">ดู QR Code</a> </br>
-            <a href="./QRcode.php">ย้อนกลับ</a> </br>
+            <a href="./QRcode.php"> <button>ย้อนกลับ</button> </a>
+            <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank"> <button>ดู QR Code</button> </a>
+            <a href="./billPay.php?cus_id=<?php echo $cusId; ?>"> <button>เช็คบิล</button> </a>
         </footer>
     </div>
 </body>

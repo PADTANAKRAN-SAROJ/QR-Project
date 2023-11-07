@@ -1,22 +1,21 @@
-
-
 .genQr {
-    max-width: 500px;
+    max-width: 400px;
     margin: 2% auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
 }
 
 h1 {
-    font-size: 24px;
+    text-align: center;
+    font-size: 2rem;
     color: #333;
 }
 
 h2 {
-    font-size: 20px;
+    text-align: center;
+    font-size: 1.5rem;
     color: #666;
 }
 
@@ -32,41 +31,44 @@ h2 {
 }
 
 p {
+    text-align: center;
     font-size: 16px;
     color: #444;
     margin: 10px 0;
 }
 
-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+/* ปุ่ม */
+.menu {
+    text-align: center;
     margin-top: 20px;
 }
 
-button:hover {
+.menu button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu button:hover {
     background-color: #0056b3;
 }
 
-.back-link {
-    display: block;
-    margin-top: 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #007bff;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-@media print {
+/* สไตล์สำหรับอุปกรณ์ขนาดกลาง (iPad) */
+@media screen and (min-width: 768px) {
     .genQr {
-        display: block !important;
+        margin: 2rem auto;
+        padding: 20px;
     }
 }
 
+/* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
+@media screen and (min-width: 1024px) {
+    .genQr {
+        margin: 2% auto;
+        padding: 20px 40px;
+    }
+}

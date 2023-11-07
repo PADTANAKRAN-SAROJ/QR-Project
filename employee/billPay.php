@@ -1,5 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ใบเสร็จ</title>
+    <script>
+        function printContent() {
+            var contentToPrint = document.querySelector(".bill");
+            var popupWin = window.open('', '_blank', 'width=600,height=600');
+            popupWin.document.open();
+            popupWin.document.write('<html><head><title>Print</title><link rel="stylesheet" type="text/css" href="./css/bill.css"></head><body onload="window.print();">' + contentToPrint.innerHTML + '</body></html>');
+            popupWin.document.close();
+        }
+    </script>
+    <link rel="stylesheet" href="./css/bill.css">
+</head>
+
 <?php
 include "../connect.php";
+include "./checkRole.php";
 
 if (isset($_GET['cus_id'])) {
     $cusId = $_GET['cus_id'];
@@ -45,24 +64,7 @@ if (isset($_GET['cus_id'])) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ใบเสร็จ</title>
-    <link rel="stylesheet" href="./css/bill.css">
-    <script>
-        function printContent() {
-            var contentToPrint = document.querySelector(".bill");
-            var popupWin = window.open('', '_blank', 'width=600,height=600');
-            popupWin.document.open();
-            popupWin.document.write('<html><head><title>Print</title></head><body onload="window.print();">' + contentToPrint.innerHTML + '</html>');
-            popupWin.document.close();
-        }
-    </script>
 
-</head>
 <body>
     <div class="bill">
         <h1>ใบเสร็จ</h1>
@@ -100,23 +102,29 @@ if (isset($_GET['cus_id'])) {
                 }
             ?>
         </table>
-
+        <hr>
         <div class="summarize">
+            <table>
             <?php
-            echo "<hr>";
-            echo "<p>รายการอาหาร ทั้งหมด : " . $item . " รายการ</p>";
-            echo '<p> ราคารวม : </p><span class="B">' . $total . '</span>';
-            $Tax_rate = 0.07;
-            $Service_charge_rate = 0.15;
-            $total_tax = $total * $Tax_rate;
-            $total_charge = $total * $Service_charge_rate;
-            echo '<p> Service charge ' . $Service_charge_rate * 100 . "% : </p><span class='B'>" . $total_charge . '</span>';
-            echo '<p> Exclude VAT ' . $Tax_rate * 100 . "% : </p><span class='B'>" . $total_tax . '</span>';
-            $final_price = $total + $total_tax + $total_charge;
-            echo '<p> รวมทั้งสิ้น : </p><span class="B">' . $final_price . '</span>';
+
+                echo "<tr> <th> รายการอาหาร ทั้งหมด : " . $item . " รายการ </th> </tr>";
+
+                echo '<tr> <th>ราคารวม : </th> <th>฿ ' . $total . ' </th> </tr>';
+
+                $Tax_rate = 0.07;
+                $Service_charge_rate = 0.15;
+                $total_tax = $total * $Tax_rate;
+                $total_charge = $total * $Service_charge_rate;
+
+                echo '<tr> <th>Service charge ' . $Service_charge_rate * 100 . "% : </th> <th>฿ " . $total_charge . '</th> </tr> ';
+                echo '<tr> <th>Exclude VAT ' . $Tax_rate * 100 . "% : </th> <th>฿ " . $total_tax . '</th> </tr>';
+                $final_price = $total + $total_tax + $total_charge;
+                echo '<tr> <th> <h3> รวมทั้งสิ้น : </th> <th>฿ ' . $final_price . '</h3> </th> </tr>';
+            
             ?>
-            <hr>
+            </table>
         </div>
+
         
         <?php 
             }else {
@@ -128,7 +136,7 @@ if (isset($_GET['cus_id'])) {
             <a href="./QRcode.php"><button>Back</button></a>
             <button onclick="printContent()">Print</button>
             <?php
-            if ($customerInfo['table_number'] == 'On_table' && $customerInfo['state'] != 'Done') {
+            if ($customerInfo['state'] == 'On_table' ) {
                 echo '<a href="./bill.php?cus_id=' . $cusId . '"><button>Check Bill</button></a>';
             }
             ?>
