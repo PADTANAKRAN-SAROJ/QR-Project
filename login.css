@@ -1,19 +1,18 @@
 body{
-    display: flex;
-    margin: 30px;
     background-color: #2A9D8Faa;
+    margin: 2%;
 }
+
 .loginPage{
     margin: auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px #264653aa;
-    max-width: 1200px;
-    min-width: 300px;
-    width: 100%;
+    max-width: 400px;
     text-align: center;
     background-color: white;
 }
+
 .loginPage img{
     max-width: 150px;
     width: 100%;
@@ -21,7 +20,7 @@ body{
 }
 
 .loginPage h2{
-    margin-top: 30px;
+    margin-top: 20px;
     color: #F4A261;
     
 }
@@ -54,7 +53,6 @@ body{
     padding: 10px;
     border: 1px #F4A26199 solid; 
     border-radius: 10px;
-    box-shadow: 0 1px 6px #F4A26199;
     width: 100%;
     max-width: 80%;
     min-width: 40%;
@@ -66,25 +64,33 @@ body{
     border-radius: 10px;
     padding: 10px 30px;
     cursor: pointer;
-    box-shadow: 0 4px 6px #264653aa; /* เพิ่มเงาให้ปุ่ม */
 }
 
 .form-group > input[type="submit"]:hover {
     background-color: #264653;
 }
 
-@media (max-width: 768px) {
+/* สไตล์สำหรับอุปกรณ์ขนาดกลาง (iPad) */
+@media screen and (min-width: 768px) {
     body{
-        margin: 20px;
+        margin: 2rem 1rem;
     }
-    .loginPage img{
-        max-width: 100px;
-        margin: 8px;
+    .loginPage{
+        max-width: 800px;
     }
-    .restaurant_name h1{
-        font-size: 22px;
+    .form-group > input[type="text"],input[type="password"] {
+        padding: 15px;
+        max-width: 60%;
     }
-    .restaurant_name h2{
-        font-size: 18px;
+}
+
+/* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
+@media screen and (min-width: 1024px) {
+    .loginPage{
+        max-width: 800px;
+    }
+    .form-group > input[type="text"],input[type="password"] {
+        padding: 12px;
+        max-width: 50%;
     }
 }
