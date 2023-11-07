@@ -33,56 +33,56 @@
         $stmt->execute();
 	?>
 
-	<div id="main">
-			<p class="c6 posit" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
-			
-			<table class="item">
-				<thead>
-				<tr>
-					<th>ชื่อเมนู</th>
-					<th>ราคา</th>
-					<th>รายละเอียด</th>
-					<th>จำนวน</th>
-					<th>สถานะ</th>
-				</tr>
-				</thead>
-                <tbody>
+		<div id="main">
+				<p class="c6 c6_posit" align="right" >เลขโต๊ะของคุณ <?php echo $_SESSION["table_number"]; ?></p>
+				
+				<table class="item">
+					<thead>
 					<tr>
-					<?php
-					$sum = 0;
+						<th>ชื่อเมนู</th>
+						<th>ราคา</th>
+						<th>รายละเอียด</th>
+						<th>จำนวน</th>
+						<th>สถานะ</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<?php
+						$sum = 0;
 
-					while ($row= $stmt->fetch()) {
-						echo "<tr>";
+						while ($row= $stmt->fetch()) {
+							echo "<tr>";
 
-						echo "<td class='left'>" . $row["menu_name"] . "</td>";
-						echo "<td>" . $row["price"] . "</td>";
-						echo "<td class='left'>" . $row["detail"] . "</td>";
-						echo "<td>" . $row["quantity"] . "</td>";
+							echo "<td class='left'>" . $row["menu_name"] . "</td>";
+							echo "<td>" . $row["price"] . "</td>";
+							echo "<td class='left'>" . $row["detail"] . "</td>";
+							echo "<td>" . $row["quantity"] . "</td>";
 
-						if($row["process"]=="Done"){
-							echo "<td id='pro'><img src=\"icon/eat.png\" width=\"25rem\"> เสร็จสิ้น </td>";
-						}else if($row["process"]=="Cooking"){
-							echo "<td id='pro' class='cooking'><img src=\"icon/cooking.png\" width=\"25rem\">  กำลังปรุง </td>";
-						}else if($row["process"]=="Served"){
-							echo "<td id='pro' class='served'><img src=\"icon/served.png\" width=\"25rem\">  รอรับอาหาร </td>";
-						}else if($row["process"]=="Cancel"){
-							echo "<td id='pro' class='cancel'><img src=\"icon/sorry.png\" width=\"25rem\">  ยกเลิก </td>";
+							if($row["process"]=="Done"){
+								echo "<td id='pro'><img src=\"icon/eat.png\" width=\"25rem\"> เสร็จสิ้น </td>";
+							}else if($row["process"]=="Cooking"){
+								echo "<td id='pro' class='cooking'><img src=\"icon/cooking.png\" width=\"25rem\">  กำลังปรุง </td>";
+							}else if($row["process"]=="Served"){
+								echo "<td id='pro' class='served'><img src=\"icon/served.png\" width=\"25rem\">  รอรับอาหาร </td>";
+							}else if($row["process"]=="Cancel"){
+								echo "<td id='pro' class='cancel'><img src=\"icon/sorry.png\" width=\"25rem\">  ยกเลิก </td>";
+							}
+							
+							
+							echo "</tr>";
+
+							$sum+= $row["price"] * $row["quantity"];
 						}
-						
-						 
-						echo "</tr>";
+						?>
+						</tr>
+						<tr>
+							<td colspan="5" align="center">ราคารวม <?=$sum?> บาท</td>
+						</tr>
 
-						$sum+= $row["price"] * $row["quantity"];
-					}
-					?>
-					</tr>
-					<tr>
-						<td colspan="5" align="center">ราคารวม <?=$sum?> บาท</td>
-					</tr>
-
-				</tbody>
-			</table>
-	</div>
+					</tbody>
+				</table>
+		</div>
 	</div>
 </body>
 </html>
