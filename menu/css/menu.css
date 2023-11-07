@@ -6,7 +6,6 @@ body {
 header {
     background-color: #4D9589;
     padding: 10px;
-    margin: -10px;
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
@@ -92,4 +91,20 @@ select {
     font-size: 13px;
     border-radius: 5px;
     text-align: center;
+}
+
+/* สไตล์สำหรับอุปกรณ์ขนาดเล็ก (มือถือแนวนอน) */
+@media screen and (min-width: 768px) {
+    .menu-item {
+        flex: calc(33.33% - 20px); 
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+/* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
+@media screen and (min-width: 1024px) {
+    .menu-item {
+        flex: 33.33%;
+        max-width: 300px;
+    }
 }

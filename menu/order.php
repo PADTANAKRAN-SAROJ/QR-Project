@@ -136,14 +136,14 @@
 								?>
 							</select>
 						</td>
-						<td><a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'><img src="../admin/icon/bin.png" width="30rem"></button></a></td>
+						<td><a href="?action=delete&menu_id=<?=$item["menu_id"]?>"><button type="button" class='deleteButton'><img src="../admin/icon/bin.png"></button></a></td>
 					</tr>
 					<?php
 					}
 				}
 				?>
 					<tr>
-						<td colspan="5" align="center">ราคารวม <?=$sum?> บาท</td>
+						<td colspan="6" align="center">ราคารวม <?=$sum?> บาท</td>
 					</tr>
 					
 				</table>
