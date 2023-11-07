@@ -10,12 +10,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.5rem;
 }
   
 h1 {
     flex: 1;
     text-align: center;
     color: #F5F2E9; 
+    margin-left: 40px;
 }
   
 
@@ -81,10 +83,10 @@ h2 {
 
 /* สไตล์สำหรับอุปกรณ์ขนาดเล็ก (มือถือแนวนอน) */
 @media screen and (min-width: 768px) {
-    .menu-item {
+    /*.menu-item {
         flex: calc(33.33% - 20px); 
         max-width: calc(33.33% - 20px);
-    }
+    }*/
 }
 
 /* สไตล์สำหรับอุปกรณ์ขนาดใหญ่ (PC) */
@@ -93,4 +95,10 @@ h2 {
         flex: 33.33%;
         max-width: 300px;
     }
+
+    header{
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+
 }

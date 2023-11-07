@@ -3,11 +3,10 @@ body {
 }
 
 header {
-    background-color: blanchedalmond;
+    background-color: #4D9589;
     padding: 10px;
-    margin: -10px;
-    
-    display: flex; /* เพื่อให้ <h1> และ <a> อยู่ในหนึ่งแถว */
+    margin-bottom: 15px;
+    display: flex;  
     justify-content: space-between;
     align-items: center;
 }
@@ -15,6 +14,7 @@ header {
 h1 {
     flex: 1;
     text-align: center;
+    color: #F5F2E9;
 }
 
 input{
@@ -69,8 +69,25 @@ input, select {
     font-size: 1rem;
 }
 
-img {
-    border-radius: 10px;
-    border: 1px solid #D9D9D9;
-    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.05);
+h2{
+    color: #4D9589;
+}
+
+.icon{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 10%;
+    margin-left: 20px;
+}
+
+.icon a {
+    background-color: white;
+    padding: 5px 7px;
+    border-radius: 50%; /* ให้เป็นวงกลม */
+    transition: background-color 0.2s;
+}
+
+.icon a:hover {
+    background-color: #DD9E68; 
 }
