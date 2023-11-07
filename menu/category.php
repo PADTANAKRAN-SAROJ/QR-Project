@@ -12,7 +12,7 @@ include "./checkSession.php";
     <header>
         <h1>ประเภทอาหาร</h1>
         <div class="icon">
-            <a href="order.php?action="><img src="icon\shopping-cart.png" width="30rem"></a>
+            <a href="order.php?action="><img src="icon\cart.png" width="40rem"></a>
         </div>
     </header>
     

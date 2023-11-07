@@ -14,8 +14,18 @@ h1 {
     color: #F5F2E9;
 }
 
-.back {
-    text-align: left;
+.icon{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 10%;
+    margin-left: 20px;
+}
+
+.icon a {
+    background-color: white;
+    padding: 6px 7px;
+    border-radius: 50%; /* ให้เป็นวงกลม */
 }
 
 body {

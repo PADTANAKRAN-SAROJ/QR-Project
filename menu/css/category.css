@@ -63,3 +63,14 @@ h1 {
 
     margin-right: 15px;
 }
+
+.icon a {
+    background-color: white;
+    padding: 10px 13px;
+    border-radius: 50%; /* ให้เป็นวงกลม */
+}
+
+h2 {
+    color: #424242;
+    font-size: 20px;
+}

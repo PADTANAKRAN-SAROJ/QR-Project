@@ -23,13 +23,14 @@ h2{
 }
 
 table.t8{
+    margin-top: 10px;
     width: 80%;
 }
 table{
     margin: auto;
     margin-top: 40px;
     text-align: center;
-
+    margin-bottom: 20px;
     box-shadow: 0 10px 10px 10px rgba(0, 0, 0,0.05);
     border-collapse: collapse;
     border-radius: 1rem;
@@ -214,15 +215,16 @@ input.withicon{
 }
  
 
-#nav{
-    margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-    display: block;
+#nav {
+    margin: 0 auto; /* จัดตรงกลางตามแนวนอน */
+    padding: 1em;
+    background-color: #f7f7f7;
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+    cursor: default;
+    text-align: center;
 }
+
 /* Nav */
 
 a{
@@ -237,8 +239,8 @@ a{
     transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
     background-color: #ffffff;
     color: #CF7157;
-    flex: 1; /* เพิ่ม flex: 1; เพื่อให้ความกว้างเท่ากับ #main */
-    max-width: 100%;
+    width: 64em;
+    max-width: calc(100% - 4em);
     padding: 1em;
     background-color: #DABC73;
     border-top-left-radius: 10px;

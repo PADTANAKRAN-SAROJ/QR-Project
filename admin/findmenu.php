@@ -60,7 +60,6 @@ include "./checkRole.php";
 		<h1>ADMIN</h1>
 	</header>
 
-    <div id="wrapper">
         <nav id="nav">
             <ul>
                 <li><a href="admin.php">รายการอาหารทั้งหมด</a></li>
@@ -86,7 +85,6 @@ include "./checkRole.php";
         </div>
 
         <div id="result"></div>
-    </div>    
 
     <div id="popup" class="overlay">
         <div class="popup center">
