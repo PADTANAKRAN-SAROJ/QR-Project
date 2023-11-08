@@ -6,6 +6,30 @@
     <title>EDIT</title>
 
     <link rel="stylesheet" href="addmenu.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const nameInput = document.querySelector('input[name="menu_name"]');
+        const priceInput = document.querySelector('input[name="price"]');
+        const namePattern = /^[\u0E01-\u0E5B\s]+$/; // Regular expression ชื่อเมนูภาษาไทย
+        const pricePattern = /^\d+(\.\d+)?$/; // Regular expression เป็นตัวเลข & ทศนิยม
+
+        nameInput.addEventListener('blur', function() {
+            if (!namePattern.test(nameInput.value)) {
+                alert("โปรดกรอกชื่อเมนูเป็นภาษาไทย (ก-ฮ และสระ) เท่านั้น");
+                nameInput.value = ''; // ล้างข้อมูลที่กรอก
+            }
+        });
+
+        priceInput.addEventListener('blur', function() {
+            if (!pricePattern.test(priceInput.value)) {
+                alert("โปรดกรอกราคาเป็นตัวเลขเท่านั้น");
+                priceInput.value = ''; // ล้างข้อมูลที่กรอก
+            }
+        });
+    });
+
+    </script>
 </head>
 <body>
     <?php
@@ -37,11 +61,13 @@
             <p>
                 ชื่ออาหาร :
                 <input type="text" name="menu_name" value="<?=$row["menu_name"]?>">
+                <span>* โปรดกรอกชื่อเมนูเป็น ภาษาไทย เท่านั้น *</span>
             </p>
             
             <p>
                 ราคา :
                 <input type="text" name="price" value="<?=$row["price"]?>">
+                <span>* โปรดกรอกชื่อเมนูเป็น ตัวเลข เท่านั้น *</span>
             </p>
 
             <p>

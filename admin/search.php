@@ -64,7 +64,7 @@
                 </td>
                 <td>
                     <a href='edit.php?menu_id=<?php echo $row["menu_id"] ?>'><button class='editButton'>แก้ไข</button></a>
-                    <a href='delete.php?menu_name=<?php echo $row["menu_name"] ?>' onclick="return confirmDelete('<?php echo $row['menu_name'] ?>')"><button class='deleteButton'>ลบ</button></a></td>
+                    <a href='delete.php?menu_id=<?php echo $row["menu_id"] ?>' onclick="return confirmDelete('<?php echo $row['menu_name'] ?>')"><button class='deleteButton'>ลบ</button></a></td>
                 </td>
             </tr>
         <?php endforeach; ?>

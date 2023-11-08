@@ -73,6 +73,10 @@ h2{
     color: #4D9589;
 }
 
+img{
+    border-radius: 10px;
+}
+
 .icon{
     display: flex;
     height: 100%;
@@ -90,4 +94,9 @@ h2{
 
 .icon a:hover {
     background-color: #DD9E68; 
+}
+
+span{
+    font-size: 15px;
+    color: #8f8e8e;
 }
