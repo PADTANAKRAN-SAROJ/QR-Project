@@ -1,3 +1,10 @@
+.noOrder{
+    margin: auto;
+    text-align: center;
+}
+.noOrder h2{
+    margin: auto;
+}
 /* สไตล์ตาราง */
 .orders {
     width: 100%;
