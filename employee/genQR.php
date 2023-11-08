@@ -23,9 +23,9 @@ if (isset($_GET['number_table'])) {
             $entryTime = $row['entry_timestamp'];
 
             // สร้าง URL ด้วยเลขโต๊ะและเวลาเข้าร้าน
-            $url = "https://scansavor.000webhostapp.com/menu/createTable.php?cus_id=" . $cusId . "&table_number=" . $tableNumber . "&entry_time=" . $entryTime;
+            //$url = "https://scansavor.000webhostapp.com/menu/createTable.php?cus_id=" . $cusId . "&table_number=" . $tableNumber . "&entry_time=" . $entryTime;
 
-
+            $url = "../menu/createTable.php?cus_id=" . $cusId . "&table_number=" . $tableNumber . "&entry_time=" . $entryTime;
             $entryDate = date('d/m/Y', strtotime($entryTime));
             $entryTimeFormatted = date('H:i', strtotime($entryTime));
 
