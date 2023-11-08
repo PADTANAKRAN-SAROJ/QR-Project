@@ -2,11 +2,32 @@ body{
     margin: 0;
 }
 .topbar {
-    background-color: #4D9589; 
-    color: #fff; 
+    background-color: #4D9589;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin: auto;
-    padding: 1%;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    position: absolute;
+    left: 1.5rem;
+}
+
+a img {
+    width: 30px;
+    background-color: #fff;
+    padding: 0.1rem;
+    border-radius: 50%;
+}
+
+.center-title {
+    margin: 0;
+    font-size: 1.5rem;
 }
 
 .back-link {
@@ -31,17 +52,6 @@ body{
     align-items: center;
     gap: 10%;
     margin-left: 20px;
-}
-
-.icon a {
-    background-color: white;
-    padding: 5px 7px;
-    border-radius: 50%; /* ให้เป็นวงกลม */
-    transition: background-color 0.2s;
-}
-
-.icon a:hover {
-    background-color: #DD9E68; 
 }
 
 @media (max-width: 768px) {

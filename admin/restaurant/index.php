@@ -44,12 +44,15 @@
 </script>
 
 <?php
+include "../checkRole.php";
 include "../../connect.php";
+
 $sql = "SELECT * FROM restaurant WHERE id = 1";
 $result = $pdo->query($sql);
 ?>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/topbar.css">
+    <link rel="stylesheet" type="text/css" href="../css/res.css">
 </head>
 <body>
     <?php
@@ -59,14 +62,27 @@ $result = $pdo->query($sql);
         if ($restaurant) {
     ?> 
         <div class="topbar">
-            <a href="../index.php" class="back-link">ย้อนกลับ</a>
-            <h1 class="center-title">ข้อมูลร้าน</h1>
+            <a href="../index.php"><img src="../../menu/icon/back.png" width="30rem"></a>
+            <h1 class="center-title">สรุปข้อมูล</h1>
         </div>
-        <div class="restaurant">
-            <h1><?= $restaurant['restaurant_name_eng'] ?> <button onclick="editNameEng()">แก้ไข</button></h1>
-            <h2>( <?= $restaurant['restaurant_name_thai'] ?> ) <button onclick="editNameThai()">แก้ไข</button></h2>
-            <h3>จำนวนโต๊ะ: <?= $restaurant['number_of_tables'] ?> <button onclick="editTableNumber()">แก้ไข</button></h3>
-        </div>
+        <table class="restaurant">
+            <tr>
+                <th>ชื่อร้าน (ภาษาอังกฤษ)</th>
+                <td><?= $restaurant['restaurant_name_eng'] ?></td>
+                <td><button onclick="editNameEng()">แก้ไข</button></td>
+            </tr>
+            <tr>
+                <th>ชื่อร้าน (ภาษาไทย)</th>
+                <td><?= $restaurant['restaurant_name_thai'] ?></td>
+                <td><button onclick="editNameThai()">แก้ไข</button></td>
+            </tr>
+            <tr>
+                <th>จำนวนโต๊ะ</th>
+                <td><?= $restaurant['number_of_tables'] ?></td>
+                <td><button onclick="editTableNumber()">แก้ไข</button></td>
+            </tr>
+        </table>
+
 
     <?php
         } else {

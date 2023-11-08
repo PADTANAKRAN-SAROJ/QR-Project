@@ -1,6 +1,6 @@
 <?php
 include "../../connect.php";
-
+include "../checkRole.php";
 // ตรวจสอบว่ามีการส่ง ID และ restaurant_name_eng มาจาก URL
 if (isset($_GET['id']) && isset($_GET['restaurant_name_eng'])) {
     // รับค่า ID และ restaurant_name_eng จาก URL

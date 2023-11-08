@@ -1,3 +1,6 @@
+<?php 
+include "../checkRole.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,64 +13,63 @@
 </head>
 <body>
     <div class="topbar">
-                <div class="icon">
-                    <a href="../index.php"><img src="../../menu/icon/back.png" width="30rem"></a>
-                </div>
-                <h1 class="center-title">สรุปข้อมูล</h1>
+        <a href="../index.php"><img src="../../menu/icon/back.png" width="30rem"></a>
+        <h1 class="center-title">สรุปข้อมูล</h1>
     </div>
 
-    <form id="summaryForm">
-        <!-- ... ส่วนอื่น ๆ ... -->
-        <input type="hidden" name="summary_option" id="selected_summary_option" value="">
-        <input type="hidden" name="food_category" id="selected_food_category" value="">
-        <input type="hidden" name="revenue_option" id="selected_revenue_option" value="">
-        <input type="hidden" name="selected_date" id="selected_date_value" value="">
-        <input type="hidden" name="selected_month" id="selected_month_value" value="">
-        <input type="hidden" name="selected_year" id="selected_year_value" value="">
+    <div class="page">
+        <form id="summaryForm">
+            <!-- ... ส่วนอื่น ๆ ... -->
+            <input type="hidden" name="summary_option" id="selected_summary_option" value="">
+            <input type="hidden" name="food_category" id="selected_food_category" value="">
+            <input type="hidden" name="revenue_option" id="selected_revenue_option" value="">
+            <input type="hidden" name="selected_date" id="selected_date_value" value="">
+            <input type="hidden" name="selected_month" id="selected_month_value" value="">
+            <input type="hidden" name="selected_year" id="selected_year_value" value="">
 
 
-        <label for="summary_option">เลือกประเภทการดูสรุป:</label>
-        <select name="summary_option" id="summary_option">
-            <option value="menu_summary">1. สรุปเมนูอาหาร</option>
-            <option value="revenue_summary">2. สรุปรายได้</option>
-        </select>
-
-        <div id="foodCategorySelect">
-            <label for="food_category">เลือกประเภทของอาหาร:</label>
-            <select name="food_category" id="food_category">
-                <option value="all">ทุกประเภท</option>
-                <option value="main_dish">จานเดียว</option>
-                <option value="rice">ข้าว</option>
-                <option value="snack">ของกินเล่น</option>
-                <option value="soup_noodle">ต้ม</option>
-                <option value="dessert">ของหวาน</option>
-                <option value="beverage">เครื่องดื่ม</option>
-                <option value="others">อื่น ๆ</option>
-            </select>
-        </div>
-
-        <div id="revenueOptions">
-            <label for="revenue_option">เลือกประเภทรายได้:</label>
-            <select name="revenue_option" id="revenue_option">
-                <option value="daily">รายวัน</option>
-                <option value="monthly">รายเดือน</option>
-                <option value="yearly">รายปี</option>
+            <label for="summary_option">เลือกประเภทการดูสรุป:</label>
+            <select name="summary_option" id="summary_option">
+                <option value="menu_summary">1. สรุปเมนูอาหาร</option>
+                <option value="revenue_summary">2. สรุปรายได้</option>
             </select>
 
-            <!-- เลือกวัน เดือน ปี หากเลือกรายได้รายวันหรือรายเดือน -->
-            <div id="dateSelection">
-                <label for="selected_date">เลือกวันที่:</label>
-                <input type="date" name="selected_date" id="selected_date">
-                <input type="month" name="selected_month" id="selected_month" style="display: none;">
-                <input type="number" name="selected_year" id="selected_year" placeholder="ปี" min="2000" max="2099" step="1" value="2023" style="display: none;">
+            <div id="foodCategorySelect">
+                <label for="food_category">เลือกประเภทของอาหาร:</label>
+                <select name="food_category" id="food_category">
+                    <option value="all">ทุกประเภท</option>
+                    <option value="main_dish">จานเดียว</option>
+                    <option value="rice">ข้าว</option>
+                    <option value="snack">ของกินเล่น</option>
+                    <option value="soup_noodle">ต้ม</option>
+                    <option value="dessert">ของหวาน</option>
+                    <option value="beverage">เครื่องดื่ม</option>
+                    <option value="others">อื่น ๆ</option>
+                </select>
             </div>
+
+            <div id="revenueOptions">
+                <label for="revenue_option">เลือกประเภทรายได้:</label>
+                <select name="revenue_option" id="revenue_option">
+                    <option value="daily">รายวัน</option>
+                    <option value="monthly">รายเดือน</option>
+                    <option value="yearly">รายปี</option>
+                </select>
+
+                <!-- เลือกวัน เดือน ปี หากเลือกรายได้รายวันหรือรายเดือน -->
+                <div id="dateSelection">
+                    <label for="selected_date">เลือกวันที่:</label>
+                    <input type="date" name="selected_date" id="selected_date">
+                    <input type="month" name="selected_month" id="selected_month" style="display: none;">
+                    <input type="number" name="selected_year" id="selected_year" placeholder="ปี" min="2000" max="2099" step="1" value="2023" style="display: none;">
+                </div>
+            </div>
+
+            <input type="submit"></input>
+        </form>
+
+        <div id="summaryResult">
         </div>
-
-        <input type="submit"></input>
-    </form>
-
-    <div id="summaryResult">
-        
     </div>
 
     <script>

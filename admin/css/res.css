@@ -1,0 +1,39 @@
+body {
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+
+.restaurant {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin: 1rem auto; 
+    max-width: 800px; 
+    width: 100%;
+}
+
+th, td {
+    padding: 0.5rem;
+}
+
+th {
+    background-color: #f2f2f2; /* สีพื้นหลังของหัวตาราง */
+}
+
+button {
+    background-color: #4D9589;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #2C424F;
+}

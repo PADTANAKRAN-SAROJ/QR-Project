@@ -70,13 +70,16 @@ include "./checkRole.php" ;
 <body>
     <div class="employeePage">
             <div class="topBar">
+                <?php if($_SESSION['role'] == 'admin'){ 
+                    echo '<a class="l" href="../admin/index.php"><img src="../menu/icon/back.png" width="30rem"></a>'; 
+                    }
+                ?>                
                 <button class="menuButton" disabled>Order</button>
                 <button class="menuButton" onclick="showQRCode()">QR Code</button>
+                <a class="r" href="../logout.php"><img src="../logout.png"  width="50rem"></a>
             </div>
-        
         <!-- แสดง หน้า Order แบบ เรียลไทม์-->
         <div id="orderPage"></div>
-        <a href="../logout.php"><img src="../logout.png" width="50rem"></a>
 
     </div>
 </body>

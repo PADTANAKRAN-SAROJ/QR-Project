@@ -68,7 +68,8 @@ include "./checkRole.php" ;
         <div class="topBar">
             <!-- ไปหน้า order -->
             <button class="menuButton" onclick="showOrder()">Order</button>
-            <button class="menuButton" disabled>QR Code</button> 
+            <button class="menuButton" disabled>QR Code</button>
+            <a href="../logout.php"><img src="../logout.png"  width="50rem"></a>
         </div>
         <!-- หน้า QR Code -->
         <div id="qrCodePage">

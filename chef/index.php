@@ -11,7 +11,6 @@
 
                 <style>
                 body {
-                    font-family: Arial, sans-serif;
                     background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-delicious-food-advertising-background-backgroundfoodhot-pot-ingredientsdatablue-image_54050.jpg);
                     background-repeat: no-repeat;
                     background-position: center top;
@@ -24,14 +23,31 @@
                     font-size: 1rem; /* เปลี่ยนขนาดตัวอักษรเป็น rem */
                 }
 
-
-                h1 {
+                header {
+                    display: flex;
                     text-align: center;
+                    align-items: center;
+                    justify-content: center;
                     background-color: rgba(248, 248, 255, 0.8);
-                    color: black; /* เปลี่ยนสีข้อความใน h1 เป็นขาว */
-                    padding: 20px;
+                    padding: 0.1rem;
                     margin: 0;
-                    font-size: 2rem; /* ปรับขนาดตัวอักษรตามที่คุณต้องการ */
+                }
+
+                header h1 {
+                    margin-left: auto;
+                    color: black;
+                    font-size: 2rem;
+                }
+
+                h2{
+                    text-align: center;
+                    padding: 0;
+                    margin: 0.4rem;
+                }
+
+                header a {
+                    margin-left: auto;
+                    margin-right: 20px;
                 }
 
 
@@ -40,7 +56,6 @@
                     flex-wrap: wrap;
                     justify-content: center;
                 }
-
 
                 .category-container {
                     overflow: auto;
@@ -164,7 +179,7 @@
 
                             var categoryContainer = document.getElementById("category_" + category);
                         categoryContainer.innerHTML = ""; // Clear previous content
-                        var categoryList = ['จานเดียว','กับข้าว','ของกินเล่น','ต้ม','เส้น','ของหวาน','เครื่องดื่ม','ต้ม']
+                        var categoryList = ['จานเดียว','กับข้าว','ของกินเล่น','ต้ม','เส้น','ของหวาน','เครื่องดื่ม','อื่นๆ']
                         
                                 var h2 = document.createElement('h2');
                         h2.innerHTML = categoryList[category-1];
@@ -295,7 +310,12 @@
                 </head>
 
                 <body>
-                <h1>รายการอาหารที่สั่ง</h1>
+                    <header>
+                        <h1>รายการอาหารที่สั่ง</h1>
+                        <a href="../logout.php"><img src="../logout.png"  width="35rem"></a>
+                    </header>
+                
+                
                 <div class= 'chef'>
                     <div class="category-container" id="category_1"></div>
                     <div class="category-container" id="category_2"></div>

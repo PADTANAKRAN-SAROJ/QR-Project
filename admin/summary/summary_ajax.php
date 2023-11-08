@@ -1,4 +1,5 @@
 <?php
+include "../checkRole.php";
 // ตรวจสอบว่ามีการส่งข้อมูลเข้ามาและเป็น POST request
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // รับข้อมูลจากแบบฟอร์ม
@@ -70,12 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
                         echo '</table> <br>';
     
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date: $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในวันที่ $selected_date: $total_daily_revenue</h1>";
                     } else {
                         echo "ไม่พบข้อมูลสำหรับรายการ $food_category ในวันที่ $day เดือน $month ปี พ.ศ $year";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
 
             }else if($revenue_option == 'monthly'){
@@ -130,12 +131,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
                         echo '</table> <br>';
     
-                        echo "รายได้รวมทั้งหมดในเดือนที่$month ปี พ.ศ $year เป็นเงิน $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่$month ปี พ.ศ $year เป็นเงิน $total_daily_revenue</h1>";
                     } else {
                         echo "ไม่พบข้อมูลสำหรับรายการ $food_category ในเดือนที่ $month ปี พ.ศ $year";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -189,12 +190,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year เป็นเงิน $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year เป็นเงิน $total_yearly_revenue</h1>";
                     } else {
                         echo "ไม่พบข้อมูลสำหรับรายการ $food_category ในปี พ.ศ. $year";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -253,12 +254,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
                         echo '</table> <br>';
         
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year</h1>";
                     }
                 } else {
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'monthly'){
                 if($selected_month!=''){
@@ -314,12 +315,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -372,12 +373,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                         echo '</table> <br>';
                 
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -436,12 +437,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
                         echo '</table> <br>';
         
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue";
+                        echo "<h1><h1>รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue</h1></h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year</h1>";
                     }
                 } else {
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'monthly'){
                 if($selected_month!=''){
@@ -497,12 +498,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -555,12 +556,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                         echo '</table> <br>';
                 
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -619,12 +620,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
                         echo '</table> <br>';
         
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year</h1>";
                     }
                 } else {
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'monthly'){
                 if($selected_month!=''){
@@ -680,12 +681,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -738,12 +739,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                         echo '</table> <br>';
                 
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -802,12 +803,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
                         echo '</table> <br>';
         
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year</h1>";
                     }
                 } else {
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'monthly'){
                 if($selected_month!=''){
@@ -863,12 +864,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -921,12 +922,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                         echo '</table> <br>';
                 
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -985,12 +986,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
                         echo '</table> <br>';
         
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year</h1>";
                     }
                 } else {
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'monthly'){
                 if($selected_month!=''){
@@ -1046,12 +1047,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -1104,12 +1105,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                         echo '</table> <br>';
                 
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -1169,12 +1170,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
                         echo '</table> <br>';
         
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year</h1>";
                     }
                 } else {
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'monthly'){
                 if($selected_month!=''){
@@ -1230,12 +1231,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -1288,12 +1289,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                         echo '</table> <br>';
                 
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -1353,12 +1354,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
                         echo '</table> <br>';
         
-                        echo "รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในวันที่ $selected_date สำหรับประเภท $food_category_thai : $total_daily_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในวันที่ $day เดือน $month ปี พ.ศ $year</h1>";
                     }
                 } else {
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'monthly'){
                 if($selected_month!=''){
@@ -1414,12 +1415,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
                         echo '</table> <br>';
             
-                        echo "รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในเดือนที่ $month ปี พ.ศ $year สำหรับประเภท $food_category_thai : $total_monthly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในเดือนที่ $month ปี พ.ศ $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }else if($revenue_option == 'yearly'){
                 if($selected_year!=''){
@@ -1472,12 +1473,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                         echo '</table> <br>';
                 
-                        echo "รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue";
+                        echo "<h1>รายได้รวมทั้งหมดในปี พ.ศ. $year สำหรับประเภท $food_category_thai: $total_yearly_revenue</h1>";
                     } else {
-                        echo "ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year";
+                        echo "<h1>ไม่พบข้อมูลสำหรับประเภท $food_category_thai ในปี พ.ศ. $year</h1>";
                     }
                 }else{
-                    echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                    echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
                 }
             }
 
@@ -1577,7 +1578,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </script>
                 ";
             } else {
-                echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
             }
         }else if ($revenue_option == 'monthly') {
             if ($selected_month != '') {
@@ -1606,7 +1607,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
         
                     echo '</table> <br>';
-                    echo "รายได้รวมในเดือน $selected_month: $total_monthly_revenue";
+                    echo "<h3>รายได้รวมในเดือน $selected_month: $total_monthly_revenue </h3>";
         
                     // ส่งข้อมูลรายได้ไปยัง JavaScript ในรูปแบบ JSON เพื่อใช้ในการสร้างกราฟ
                     echo '<script>';
@@ -1670,10 +1671,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </script>
                     ";
                 } else {
-                    echo "ไม่พบข้อมูลสำหรับรายการในเดือน $selected_month";
+                    echo "<h1>ไม่พบข้อมูลสำหรับรายการในเดือน $selected_month</h1>";
                 }
             } else {
-                echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
             }    
         }else if ($revenue_option == 'yearly') {
             if ($selected_year != '') {
@@ -1702,7 +1703,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
         
                     echo '</table> <br>';
-                    echo "รายได้รวมทั้งหมดในปี $selected_year: $total_yearly_revenue";
+                    echo "<h3>รายได้รวมทั้งหมดในปี $selected_year: $total_yearly_revenue</h3>";
         
                     // ส่งข้อมูลรายได้ไปยัง JavaScript ในรูปแบบ JSON เพื่อใช้ในการสร้างกราฟ
                     echo '<script>';
@@ -1789,10 +1790,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </script>
                     ";
                 } else {
-                    echo "ไม่พบข้อมูลสำหรับรายการในปี $selected_year";
+                    echo "<h1>ไม่พบข้อมูลสำหรับรายการในปี $selected_year</h1>";
                 }
             } else {
-                echo "กรุณากรอกข้อมูลให้ครบถ้วน";
+                echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
             }
         }
     }else {

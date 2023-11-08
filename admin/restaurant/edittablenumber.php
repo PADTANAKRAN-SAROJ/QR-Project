@@ -1,6 +1,6 @@
 <?php
 include "../../connect.php";
-
+include "../checkRole.php";
 // ตรวจสอบว่ามีการส่ง ID และ number_of_tables มาจาก URL
 if (isset($_GET['id']) && isset($_GET['number_of_tables'])) {
     // รับค่า ID และ number_of_tables จาก URL
