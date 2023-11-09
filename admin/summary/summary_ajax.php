@@ -1796,11 +1796,135 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
             }
         }
+    }else if ($summary_option == "table_summary") {
+        if ($revenue_option == 'daily') {
+            if ($selected_date != '') {
+                $start_time = $selected_date . " 00:00:00";
+                $end_time = $selected_date . " 23:59:59";
+                
+                // Get the total number of customers
+                $sqlCount = "SELECT COUNT(cus_id) AS total_customers
+                            FROM customer c 
+                            WHERE c.entry_timestamp >= :start_time
+                            AND c.entry_timestamp <= :end_time
+                            AND c.state = 'Done'";
+        
+                $stmtCount = $pdo->prepare($sqlCount);
+                $stmtCount->bindParam(":start_time", $start_time);
+                $stmtCount->bindParam(":end_time", $end_time);
+                $stmtCount->execute();
+                $totalCount = $stmtCount->fetch(PDO::FETCH_ASSOC)['total_customers'];
+        
+                // Get customer details
+                $sqlDetails = "SELECT * FROM customer c 
+                               WHERE c.entry_timestamp >= :start_time
+                               AND c.entry_timestamp <= :end_time
+                               AND c.state = 'Done'";
+        
+                $stmtDetails = $pdo->prepare($sqlDetails);
+                $stmtDetails->bindParam(":start_time", $start_time);
+                $stmtDetails->bindParam(":end_time", $end_time);
+                $stmtDetails->execute();
+                $result = $stmtDetails->fetchAll(PDO::FETCH_ASSOC);
+        
+                if (!empty($result)) {
+                    echo "<h2>Total Number of Customers: $totalCount</h2>";
+                    echo "<table border='1'>";
+                    echo "<tr><th>Cus ID</th><th>Table Number</th><th>Entry Timestamp</th></tr>";
+                    foreach ($result as $row) {
+                        echo "<tr>";
+                        echo "<td>{$row['cus_id']}</td>";
+                        echo "<td>{$row['table_number']}</td>";
+                        echo "<td>{$row['entry_timestamp']}</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "<h2>Total Number of Customers: 0</h2>";
+                    echo "<h1>ไม่มีรายการ</h1>";
+                }
+
+            } else {
+                echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
+            }
+        }else if ($revenue_option == 'monthly') {
+            if ($selected_month != '') {
+                $selected_month = date('Y-m', strtotime($selected_month));
+                $start_time = $selected_month . "-01 00:00:00";
+                $end_time = date('Y-m-t', strtotime($selected_month)) . " 23:59:59";
+        
+                $sql = "SELECT DATE(c.entry_timestamp) AS entry_date, COUNT(c.table_number) AS num_tables
+                        FROM customer c
+                        WHERE c.entry_timestamp >= :start_time
+                        AND c.entry_timestamp <= :end_time
+                        AND c.state = 'Done'
+                        GROUP BY entry_date";
+        
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(":start_time", $start_time);
+                $stmt->bindParam(":end_time", $end_time);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+                if (!empty($result)) {
+                    echo "<h2>Number of Tables for Each Day in $selected_month</h2>";
+                    echo "<table border='1'>";
+                    echo "<tr><th>Entry Date</th><th>Number of Tables</th></tr>";
+                    foreach ($result as $row) {
+                        echo "<tr>";
+                        echo "<td>{$row['entry_date']}</td>";
+                        echo "<td>{$row['num_tables']}</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "<h2>ไม่มีรายการ</h2>";
+                }
+            } else {
+                echo "<h1>ไม่พบข้อมูลสำหรับรายการในเดือน $selected_month</h1>";
+            }
+        }else if ($revenue_option == 'yearly') {
+            if ($selected_year != '') {
+                $start_time = $selected_year . "-01-01 00:00:00";
+                $end_time = $selected_year . "-12-31 23:59:59";
+        
+                $sql = "SELECT DATE_FORMAT(c.entry_timestamp, '%Y-%m') AS entry_month, COUNT(c.table_number) AS num_tables
+                        FROM customer c
+                        WHERE c.entry_timestamp >= :start_time
+                        AND c.entry_timestamp <= :end_time
+                        AND c.state = 'Done'
+                        GROUP BY entry_month";
+        
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(":start_time", $start_time);
+                $stmt->bindParam(":end_time", $end_time);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+                if (!empty($result)) {
+                    echo "<h2>Number of Tables for Each Month in $selected_year</h2>";
+                    echo "<table border='1'>";
+                    echo "<tr><th>Entry Month</th><th>Number of Tables</th></tr>";
+                    foreach ($result as $row) {
+                        echo "<tr>";
+                        echo "<td>{$row['entry_month']}</td>";
+                        echo "<td>{$row['num_tables']}</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "<h2>No data found for the selected year</h2>";
+                }
+            } else {
+                echo "<h1>กรุณากรอกข้อมูลให้ครบถ้วน</h1>";
+            }
+        }
+    }
     }else {
     // หากไม่ใช่ POST request ให้ส่งข้อความแจ้งเตือน
     echo "ไม่พบข้อมูลที่ส่งเข้ามาหรือเป็นประเภทผิด";
 }
-}
+
 ?>
 <head>
     <!-- เรียกใช้ไลบรารี Chart.js -->
