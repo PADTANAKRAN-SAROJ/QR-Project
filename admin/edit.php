@@ -1,3 +1,8 @@
+<?php
+    include "./checkRole.php";
+    include "../connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,36 +12,9 @@
 
     <link rel="stylesheet" href="addmenu.css">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        const nameInput = document.querySelector('input[name="menu_name"]');
-        const priceInput = document.querySelector('input[name="price"]');
-        const namePattern = /^[\u0E01-\u0E5B\s]+$/; // Regular expression ชื่อเมนูภาษาไทย
-        const pricePattern = /^\d+(\.\d+)?$/; // Regular expression เป็นตัวเลข & ทศนิยม
-
-        nameInput.addEventListener('blur', function() {
-            if (!namePattern.test(nameInput.value)) {
-                alert("โปรดกรอกชื่อเมนูเป็นภาษาไทย (ก-ฮ และสระ) เท่านั้น");
-                nameInput.value = ''; // ล้างข้อมูลที่กรอก
-            }
-        });
-
-        priceInput.addEventListener('blur', function() {
-            if (!pricePattern.test(priceInput.value)) {
-                alert("โปรดกรอกราคาเป็นตัวเลขเท่านั้น");
-                priceInput.value = ''; // ล้างข้อมูลที่กรอก
-            }
-        });
-    });
-
-    </script>
 </head>
 <body>
     <?php
-        //ตรวจสอบสิทธิ์
-        include "./checkRole.php";
-        include "../connect.php";
-
         $stmt = $pdo->prepare("SELECT * FROM menu WHERE menu_id = ?");
         $stmt->bindParam(1, $_GET["menu_id"]); 
         $stmt->execute();  
@@ -94,3 +72,27 @@
 
 </body>
 </html>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const nameInput = document.querySelector('input[name="menu_name"]');
+        const priceInput = document.querySelector('input[name="price"]');
+        const namePattern = /^[\u0E01-\u0E5B\s]+$/; // Regular expression ชื่อเมนูภาษาไทย
+        const pricePattern = /^\d+(\.\d+)?$/; // Regular expression เป็นตัวเลข & ทศนิยม
+
+        nameInput.addEventListener('blur', function() {
+            if (!namePattern.test(nameInput.value)) {
+                alert("โปรดกรอกชื่อเมนูเป็นภาษาไทย (ก-ฮ และสระ) เท่านั้น");
+                nameInput.value = ''; // ล้างข้อมูลที่กรอก
+            }
+        });
+
+        priceInput.addEventListener('blur', function() {
+            if (!pricePattern.test(priceInput.value)) {
+                alert("โปรดกรอกราคาเป็นตัวเลขเท่านั้น");
+                priceInput.value = ''; // ล้างข้อมูลที่กรอก
+            }
+        });
+    });
+
+</script>

@@ -1,10 +1,11 @@
+<?php
+include "../connect.php";
+include "./checkSession.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <body>
     <?php
-    include "../connect.php";
-    include "./checkSession.php";
-
     // เช็คว่า session 'cart' มีค่าหรือไม่
     if (!empty($_SESSION['cart'])) {
         // ตั้งค่าโซนเวลาให้เป็น "Asia/Bangkok"

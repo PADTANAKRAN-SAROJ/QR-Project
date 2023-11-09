@@ -1,10 +1,11 @@
+<?php 
+include "./checkRole.php";
+include "../connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <body>
 <?php 
-    //ตรวจสอบสิทธิ์
-    include "./checkRole.php";
-    // รับข้อมูลจากฟอร์ม
     $name = $_POST["name"];
     $type = $_POST["type"];
     $price = $_POST["price"];
@@ -17,10 +18,7 @@
     if (!empty($Picture["name"])) {
         // ระบุโฟลเดอร์ที่คุณต้องการบันทึกไฟล์
         $uploadDirectory = "../menu/food/";
-    
-        // สร้างชื่อไฟล์ใหม่โดยใช้ menu_id แทนชื่อเมนู
-        include "../connect.php";
-    
+
         $stmt = $pdo->prepare("INSERT INTO menu (menu_name, category, price, username) VALUES (?, ?, ?, ?)");
         $stmt->bindParam(1, $name);
         $stmt->bindParam(2, $type);
@@ -38,8 +36,7 @@
         // อัพโหลดไฟล์ไปยังโฟลเดอร์
         if (move_uploaded_file($Picture["tmp_name"], $uploadDirectory . $newPictureName)) {
             // รูปภาพถูกอัพโหลดและเปลี่ยนชื่อสำเร็จ
-    
-            // ส่งผู้ใช้ไปยังหน้ารายละเอียดด้วยชื่อผู้ใช้
+ 
             header("location: admin.php");
         } else {
             echo "การอัพโหลดรูปภาพล้มเหลว";

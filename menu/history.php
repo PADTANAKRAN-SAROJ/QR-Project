@@ -1,12 +1,11 @@
+<?php
+	include "../connect.php";
+	include "./checkSession.php";
+?>
 <html>
 <head>
 	<link rel="stylesheet" href="css/order.css">
 	<link rel="stylesheet" href="css/history.css">
-
-	<?php
-	include "../connect.php";
-	include "./checkSession.php";
-	?>
 </head>
 
 <body>

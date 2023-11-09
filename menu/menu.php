@@ -1,3 +1,7 @@
+<?php
+include "./checkSession.php";
+include "../connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +10,6 @@
 </head>
 <body>
     <?php
-        include "./checkSession.php";
-        include "../connect.php";
-
         $stmt = $pdo->prepare("SELECT * FROM menu WHERE category = ?");
         $stmt->bindParam(1, $_GET["category"]); // ผูกค่าจากพารามิเตอร์ URL
         $stmt->execute(); // ดำเนินการคิวรี

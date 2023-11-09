@@ -1,3 +1,7 @@
+<?php
+    include "./checkRole.php";
+    include "../connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,38 +33,10 @@
         }
     </style>
 
-    <script>
-        function showPopup(imageUrl) {
-            // Set the image source of the popup window
-            document.getElementById("popup-image").src = imageUrl;
-
-            // Show the popup window
-            document.getElementById("popup").style.display = "block";
-        }
-
-        function hidePopup() {
-            // Hide the popup window
-            document.getElementById("popup").style.display = "none";
-        }
-
-        function confirmDelete(menu_name) {
-            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans) {
-                return true;
-            } else {
-                return false;
-            }
-        }
- 
-    </script>
 </head>
 
 <body>
     <?php
-        //ตรวจสอบสิทธิ์
-        include "./checkRole.php";
-        include "../connect.php";
-
         $stmt = $pdo->prepare("SELECT * FROM menu");
         $stmt->execute();
 
@@ -159,3 +135,28 @@
     
 </body>
 </html>
+
+<script>
+        function showPopup(imageUrl) {
+            // Set the image source of the popup window
+            document.getElementById("popup-image").src = imageUrl;
+
+            // Show the popup window
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function hidePopup() {
+            // Hide the popup window
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function confirmDelete(menu_name) {
+            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
+            if (ans) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+ 
+</script>

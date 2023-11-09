@@ -1,11 +1,10 @@
 <?php
+include "../connect.php";
 session_start(); // เริ่มเซสชัน
 
 // ลบ session เก่า (ถ้ามี)
 session_unset();
 session_destroy();
-
-include "../connect.php";
 
 //ตรวจสอบข้อมูลที่ได้มาจากลิ้ง
 if (isset($_GET['cus_id'])) {

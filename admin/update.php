@@ -1,3 +1,7 @@
+<?php
+    include "./checkRole.php";
+    include "../connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +11,6 @@
 </head>
 <body>
     <?php
-        //ตรวจสอบสิทธิ์
-        include "./checkRole.php";
-        include "../connect.php";
-        
         $menu_id = $_POST["menu_id"];
         $menu_name = $_POST["menu_name"];
         $price = $_POST["price"];

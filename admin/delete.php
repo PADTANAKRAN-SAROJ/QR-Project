@@ -1,9 +1,9 @@
 <?php
-if (isset($_GET["menu_id"])) { 
-    //ตรวจสอบสิทธิ์
     include "./checkRole.php";
     include "../connect.php";
-
+?>
+<?php
+if (isset($_GET["menu_id"])) { 
     $menu_id = $_GET["menu_id"];  
 
     // ดึง menu_id ของรายการอาหารที่จะถูกลบ

@@ -1,57 +1,16 @@
+<?php 
+include "./checkRole.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-//ตรวจสอบสิทธิ์
-include "./checkRole.php";
- ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     
     <link rel="stylesheet" href="findmenu.css">
- 
-    <script>
-        function showPopup(imageUrl) {
-            // Set the image source of the popup window
-            document.getElementById("popup-image").src = imageUrl;
-
-            // Show the popup window
-            document.getElementById("popup").style.display = "block";
-        }
-
-
-        function hidePopup() {
-            // Hide the popup window
-            document.getElementById("popup").style.display = "none";
-        }
-
-        function send() {
-            request = new XMLHttpRequest();
-            request.onreadystatechange = showResult;
-            var menu_name = document.getElementById("menu_name").value; // ใช้ตัวแปร menu_name
-            var url = "search.php?menu_name=" + menu_name; // ใช้ตัวแปร menu_name
-            request.open("GET", url, true);
-            request.send(null);
-        }
-
-        function showResult() {
-            if (request.readyState == 4) {
-            if (request.status == 200)
-                document.getElementById("result").innerHTML = request.responseText;
-            }
-        }
-
-        function confirmDelete(menu_name) {
-            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-    </script>
 
 </head>
 <body>
@@ -102,3 +61,45 @@ include "./checkRole.php";
 
 </body>
 </html>
+
+<script>
+        function showPopup(imageUrl) {
+            // Set the image source of the popup window
+            document.getElementById("popup-image").src = imageUrl;
+
+            // Show the popup window
+            document.getElementById("popup").style.display = "block";
+        }
+
+
+        function hidePopup() {
+            // Hide the popup window
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function send() {
+            request = new XMLHttpRequest();
+            request.onreadystatechange = showResult;
+            var menu_name = document.getElementById("menu_name").value; // ใช้ตัวแปร menu_name
+            var url = "search.php?menu_name=" + menu_name; // ใช้ตัวแปร menu_name
+            request.open("GET", url, true);
+            request.send(null);
+        }
+
+        function showResult() {
+            if (request.readyState == 4) {
+            if (request.status == 200)
+                document.getElementById("result").innerHTML = request.responseText;
+            }
+        }
+
+        function confirmDelete(menu_name) {
+            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
+            if (ans) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+</script>
