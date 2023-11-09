@@ -6,18 +6,26 @@ include "../../connect.php";
     $stmt->execute();
 
     $review = [];
+    $totalReviews = 0;
+    $totalRating = 0;
+
     while ($row = $stmt->fetch()) {
-        $review[] = $row;
+        if ($row['rate'] !== null) {
+            $review[] = $row;
+            $totalRating += $row['rate'];
+            $totalReviews++;
+        }
     }
 
     file_put_contents('review.json', json_encode($review));
+
+    $averageRating = ($totalReviews > 0) ? $totalRating / $totalReviews : 0;
 ?>
 
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="../css/topbar.css">
     <link rel="stylesheet" type="text/css" href="../css/review.css">
-
 </head>
 
 <body>
@@ -32,28 +40,27 @@ include "../../connect.php";
         </ul>
     </div>
 
+    <p align="center">คะแนนรีวิวเฉลี่ย: <?php echo number_format($averageRating, 2); ?>/5</p>
+
     <table class="t8">
         <thead>
             <tr>
-                <th>time</th>
-                <th>Review</th>
-                <th>Rate</th>
+                <th>DATE-TIME</th>
+                <th>REVIEW</th>
+                <th>RATE</th>
             </tr>
         </thead>
         <tbody>
             <?php
             foreach ($review as $row) {
-                if ($row['review'] !== null && $row['rate'] !== null) {
-                    echo "<tr>";
-                    echo "<td>{$row['entry_timestamp']}</td>";
-                    echo "<td class='left'>{$row['review']}</td>";
-                    echo "<td>{$row['rate']}</td>";
-                    echo "</tr>";
-                }
-            }            
+                echo "<tr>";
+                echo "<td>{$row['entry_timestamp']}</td>";
+                echo "<td class='left'>{$row['review']}</td>";
+                echo "<td>{$row['rate']}</td>";
+                echo "</tr>";
+            }
             ?>
         </tbody>
     </table>
-
 </body>
 </html>
