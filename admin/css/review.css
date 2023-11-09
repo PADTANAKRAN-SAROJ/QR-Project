@@ -1,5 +1,5 @@
 body {
-    background-color: #f2f2f2;
+    background-color: #fff;
     margin: 0;
     padding: 0;
 }
@@ -46,4 +46,60 @@ body {
 
 .navbar li a:hover {
     background-color: #30695f;
+}
+
+table.t8{
+    width: 80%;
+}
+
+table{
+    margin: auto;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0,0.05);
+    border-collapse: collapse;
+    border-radius: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+}
+
+td.fat{
+    padding: 7rem 0rem;
+    text-align: center;
+}
+
+tr, th{
+    border-bottom: 1px solid #D9D9D9; 
+}
+
+tr:last-child{
+    border: none
+}
+
+th:first-child{
+    padding: 1rem 0rem;
+}
+
+td.left {
+    text-align: left;
+    padding-left: 2rem;
+}
+td.right {
+    text-align: right;
+    padding-right: 2rem;
+}
+td.center{
+    text-align: center;
+    
+}
+
+td+td, th+th {
+    border-left: 1px solid #D9D9D9; 
+}
+
+.left{
+    text-align: left;
+    transform: translateX(10px);
 }

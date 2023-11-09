@@ -2,7 +2,7 @@
 include "../checkRole.php";
 include "../../connect.php";
 
-    $stmt = $pdo->prepare("SELECT review, rate FROM customer");
+    $stmt = $pdo->prepare("SELECT entry_timestamp, review, rate FROM customer");
     $stmt->execute();
 
     $review = [];
@@ -32,21 +32,25 @@ include "../../connect.php";
         </ul>
     </div>
 
-    <table>
+    <table class="t8">
         <thead>
             <tr>
+                <th>time</th>
                 <th>Review</th>
                 <th>Rate</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            foreach ($reviews as $review) {
-                echo "<tr>";
-                echo "<td>{$review['review']}</td>";
-                echo "<td>{$review['rate']}</td>";
-                echo "</tr>";
-            }
+            foreach ($review as $row) {
+                if ($row['review'] !== null && $row['rate'] !== null) {
+                    echo "<tr>";
+                    echo "<td>{$row['entry_timestamp']}</td>";
+                    echo "<td class='left'>{$row['review']}</td>";
+                    echo "<td>{$row['rate']}</td>";
+                    echo "</tr>";
+                }
+            }            
             ?>
         </tbody>
     </table>
