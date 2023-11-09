@@ -4,6 +4,7 @@ include "./checkRole.php";
 
 if (isset($_GET['cus_id'])) {
     $cusId = $_GET['cus_id'];
+    //$url = "https://scansavor.000webhostapp.com/review.php?cus_id=" . $cusId;
     $url = "./review.php?cus_id=" . $cusId;
 
     // ดึงข้อมูล orders ตาม cus_id

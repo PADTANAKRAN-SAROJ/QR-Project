@@ -60,15 +60,6 @@ if (isset($_GET['number_table'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR CODE</title>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <script>
-        function printContent() {
-            var contentToPrint = document.querySelector(".genQr");
-            var popupWin = window.open('', '_blank', 'width=600,height=600');
-            popupWin.document.open();
-            popupWin.document.write('<html><head><title>Print</title><link rel="stylesheet" type="text/css" href="./css/genQR.css"></head><body onload="window.print();">' + contentToPrint.innerHTML + '</body></html>');
-            popupWin.document.close();
-        }
-    </script>
     <link rel="stylesheet" href="./css/genQR.css">
 </head>
 <body>
@@ -99,3 +90,12 @@ if (isset($_GET['number_table'])) {
 </body>
 
 </html>
+<script>
+        function printContent() {
+            var contentToPrint = document.querySelector(".genQr");
+            var popupWin = window.open('', '_blank', 'width=600,height=600');
+            popupWin.document.open();
+            popupWin.document.write('<html><head><title>Print</title><link rel="stylesheet" type="text/css" href="./css/genQR.css"></head><body onload="window.print();">' + contentToPrint.innerHTML + '</body></html>');
+            popupWin.document.close();
+        }
+</script>
