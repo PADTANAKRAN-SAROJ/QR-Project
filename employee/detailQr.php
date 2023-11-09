@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/detailqr.css">
-    <title>Details</title>
-</head>
 <?php 
 include "../connect.php" ;
 include "./checkRole.php" ;
@@ -43,8 +35,21 @@ if (isset($_GET['cus_id'])) {
         // แปลงปีพ.ศ.
         $entry_timestamp = str_replace(date('Y'), date('Y') + 543, $entry_timestamp);
 ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/detailqr.css">
+    <title>Details</title>
+</head>
+
 <body>
     <div class="detail">
+        <footer>
+            <a href="./QRcode.php"> <button>ย้อนกลับ</button> </a>
+            <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank"> <button>ดู QR Code</button> </a>
+            <a href="./billPay.php?cus_id=<?php echo $cusId; ?>"> <button>เช็คบิล</button> </a>
+        </footer>
+        <br><hr><br>
         <?php 
             $query = "SELECT restaurant_name_eng,restaurant_name_thai FROM restaurant WHERE id = 1";
             $result = $pdo->query($query);
@@ -62,12 +67,6 @@ if (isset($_GET['cus_id'])) {
         <h2>หมายเลขโต๊ะ <?php echo $numberTable; ?></h2> 
         <p>วันที่: <?php echo $entry_timestamp; ?></p>
         <p>เวลา: <?php echo $entry_timestampTime; ?></p>
-        <br><hr><br>
-        <footer>
-            <a href="./QRcode.php"> <button>ย้อนกลับ</button> </a>
-            <a href="genQR.php?number_table=<?php echo $numberTable; ?>" target="_blank"> <button>ดู QR Code</button> </a>
-            <a href="./billPay.php?cus_id=<?php echo $cusId; ?>"> <button>เช็คบิล</button> </a>
-        </footer>
     </div>
 </body>
 </html>

@@ -2,10 +2,7 @@
 include "../connect.php";
 include "./checkRole.php";
 ?>
-<!DOCTYPE html>
 <html>
-<head>
-</head>
 <body>
 <div class="order">
     <?php
