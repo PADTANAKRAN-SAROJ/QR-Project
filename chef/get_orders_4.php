@@ -1,5 +1,6 @@
 <?php
 include "../connect.php";
+include './checkRole.php';
 
 $category = "ต้ม"; // ต้ม
 $sql = "SELECT orders.order_id, menu.menu_name, menu.category, orders.quantity, orders.detail, orders.order_timestamp

@@ -1,5 +1,6 @@
 <?php
 include "../connect.php";
+include './checkRole.php';
 
 $category = "เส้น"; // เส้น
 

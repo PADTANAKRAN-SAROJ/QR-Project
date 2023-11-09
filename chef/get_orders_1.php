@@ -1,5 +1,6 @@
 <?php
 include "../connect.php";
+include './checkRole.php';
 
 $category = "จานเดียว"; // เปลี่ยนเป็นประเภทอาหารที่ต้องการดึง
 $sql = "SELECT orders.order_id, menu.menu_name, menu.category, orders.quantity, orders.detail, orders.order_timestamp

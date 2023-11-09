@@ -1,5 +1,6 @@
 <?php
 include "../connect.php";
+include './checkRole.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['order_id']) && isset($_POST['action'])) {

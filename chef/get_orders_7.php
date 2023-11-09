@@ -1,5 +1,6 @@
 <?php
 include "../connect.php";
+include './checkRole.php';
 
 $category = "เครื่องดื่ม"; //เครื่องดื่ม
 

@@ -5,8 +5,8 @@ session_start();
 if (isset($_SESSION['role'])) {
     $role = $_SESSION['role'];
 
-    // ตรวจสอบว่าบทบาทไม่ใช่ "admin"
-    if ($role === "admin") {
+    // ตรวจสอบว่าบทบาทไม่ใช่ "chef"
+    if ($role === "chef") {
         // "คุณมีสิทธิ์ในการเข้าถึงข้อมูล";
     } else {
         header("Location: ../login.php");
