@@ -1,12 +1,11 @@
+<?php
+	include "../connect.php";
+	include "./checkSession.php";
+?>
 <html>
 <head>
 	<link rel="stylesheet" href="css/order.css">
 	<link rel="stylesheet" href="css/history.css">
-
-	<?php
-	include "../connect.php";
-	include "./checkSession.php";
-	?>
 </head>
 
 <body>
@@ -60,13 +59,13 @@
 							echo "<td>" . $row["quantity"] . "</td>";
 
 							if($row["process"]=="Done"){
-								echo "<td id='pro'><img src=\"icon/eat.png\" width=\"25rem\"> เสร็จสิ้น </td>";
+								echo "<td id='pro' class='done'> เสร็จสิ้น </td>";
 							}else if($row["process"]=="Cooking"){
-								echo "<td id='pro' class='cooking'><img src=\"icon/cooking.png\" width=\"25rem\">  กำลังปรุง </td>";
+								echo "<td id='pro' class='cooking'> กำลังปรุง </td>";
 							}else if($row["process"]=="Served"){
-								echo "<td id='pro' class='served'><img src=\"icon/served.png\" width=\"25rem\">  รอรับอาหาร </td>";
+								echo "<td id='pro' class='served'> รอรับอาหาร </td>";
 							}else if($row["process"]=="Cancel"){
-								echo "<td id='pro' class='cancel'><img src=\"icon/sorry.png\" width=\"25rem\">  ยกเลิก </td>";
+								echo "<td id='pro' class='cancel'> ยกเลิก </td>";
 							}
 							
 							

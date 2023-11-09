@@ -1,30 +1,34 @@
 <?php
-if (isset($_GET["menu_name"])) {
-    //ตรวจสอบสิทธิ์
     include "./checkRole.php";
     include "../connect.php";
-
-    $menu_name = $_GET["menu_name"];
+?>
+<?php
+if (isset($_GET["menu_id"])) { 
+    $menu_id = $_GET["menu_id"];  
 
     // ดึง menu_id ของรายการอาหารที่จะถูกลบ
-    $stmt = $pdo->prepare("SELECT menu_id FROM menu WHERE menu_name = ?");
-    $stmt->bindParam(1, $menu_name);
-    $stmt->execute();
-    $row = $stmt->fetch();
-    $menu_id = $row["menu_id"];
-
-    $stmt = $pdo->prepare("DELETE FROM menu WHERE menu_name = ?");
-    $stmt->bindParam(1, $menu_name);
-
+    $stmt = $pdo->prepare("SELECT menu_id FROM menu WHERE menu_id = ?");  
+    $stmt->bindParam(1, $menu_id);
+    
     if ($stmt->execute()) {
-        // ลบเสร็จแล้ว ลบรูปภาพด้วย
+        $row = $stmt->fetch();
+
+        // ลบรูปภาพของรายการอาหาร
         $imagePath = "../menu/food/" . $menu_id . ".jpg";
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }
 
-        header("Location: admin.php");
-        exit();
+        // ลบรายการอาหาร
+        $stmt = $pdo->prepare("DELETE FROM menu WHERE menu_id = ?"); 
+        $stmt->bindParam(1, $menu_id);
+
+        if ($stmt->execute()) {
+            header("Location: admin.php");
+            exit();
+        } else {
+            echo "เกิดข้อผิดพลาดในการลบ";
+        }
     } else {
         echo "เกิดข้อผิดพลาดในการลบ";
     }

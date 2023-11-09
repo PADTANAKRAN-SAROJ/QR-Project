@@ -1,3 +1,6 @@
+<?php
+    include "./checkRole.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +9,7 @@
     <title>admin page</title>
     <link rel="stylesheet" href="index.css">
 </head>
-<?php
-    //ตรวจสอบสิทธิ์
-    include "./checkRole.php";
-?>
+
 <body>
     <header>
         <h1>กรุณาเลือกหน้าเข้าใช้งาน</h1>

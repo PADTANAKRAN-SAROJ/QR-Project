@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 include "./checkSession.php";
+include "../connect.php";
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <link rel="stylesheet" href="css/category.css">
@@ -18,8 +19,6 @@ include "./checkSession.php";
     
     <div class="flex-container">
         <?php
-        include "../connect.php";
-
         $stmt = $pdo->prepare("SELECT * FROM menu GROUP BY category");
         $stmt->execute();
         while ($row = $stmt->fetch()) : ?>

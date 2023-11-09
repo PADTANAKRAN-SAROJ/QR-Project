@@ -1,3 +1,7 @@
+<?php
+    include "./checkRole.php";
+    include "../connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +11,11 @@
 
     <link rel="stylesheet" href="findmenu.css">
 
-    <script>
-        function confirmDelete(menu_name) {
-            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
 </head>
 <body>
 
     <?php
     $menu_name = $_GET["menu_name"];
-    //echo $menu_name . "<br>";
-    //ตรวจสอบสิทธิ์
-    include "./checkRole.php";
-    include "../connect.php";
 
     $sql = "SELECT * FROM menu WHERE menu_name LIKE :menu_name";
     $nameParam = '%' . $menu_name . '%';  // Add '%' to the bound parameter
@@ -64,7 +54,7 @@
                 </td>
                 <td>
                     <a href='edit.php?menu_id=<?php echo $row["menu_id"] ?>'><button class='editButton'>แก้ไข</button></a>
-                    <a href='delete.php?menu_name=<?php echo $row["menu_name"] ?>' onclick="return confirmDelete('<?php echo $row['menu_name'] ?>')"><button class='deleteButton'>ลบ</button></a></td>
+                    <a href='delete.php?menu_id=<?php echo $row["menu_id"] ?>' onclick="return confirmDelete('<?php echo $row['menu_name'] ?>')"><button class='deleteButton'>ลบ</button></a></td>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -73,3 +63,14 @@
 
 </body>
 </html>
+
+<script>
+        function confirmDelete(menu_name) {
+            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
+            if (ans) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+</script>

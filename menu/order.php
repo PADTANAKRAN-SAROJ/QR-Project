@@ -1,26 +1,10 @@
-<html>
+<?php
+	include "../connect.php";
+	include "./checkSession.php";
+?>
+	<html>
 <head>
 	<link rel="stylesheet" href="css/order.css">
-	<?php
-		include "../connect.php";
-		include "./checkSession.php";
-	?>
-
-	<script>
-		// ใช้สำหรับปรับปรุงจำนวนสินค้า
-		function update(menu_id) {
-			var qty = document.getElementById("quantity_" + menu_id).value;
-			// ส่งรหัสสินค้า และจำนวนไปปรับปรุงใน session
-			document.location = "order.php?action=update&menu_id=" + menu_id + "&qty=" + qty;
-		}
-
-		function comment(menu_id) {
-			var text = document.getElementById(menu_id).value;
-			// ส่งรหัสสินค้าและรายละเอียดไปยังหน้า "order.php" เพื่อเก็บใน session
-			document.location = "order.php?action=comment&menu_id=" + menu_id + "&text=" + text;
-		}
-
-	</script>
 
 </head>
 
@@ -160,3 +144,19 @@
 	</div>
 </body>
 </html>
+
+<script>
+		// ใช้สำหรับปรับปรุงจำนวนสินค้า
+		function update(menu_id) {
+			var qty = document.getElementById("quantity_" + menu_id).value;
+			// ส่งรหัสสินค้า และจำนวนไปปรับปรุงใน session
+			document.location = "order.php?action=update&menu_id=" + menu_id + "&qty=" + qty;
+		}
+
+		function comment(menu_id) {
+			var text = document.getElementById(menu_id).value;
+			// ส่งรหัสสินค้าและรายละเอียดไปยังหน้า "order.php" เพื่อเก็บใน session
+			document.location = "order.php?action=comment&menu_id=" + menu_id + "&text=" + text;
+		}
+
+</script>

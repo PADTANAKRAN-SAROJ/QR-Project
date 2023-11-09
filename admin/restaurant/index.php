@@ -1,3 +1,62 @@
+<?php
+include "../checkRole.php";
+include "../../connect.php";
+
+$sql = "SELECT * FROM restaurant WHERE id = 1";
+$result = $pdo->query($sql);
+?>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/topbar.css">
+    <link rel="stylesheet" type="text/css" href="../css/res.css">
+</head>
+<body>
+    <?php
+    if ($result) {
+        $restaurant = $result->fetch(PDO::FETCH_ASSOC);
+
+        if ($restaurant) {
+    ?> 
+        <div class="topbar">
+            <a href="../index.php"><img src="../../menu/icon/back.png" width="30rem"></a>
+            <h1 class="center-title">สรุปข้อมูล</h1>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li><a href="index.php" class="active">จัดการร้านอาหาร</a></li>
+                <li><a href="review.php">รีวิวลูกค้า</a></li>
+            </ul>
+        </div>
+
+        <table class="restaurant">
+            <tr>
+                <th>ชื่อร้าน (ภาษาอังกฤษ)</th>
+                <td><?= $restaurant['restaurant_name_eng'] ?></td>
+                <td><button onclick="editNameEng()">แก้ไข</button></td>
+            </tr>
+            <tr>
+                <th>ชื่อร้าน (ภาษาไทย)</th>
+                <td><?= $restaurant['restaurant_name_thai'] ?></td>
+                <td><button onclick="editNameThai()">แก้ไข</button></td>
+            </tr>
+            <tr>
+                <th>จำนวนโต๊ะ</th>
+                <td><?= $restaurant['number_of_tables'] ?></td>
+                <td><button onclick="editTableNumber()">แก้ไข</button></td>
+            </tr>
+        </table>
+
+
+    <?php
+        } else {
+            header("Location: ../index.php");
+        }
+    } else {
+        header("Location: ../index.php");
+    }
+    ?>
+</body>
+
 <script>
         function editNameEng() {
             var restaurant_name_eng = prompt("กรุณากรอกชื่อร้าน (ภาษาอังกฤษ):");
@@ -42,56 +101,3 @@
         }
 
 </script>
-
-<?php
-include "../checkRole.php";
-include "../../connect.php";
-
-$sql = "SELECT * FROM restaurant WHERE id = 1";
-$result = $pdo->query($sql);
-?>
-<head>
-    <link rel="stylesheet" type="text/css" href="../css/topbar.css">
-    <link rel="stylesheet" type="text/css" href="../css/res.css">
-</head>
-<body>
-    <?php
-    if ($result) {
-        $restaurant = $result->fetch(PDO::FETCH_ASSOC);
-
-        if ($restaurant) {
-    ?> 
-        <div class="topbar">
-            <a href="../index.php"><img src="../../menu/icon/back.png" width="30rem"></a>
-            <h1 class="center-title">สรุปข้อมูล</h1>
-        </div>
-        <table class="restaurant">
-            <tr>
-                <th>ชื่อร้าน (ภาษาอังกฤษ)</th>
-                <td><?= $restaurant['restaurant_name_eng'] ?></td>
-                <td><button onclick="editNameEng()">แก้ไข</button></td>
-            </tr>
-            <tr>
-                <th>ชื่อร้าน (ภาษาไทย)</th>
-                <td><?= $restaurant['restaurant_name_thai'] ?></td>
-                <td><button onclick="editNameThai()">แก้ไข</button></td>
-            </tr>
-            <tr>
-                <th>จำนวนโต๊ะ</th>
-                <td><?= $restaurant['number_of_tables'] ?></td>
-                <td><button onclick="editTableNumber()">แก้ไข</button></td>
-            </tr>
-        </table>
-
-
-    <?php
-        } else {
-            header("Location: ../index.php");
-        }
-    } else {
-        header("Location: ../index.php");
-    }
-    ?>
-</body>
-
-

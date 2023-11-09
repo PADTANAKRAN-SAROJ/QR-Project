@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ใบเสร็จ</title>
-    <script>
-        function printContent() {
-            var contentToPrint = document.querySelector(".bill");
-            var popupWin = window.open('', '_blank', 'width=600,height=600');
-            popupWin.document.open();
-            popupWin.document.write('<html><head><title>Print</title><link rel="stylesheet" type="text/css" href="./css/bill.css"></head><body onload="window.print();">' + contentToPrint.innerHTML + '</body></html>');
-            popupWin.document.close();
-        }
-    </script>
-    <link rel="stylesheet" href="./css/bill.css">
-</head>
-
 <?php
 include "../connect.php";
 include "./checkRole.php";
 
 if (isset($_GET['cus_id'])) {
     $cusId = $_GET['cus_id'];
+    $url = "./review.php?cus_id=" . $cusId;
 
     // ดึงข้อมูล orders ตาม cus_id
     $sql = "SELECT o.*, m.menu_name, m.price
@@ -65,7 +48,24 @@ if (isset($_GET['cus_id'])) {
 }
 ?>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ใบเสร็จ</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <link rel="stylesheet" href="./css/bill.css">
+</head>
+
 <body>
+    <div class="menu">
+        <a href="./QRcode.php"><button>Back</button></a>
+        <button onclick="printContent()">Print</button>
+        <?php
+        if ($customerInfo['state'] == 'On_table' ) {
+            echo '<a href="./bill.php?cus_id=' . $cusId . '"><button>Check Bill</button></a>';
+        }
+    ?>
+    </div>
     <div class="bill">
         <h1>ใบเสร็จ</h1>
         <p>โต๊ะ: <?php echo $customerInfo['table_number']; ?></p>
@@ -106,7 +106,6 @@ if (isset($_GET['cus_id'])) {
         <div class="summarize">
             <table>
             <?php
-
                 echo "<tr> <th> รายการอาหาร ทั้งหมด : " . $item . " รายการ </th> </tr>";
 
                 echo '<tr> <th>ราคารวม : </th> <th>฿ ' . $total . ' </th> </tr>';
@@ -120,9 +119,21 @@ if (isset($_GET['cus_id'])) {
                 echo '<tr> <th>Exclude VAT ' . $Tax_rate * 100 . "% : </th> <th>฿ " . $total_tax . '</th> </tr>';
                 $final_price = $total + $total_tax + $total_charge;
                 echo '<tr> <th> <h3> รวมทั้งสิ้น : </th> <th>฿ ' . $final_price . '</h3> </th> </tr>';
-            
+                
             ?>
             </table>
+            
+            <p class="text-c">ขอบพระคุณที่อุดหนุน</p>
+            <hr><br>
+            <div class="qr_reviwe">
+                <br>
+                <a href="<?php echo $url; ?>">
+                        <div id="qrcode" class="centered-qrcode"></div>
+                </a><br>  
+            </div>
+            <br>
+            <p class="text-c">(แสกนเพื่อให้คะแนนและติชม)</p>
+            
         </div>
 
         
@@ -132,14 +143,22 @@ if (isset($_GET['cus_id'])) {
             }
         ?>
     </div>
-    <div class="menu">
-            <a href="./QRcode.php"><button>Back</button></a>
-            <button onclick="printContent()">Print</button>
-            <?php
-            if ($customerInfo['state'] == 'On_table' ) {
-                echo '<a href="./bill.php?cus_id=' . $cusId . '"><button>Check Bill</button></a>';
-            }
-            ?>
-    </div>
 </body>
 </html>
+<script>
+        function printContent() {
+            var contentToPrint = document.querySelector(".bill");
+            var popupWin = window.open('', '_blank', 'width=600,height=600');
+            popupWin.document.open();
+            popupWin.document.write('<html><head><title>Print</title><link rel="stylesheet" type="text/css" href="./css/bill.css"></head><body onload="window.print();">' + contentToPrint.innerHTML + '</body></html>');
+            popupWin.document.close();
+        }
+</script>
+
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "<?php echo $url; ?>",
+    width: 128,
+    height: 128
+});
+</script>

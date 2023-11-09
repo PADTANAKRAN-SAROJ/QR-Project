@@ -72,7 +72,10 @@ include "../checkRole.php";
         </div>
     </div>
 
-    <script>
+</body>
+</html>
+
+<script>
     $(document).ready(function () {
         // เมื่อเลือก summary_option
         $("#summary_option").on("change", function () {
@@ -132,6 +135,4 @@ include "../checkRole.php";
             });
         });
     });
-    </script>
-</body>
-</html>
+</script>

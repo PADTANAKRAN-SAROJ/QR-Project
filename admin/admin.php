@@ -1,3 +1,7 @@
+<?php
+    include "./checkRole.php";
+    include "../connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,38 +33,10 @@
         }
     </style>
 
-    <script>
-        function showPopup(imageUrl) {
-            // Set the image source of the popup window
-            document.getElementById("popup-image").src = imageUrl;
-
-            // Show the popup window
-            document.getElementById("popup").style.display = "block";
-        }
-
-        function hidePopup() {
-            // Hide the popup window
-            document.getElementById("popup").style.display = "none";
-        }
-
-        function confirmDelete(menu_name) {
-            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
-            if (ans) {
-                return true;
-            } else {
-                return false;
-            }
-        }
- 
-    </script>
 </head>
 
 <body>
     <?php
-        //ตรวจสอบสิทธิ์
-        include "./checkRole.php";
-        include "../connect.php";
-
         $stmt = $pdo->prepare("SELECT * FROM menu");
         $stmt->execute();
 
@@ -126,7 +102,7 @@
                         echo "<td>" . $row["category"] . "</td>";
                         echo "<td>" . $row["price"] . "</td>";
                         echo "<td><a href='edit.php?menu_id=" . $row["menu_id"] . "'><button class='editButton'>แก้ไข <img src=\"icon/edit.png\" width=\"15rem\"></button></a>";
-                        echo "<a href='delete.php?menu_name=" . $row["menu_name"] . "' onclick='return confirmDelete(\"" . $row["menu_name"] . "\")'><button class='deleteButton'>ลบ <img src=\"icon/bin.png\" width=\"15rem\"></button></a></td>";
+                        echo "<a href='delete.php?menu_id=" . $row["menu_id"] . "' onclick='return confirmDelete(\"" . $row["menu_name"] . "\")'><button class='deleteButton'>ลบ <img src=\"icon/bin.png\" width=\"15rem\"></button></a></td>";
                         echo "</tr>";
                     }
                     ?>
@@ -159,3 +135,28 @@
     
 </body>
 </html>
+
+<script>
+        function showPopup(imageUrl) {
+            // Set the image source of the popup window
+            document.getElementById("popup-image").src = imageUrl;
+
+            // Show the popup window
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function hidePopup() {
+            // Hide the popup window
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function confirmDelete(menu_name) {
+            var ans = confirm("ต้องการลบรายการอาหาร " + menu_name);
+            if (ans) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+ 
+</script>

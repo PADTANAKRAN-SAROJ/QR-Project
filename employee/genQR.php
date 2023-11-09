@@ -24,8 +24,8 @@ if (isset($_GET['number_table'])) {
 
             // สร้าง URL ด้วยเลขโต๊ะและเวลาเข้าร้าน
             //$url = "https://scansavor.000webhostapp.com/menu/createTable.php?cus_id=" . $cusId . "&table_number=" . $tableNumber . "&entry_time=" . $entryTime;
-
             $url = "../menu/createTable.php?cus_id=" . $cusId . "&table_number=" . $tableNumber . "&entry_time=" . $entryTime;
+
             $entryDate = date('d/m/Y', strtotime($entryTime));
             $entryTimeFormatted = date('H:i', strtotime($entryTime));
 
@@ -72,6 +72,10 @@ if (isset($_GET['number_table'])) {
     <link rel="stylesheet" href="./css/genQR.css">
 </head>
 <body>
+    <div class="menu">
+        <a class="back-link" href="./QRcode.php"> <button>ย้อนกลับ</button> </a>
+        <button onclick="printContent()">ปริ้น QR Code</button>
+    </div>
     <div class="genQr">
         <h1><?php echo $restaurantName; ?></h1>
         <h2>หมายเลขโต๊ะ <?php echo $numberTable; ?></h2>
@@ -91,10 +95,6 @@ if (isset($_GET['number_table'])) {
         <p>( กรุณาแสกนเพื่อสั่งอาหาร )</p>
         <p>วันที่: <?php echo $entryDate; ?></p>
         <p>เวลา: <?php echo $entryTimeFormatted; ?></p>
-    </div>
-    <div class="menu">
-        <a class="back-link" href="./QRcode.php"> <button>ย้อนกลับ</button> </a>
-        <button onclick="printContent()">ปริ้น QR Code</button>
     </div>
 </body>
 
