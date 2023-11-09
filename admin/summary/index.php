@@ -32,6 +32,7 @@ include "../checkRole.php";
             <select name="summary_option" id="summary_option">
                 <option value="menu_summary">1. สรุปเมนูอาหาร</option>
                 <option value="revenue_summary">2. สรุปรายได้</option>
+                <option value="table_summary">3. สรุปจำนวนลูกค้า</option>
             </select>
 
             <div id="foodCategorySelect">
@@ -86,6 +87,9 @@ include "../checkRole.php";
                 $("#foodCategorySelect").show();
                 // $("#revenueOptions").hide(); // ซ่อน select ของ revenue_option
             } else if (selectedOption === "revenue_summary") {
+                $("#revenueOptions").show();
+                $("#foodCategorySelect").hide(); // ซ่อน select ของ food_category
+            }else if (selectedOption === "table_summary") {
                 $("#revenueOptions").show();
                 $("#foodCategorySelect").hide(); // ซ่อน select ของ food_category
             }
