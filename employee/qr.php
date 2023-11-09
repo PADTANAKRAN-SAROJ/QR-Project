@@ -26,14 +26,12 @@ if ($restaurantData) {
         $tableStatus[$table_number] = 'full';
     }
 
-    // ตอนนี้คุณมีข้อมูลร้านอาหารและสถานะโต๊ะที่อัปเดตแล้วใน $tableStatus
 } else {
     // ไม่พบร้านอาหารที่มี ID เท่ากับ 1
     echo "ไม่พบร้านอาหารที่คุณค้นหา";
 }
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
 

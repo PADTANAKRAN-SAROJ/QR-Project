@@ -3,16 +3,31 @@ include "../connect.php" ;
 include "./checkRole.php" ;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>employee</title>
     <link rel="stylesheet" type="text/css" href="./css/topbar.css">
     <link rel="stylesheet" type="text/css" href="./css/qr.css">
-    
-    <script type="text/javascript">
+</head>
+<body>
+    <div class="employeePage">
+        <div class="topBar">
+            <!-- ไปหน้า order -->
+            <button class="menuButton" onclick="showOrder()">Order</button>
+            <button class="menuButton" disabled>QR Code</button>
+            <a href="../logout.php"><img src="../logout.png"  width="50rem"></a>
+        </div>
+        <!-- หน้า QR Code -->
+        <div id="qrCodePage">
+            <div id="qrPage"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script type="text/javascript">
             function showOrder() {
                 var url = "./index.php";
                 window.location.href = url;
@@ -60,21 +75,5 @@ include "./checkRole.php" ;
             // เรียกใช้ฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จสิ้น
             window.onload = qrPage;
 
-            setInterval(qrPage, 500);
+            setInterval(qrPage, 1000);
         </script>
-</head>
-<body>
-    <div class="employeePage">
-        <div class="topBar">
-            <!-- ไปหน้า order -->
-            <button class="menuButton" onclick="showOrder()">Order</button>
-            <button class="menuButton" disabled>QR Code</button>
-            <a href="../logout.php"><img src="../logout.png"  width="50rem"></a>
-        </div>
-        <!-- หน้า QR Code -->
-        <div id="qrCodePage">
-            <div id="qrPage"></div>
-        </div>
-    </div>
-</body>
-</html>

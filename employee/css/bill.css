@@ -6,6 +6,16 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+.qr_reviwe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.text-c{
+    text-align: center;
+}
 
 h1 {
     text-align: center;
