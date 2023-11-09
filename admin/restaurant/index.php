@@ -20,6 +20,14 @@ $result = $pdo->query($sql);
             <a href="../index.php"><img src="../../menu/icon/back.png" width="30rem"></a>
             <h1 class="center-title">สรุปข้อมูล</h1>
         </div>
+
+        <div class="navbar">
+            <ul>
+                <li><a href="index.php" class="active">จัดการร้านอาหาร</a></li>
+                <li><a href="review.php">รีวิวลูกค้า</a></li>
+            </ul>
+        </div>
+
         <table class="restaurant">
             <tr>
                 <th>ชื่อร้าน (ภาษาอังกฤษ)</th>
